@@ -41,7 +41,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\GALA\bin\Debug\</OutputPath>
+    <OutputPath>..\..\bin\Debug\Mono\</OutputPath>
     <DefineConstants>DEBUG,MONO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>3</WarningLevel>
@@ -54,7 +54,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Release\Mono\</OutputPath>
+    <OutputPath>..\..\bin\Release\Mono\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>3</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -68,7 +68,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>AForge.Imaging.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Core\AForge.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -284,9 +284,6 @@
     <Compile Include="VerticalIntensityStatistics.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AForge.Imaging.snk" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -302,6 +299,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Core\AForge.snk">
+      <Link>AForge.snk</Link>
+    </None>
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
