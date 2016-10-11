@@ -41,7 +41,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\Debug\Mono\</OutputPath>
+    <OutputPath>..\..\..\bin\</OutputPath>
     <DefineConstants>DEBUG,MONO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>3</WarningLevel>
@@ -54,7 +54,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\Release\Mono\</OutputPath>
+    <OutputPath>..\..\..\bin\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>3</WarningLevel>
     <ConsolePause>false</ConsolePause>

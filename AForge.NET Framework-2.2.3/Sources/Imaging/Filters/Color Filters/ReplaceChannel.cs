@@ -162,6 +162,15 @@ namespace AForge.Imaging.Filters
         /// <summary>
         /// Initializes a new instance of the <see cref="ReplaceChannel"/> class.
         /// </summary>
+        /// <param name="channel">ARGB channel to replace.</param>
+        public ReplaceChannel(short channel) : this()
+        {
+            this.Channel = channel;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReplaceChannel"/> class.
+        /// </summary>
         /// 
         /// <param name="channel">ARGB channel to replace.</param>
         /// <param name="channelImage">Channel image to use for replacement.</param>
