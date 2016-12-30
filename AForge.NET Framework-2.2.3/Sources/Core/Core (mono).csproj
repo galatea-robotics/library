@@ -10,9 +10,9 @@
     <AssemblyName>AForge</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <RootNamespace>AForge</RootNamespace>
-    <FileUpgradeFlags>0</FileUpgradeFlags>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
     <OldToolsVersion>14.0</OldToolsVersion>
-    <UpgradeBackupLocation>C:\GALA\GALA 2016\Backup\</UpgradeBackupLocation>
+    <UpgradeBackupLocation>C:\GALA\GALA 2016\Backup1\</UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
