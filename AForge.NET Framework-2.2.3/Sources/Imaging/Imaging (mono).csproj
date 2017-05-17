@@ -57,7 +57,7 @@
     <Optimize>true</Optimize>
     <OutputPath>..\..\..\bin\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
+    <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <SignAssembly>true</SignAssembly>
     <AssemblyKeyFile>AForge.Imaging.snk</AssemblyKeyFile>
