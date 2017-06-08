@@ -42,7 +42,7 @@ namespace AForge.Imaging.Filters
         /// <summary>
         /// Initializes a new instance of the <see cref="FiltersSequence"/> class.
         /// </summary>
-        /// 
+        [System.Diagnostics.DebuggerStepThrough]
 		public FiltersSequence( ) { }
 
         /// <summary>
