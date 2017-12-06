@@ -700,7 +700,7 @@
             
             <remarks><para>The method scans each line of the blob and finds the most left and the
             most right points for it adding them to appropriate lists. The method may be very
-            useful in conjunction with different routines from <see cref="N:Accord.Math.Geometry"/>,
+            useful in conjunction with different routines from <see cref="!:Accord.Math.Geometry"/>,
             which allow finding convex hull or quadrilateral's corners.</para>
             
             <para><note>Both lists of points are sorted by Y coordinate - points with smaller Y
@@ -722,7 +722,7 @@
             
             <remarks><para>The method scans each column of the blob and finds the most top and the
             most bottom points for it adding them to appropriate lists. The method may be very
-            useful in conjunction with different routines from <see cref="N:Accord.Math.Geometry"/>,
+            useful in conjunction with different routines from <see cref="!:Accord.Math.Geometry"/>,
             which allow finding convex hull or quadrilateral's corners.</para>
             
             <para><note>Both lists of points are sorted by X coordinate - points with smaller X

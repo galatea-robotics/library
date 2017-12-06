@@ -372,39 +372,6 @@
             </summary>
             
         </member>
-        <member name="T:Accord.ConvergenceException">
-            <summary>
-              Algorithm Convergence Exception.
-            </summary>
-            
-            <remarks><para>The algorithm convergence exception is thrown in cases where a iterative
-            algorithm could not converge to a finite solution.</para>
-            </remarks>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor(System.String,System.Exception)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            <param name="innerException">The exception that is the cause of the current exception.</param>
-            
-        </member>
         <member name="T:Accord.InterlockedEx">
             <summary>
               An extension of <see cref="T:System.Threading.Interlocked"/> providing
@@ -5706,6 +5673,39 @@
               A copy of str in which the format items have been replaced by
               the string representation of the corresponding objects in args.
             </returns>
+            
+        </member>
+        <member name="T:Accord.ConvergenceException">
+            <summary>
+              Algorithm Convergence Exception.
+            </summary>
+            
+            <remarks><para>The algorithm convergence exception is thrown in cases where a iterative
+            algorithm could not converge to a finite solution.</para>
+            </remarks>
+            
+        </member>
+        <member name="M:Accord.ConvergenceException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ConvergenceException.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            
+        </member>
+        <member name="M:Accord.ConvergenceException.#ctor(System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
             
         </member>
         <member name="T:Accord.DimensionMismatchException">
