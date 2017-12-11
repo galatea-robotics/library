@@ -372,6 +372,157 @@
             </summary>
             
         </member>
+        <member name="T:Accord.ConvergenceException">
+            <summary>
+              Algorithm Convergence Exception.
+            </summary>
+            
+            <remarks><para>The algorithm convergence exception is thrown in cases where a iterative
+            algorithm could not converge to a finite solution.</para>
+            </remarks>
+            
+        </member>
+        <member name="M:Accord.ConvergenceException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ConvergenceException.#ctor(System.String)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            
+        </member>
+        <member name="M:Accord.ConvergenceException.#ctor(System.String,System.Exception)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
+            </summary>
+            
+            <param name="message">Message providing some additional information.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+            
+        </member>
+        <member name="T:Accord.ExtensionMethods">
+            <summary>
+              Static class for utility extension methods.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.DeepClone``1(``0)">
+            <summary>
+              Copies a collection by calling the ICloneable.Clone method for each element inside it.
+            </summary>
+            
+            <typeparam name="T"></typeparam>
+            <param name="list">The collection to be cloned.</param>
+            
+            <returns>A copy of the collection where each element has also been copied.</returns>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.Add(System.Data.DataColumnCollection,System.String[])">
+            <summary>
+              Creates and adds multiple <see cref="T:System.Data.DataColumn"/>
+              objects with the given names at once.
+            </summary>
+            
+            <param name="collection">The <see cref="T:System.Data.DataColumnCollection"/>
+            to add in.</param>
+            <param name="columnNames">The names of the <see cref="T:System.Data.DataColumn"/> to
+            be created and added.</param>
+            
+            <example>
+              <code>
+              DataTable table = new DataTable();
+              
+              // Add multiple columns at once:
+              table.Columns.Add("columnName1", "columnName2");
+              </code>
+            </example>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.GetDescription``1(``0)">
+            <summary>
+              Gets a the value of a <see cref="T:System.ComponentModel.DescriptionAttribute"/>
+              associated with a particular enumeration value.
+            </summary>
+            
+            <typeparam name="T">The enumeration type.</typeparam>
+            <param name="source">The enumeration value.</param>
+            
+            <returns>The string value stored in the value's description attribute.</returns>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.Read``1(System.IO.BinaryReader,``0@)">
+            <summary>
+              Reads a <c>struct</c> from a stream.
+            </summary>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.GetPosition(System.IO.StreamReader)">
+            <summary>
+              Gets the underlying buffer position for a StreamReader.
+            </summary>
+            
+            <param name="reader">A StreamReader whose position will be retrieved.</param>
+            
+            <returns>The current offset from the beginning of the 
+              file that the StreamReader is currently located into.</returns>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.DeserializeAnyVersion``1(System.Runtime.Serialization.Formatters.Binary.BinaryFormatter,System.IO.Stream)">
+            <summary>
+              Deserializes the specified stream into an object graph, but locates
+              types by searching all loaded assemblies and ignoring their versions.
+            </summary>
+            
+            <param name="formatter">The binary formatter.</param>
+            <param name="stream">The stream from which to deserialize the object graph.</param>
+            
+            <returns>The top (root) of the object graph.</returns>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.To``1(System.Object)">
+            <summary>
+              Converts an object into another type, irrespective of whether
+              the conversion can be done at compile time or not. This can be
+              used to convert generic types to numeric types during runtime.
+            </summary>
+            
+            <typeparam name="T">The destination type.</typeparam>
+            
+            <param name="value">The value to be converted.</param>
+            
+            <returns>The result of the conversion.</returns>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.HasDefaultConstructor(System.Type)">
+            <summary>
+              Determines whether the given type has a public default (parameterless) constructor.
+            </summary>
+            
+            <param name="t">The type to check.</param>
+            
+            <returns>True if the type has a public parameterless constructor; false otherwise.</returns>
+            
+        </member>
+        <member name="M:Accord.ExtensionMethods.Format(System.String,System.Object[])">
+            <summary>
+              Replaces the format item in a specified string with the string
+              representation of a corresponding object in a specified array.
+            </summary>
+            
+            <param name="str">A composite format string.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+            
+            <returns>
+              A copy of str in which the format items have been replaced by
+              the string representation of the corresponding objects in args.
+            </returns>
+            
+        </member>
         <member name="T:Accord.InterlockedEx">
             <summary>
               An extension of <see cref="T:System.Threading.Interlocked"/> providing
@@ -5555,157 +5706,6 @@
             <param name="node">The node to be re-balanced.</param>
             
             <returns>The same node, or a new one if it had to be recreated.</returns>
-            
-        </member>
-        <member name="T:Accord.ExtensionMethods">
-            <summary>
-              Static class for utility extension methods.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.DeepClone``1(``0)">
-            <summary>
-              Copies a collection by calling the ICloneable.Clone method for each element inside it.
-            </summary>
-            
-            <typeparam name="T"></typeparam>
-            <param name="list">The collection to be cloned.</param>
-            
-            <returns>A copy of the collection where each element has also been copied.</returns>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.Add(System.Data.DataColumnCollection,System.String[])">
-            <summary>
-              Creates and adds multiple <see cref="T:System.Data.DataColumn"/>
-              objects with the given names at once.
-            </summary>
-            
-            <param name="collection">The <see cref="T:System.Data.DataColumnCollection"/>
-            to add in.</param>
-            <param name="columnNames">The names of the <see cref="T:System.Data.DataColumn"/> to
-            be created and added.</param>
-            
-            <example>
-              <code>
-              DataTable table = new DataTable();
-              
-              // Add multiple columns at once:
-              table.Columns.Add("columnName1", "columnName2");
-              </code>
-            </example>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.GetDescription``1(``0)">
-            <summary>
-              Gets a the value of a <see cref="T:System.ComponentModel.DescriptionAttribute"/>
-              associated with a particular enumeration value.
-            </summary>
-            
-            <typeparam name="T">The enumeration type.</typeparam>
-            <param name="source">The enumeration value.</param>
-            
-            <returns>The string value stored in the value's description attribute.</returns>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.Read``1(System.IO.BinaryReader,``0@)">
-            <summary>
-              Reads a <c>struct</c> from a stream.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.GetPosition(System.IO.StreamReader)">
-            <summary>
-              Gets the underlying buffer position for a StreamReader.
-            </summary>
-            
-            <param name="reader">A StreamReader whose position will be retrieved.</param>
-            
-            <returns>The current offset from the beginning of the 
-              file that the StreamReader is currently located into.</returns>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.DeserializeAnyVersion``1(System.Runtime.Serialization.Formatters.Binary.BinaryFormatter,System.IO.Stream)">
-            <summary>
-              Deserializes the specified stream into an object graph, but locates
-              types by searching all loaded assemblies and ignoring their versions.
-            </summary>
-            
-            <param name="formatter">The binary formatter.</param>
-            <param name="stream">The stream from which to deserialize the object graph.</param>
-            
-            <returns>The top (root) of the object graph.</returns>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.To``1(System.Object)">
-            <summary>
-              Converts an object into another type, irrespective of whether
-              the conversion can be done at compile time or not. This can be
-              used to convert generic types to numeric types during runtime.
-            </summary>
-            
-            <typeparam name="T">The destination type.</typeparam>
-            
-            <param name="value">The value to be converted.</param>
-            
-            <returns>The result of the conversion.</returns>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.HasDefaultConstructor(System.Type)">
-            <summary>
-              Determines whether the given type has a public default (parameterless) constructor.
-            </summary>
-            
-            <param name="t">The type to check.</param>
-            
-            <returns>True if the type has a public parameterless constructor; false otherwise.</returns>
-            
-        </member>
-        <member name="M:Accord.ExtensionMethods.Format(System.String,System.Object[])">
-            <summary>
-              Replaces the format item in a specified string with the string
-              representation of a corresponding object in a specified array.
-            </summary>
-            
-            <param name="str">A composite format string.</param>
-            <param name="args">An object array that contains zero or more objects to format.</param>
-            
-            <returns>
-              A copy of str in which the format items have been replaced by
-              the string representation of the corresponding objects in args.
-            </returns>
-            
-        </member>
-        <member name="T:Accord.ConvergenceException">
-            <summary>
-              Algorithm Convergence Exception.
-            </summary>
-            
-            <remarks><para>The algorithm convergence exception is thrown in cases where a iterative
-            algorithm could not converge to a finite solution.</para>
-            </remarks>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor(System.String)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            
-        </member>
-        <member name="M:Accord.ConvergenceException.#ctor(System.String,System.Exception)">
-            <summary>
-              Initializes a new instance of the <see cref="T:Accord.ConvergenceException"/> class.
-            </summary>
-            
-            <param name="message">Message providing some additional information.</param>
-            <param name="innerException">The exception that is the cause of the current exception.</param>
             
         </member>
         <member name="T:Accord.DimensionMismatchException">
