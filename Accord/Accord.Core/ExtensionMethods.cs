@@ -59,6 +59,7 @@ namespace Accord
             return clone;
         }
 
+#if !NETFX_CORE
         /// <summary>
         ///   Creates and adds multiple <see cref="System.Data.DataColumn"/>
         ///   objects with the given names at once.
@@ -83,6 +84,7 @@ namespace Accord
             for (int i = 0; i < columnNames.Length; i++)
                 collection.Add(columnNames[i], typeof(string));
         }
+#endif
 
         /// <summary>
         ///   Gets a the value of a <see cref="DescriptionAttribute"/>
@@ -130,6 +132,7 @@ namespace Accord
             return true;
         }
 
+#if !NETFX_CORE
         /// <summary>
         ///   Gets the underlying buffer position for a StreamReader.
         /// </summary>
@@ -163,7 +166,7 @@ namespace Accord
 
             return reader.BaseStream.Position - byteLen + numReadBytes;
         }
-
+#endif
 
         /// <summary>
         ///   Deserializes the specified stream into an object graph, but locates
@@ -217,8 +220,7 @@ namespace Accord
         public static bool HasDefaultConstructor(this Type t)
         {
             return t.IsValueType() || t.GetConstructor(Type_.EmptyTypes) != null;
-        }
-        
+        }        
         
         /// <summary>
         ///   Replaces the format item in a specified string with the string
@@ -237,9 +239,5 @@ namespace Accord
         {
             return String.Format(str, args);
         }
-
-
-
-
     }
 }

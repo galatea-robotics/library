@@ -30,7 +30,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Xml\Linq\XDocumentExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Environment (Shim).cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StringExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)LICENSE">

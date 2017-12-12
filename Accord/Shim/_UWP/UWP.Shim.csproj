@@ -22,7 +22,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\bin\UWP\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,11 +31,12 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\bin\UWP\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Shim.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -46,9 +47,6 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\UWP.Shim.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\AppDomain.cs">
@@ -66,9 +64,6 @@
     <Compile Include="..\ComponentModel\CategoryAttribute.cs">
       <Link>ComponentModel\CategoryAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\ComponentModel\DataAnnotations\RangeAttribute.cs">
-      <Link>ComponentModel\DataAnnotations\RangeAttribute.cs</Link>
-    </Compile>
     <Compile Include="..\ComponentModel\DescriptionAttribute.cs">
       <Link>ComponentModel\DescriptionAttribute.cs</Link>
     </Compile>
@@ -84,39 +79,6 @@
     <Compile Include="..\Converter.cs">
       <Link>Converter.cs</Link>
     </Compile>
-    <Compile Include="..\Data\Common\SchemaTableColumn.cs">
-      <Link>Data\Common\SchemaTableColumn.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\Common\SchemaTableOptionalColumn.cs">
-      <Link>Data\Common\SchemaTableOptionalColumn.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\DataColumn.cs">
-      <Link>Data\DataColumn.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\DataColumnCollection.cs">
-      <Link>Data\DataColumnCollection.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\DataRow.cs">
-      <Link>Data\DataRow.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\DataRowCollection.cs">
-      <Link>Data\DataRowCollection.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\DataTable.cs">
-      <Link>Data\DataTable.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\DataView.cs">
-      <Link>Data\DataView.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\DbType.cs">
-      <Link>Data\DbType.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\IDataReader.cs">
-      <Link>Data\IDataReader.cs</Link>
-    </Compile>
-    <Compile Include="..\Data\IDataRecord.cs">
-      <Link>Data\IDataRecord.cs</Link>
-    </Compile>
     <Compile Include="..\Diagnostics\Process.cs">
       <Link>Diagnostics\Process.cs</Link>
     </Compile>
@@ -128,9 +90,6 @@
     </Compile>
     <Compile Include="..\ICloneable.cs">
       <Link>ICloneable.cs</Link>
-    </Compile>
-    <Compile Include="..\IConvertible.cs">
-      <Link>IConvertible.cs</Link>
     </Compile>
     <Compile Include="..\NonSerializedAttribute.cs">
       <Link>NonSerializedAttribute.cs</Link>
@@ -216,7 +175,11 @@
     <Compile Include="..\_Store\Threading\ThreadPool.Store.cs">
       <Link>Threading\ThreadPool.Store.cs</Link>
     </Compile>
+    <Compile Include="TypeExtensions.cs" />
     <Compile Include="TypeForwarding.UWP.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\UWP.Shim.rd.xml" />
   </ItemGroup>
   <Import Project="..\Shim.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
