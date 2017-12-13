@@ -30,9 +30,6 @@
 namespace System.Drawing
 {
     using System.ComponentModel;
-#if NETStandard
-    using Shim;
-#endif
 
     [Serializable]
     public struct RectangleF

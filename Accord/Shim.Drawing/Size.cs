@@ -35,9 +35,6 @@ namespace System.Drawing
 {
     using System.ComponentModel;
     using System.Runtime.InteropServices;
-#if NETStandard
-    using Shim;
-#endif
 
     [Serializable]
     [ComVisible(true)]

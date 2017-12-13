@@ -39,7 +39,7 @@ namespace Accord.Imaging.Filters
     /// 
     public class FiltersSequence : IFilter
     {
-        private readonly List<IFilter> InnerList = new List<IFilter>();
+        protected readonly List<IFilter> InnerList = new List<IFilter>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FiltersSequence"/> class.
@@ -96,7 +96,7 @@ namespace Accord.Imaging.Filters
         /// 
         /// <exception cref="ApplicationException">No filters were added into the filters' sequence.</exception>
         ///
-        public Bitmap Apply(Bitmap image)
+        public virtual Bitmap Apply(Bitmap image)
         {
             Bitmap dstImage = null;
             // lock source bitmap data

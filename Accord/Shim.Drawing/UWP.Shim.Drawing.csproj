@@ -64,6 +64,7 @@
     <Compile Include="Font.cs" />
     <Compile Include="FontStyle.cs" />
     <Compile Include="Graphics.cs" />
+    <Compile Include="GraphicsUnit.cs" />
     <Compile Include="Helpers\ColorModelHelper.cs" />
     <Compile Include="Helpers\FastRandom.cs" />
     <Compile Include="Helpers\Guard.cs" />
