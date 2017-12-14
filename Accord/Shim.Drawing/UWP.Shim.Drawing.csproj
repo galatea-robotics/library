@@ -102,12 +102,18 @@
     <Compile Include="PathProviders\IPathProvider.cs" />
     <Compile Include="PathProviders\StandardPathProvider.cs" />
     <Compile Include="Pen.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="PointF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quantizers\BaseColorCacheQuantizer.cs" />
     <Compile Include="Quantizers\BaseColorQuantizer.cs" />
     <Compile Include="Quantizers\DistinctCompetition\DistinctColorInfo.cs" />
     <Compile Include="Quantizers\DistinctCompetition\DistinctSelectionQuantizer.cs" />
     <Compile Include="Quantizers\IColorQuantizer.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="RectangleF.cs" />
+    <Compile Include="Size.cs" />
+    <Compile Include="SizeF.cs" />
     <Compile Include="SolidBrush.cs" />
     <Compile Include="SystemColors.cs" />
   </ItemGroup>
