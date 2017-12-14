@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EB9C86B2-B9B3-4706-9919-8F0584F9BD33}</ProjectGuid>
+    <ProjectGuid>{995CFA14-7F81-457D-BEB4-52FB5712A3BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System.Drawing</RootNamespace>
@@ -119,6 +119,7 @@
     <None Include="..\Shim\Shim.snk">
       <Link>Shim.snk</Link>
     </None>
+    <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shim\_Profile111\Portable111.Shim.csproj">
