@@ -162,6 +162,9 @@
     <Compile Include="..\Reflection\Binder.cs">
       <Link>Reflection\Binder.cs</Link>
     </Compile>
+    <Compile Include="..\Reflection\BindingFlags.cs">
+      <Link>Reflection\BindingFlags.cs</Link>
+    </Compile>
     <Compile Include="..\ResolveEventArgs.cs">
       <Link>ResolveEventArgs.cs</Link>
     </Compile>
@@ -238,10 +241,10 @@
     <Compile Include="Runtime\Serialization\StreamingContextStates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="project.json" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <None Include="project.json" />
   </ItemGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -249,7 +252,7 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\Shim.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <Import Project="..\Shim.Shared.projitems" Label="Shared" />
+  <Import Project="..\Standard.Shim.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
