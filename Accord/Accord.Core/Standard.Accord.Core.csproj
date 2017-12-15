@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5E441557-080B-4664-A8EB-4185DDFD668D}</ProjectGuid>
+    <ProjectGuid>{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Accord</RootNamespace>

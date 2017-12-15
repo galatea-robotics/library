@@ -216,6 +216,18 @@
     <Compile Include="..\SerializableAttribute.cs">
       <Link>SerializableAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\Threading\Tasks\Parallel.cs">
+      <Link>Threading\Tasks\Parallel.cs</Link>
+    </Compile>
+    <Compile Include="..\Threading\Tasks\ParallelLoopResult.cs">
+      <Link>Threading\Tasks\ParallelLoopResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Threading\Tasks\ParallelLoopState.cs">
+      <Link>Threading\Tasks\ParallelLoopState.cs</Link>
+    </Compile>
+    <Compile Include="..\Threading\Tasks\ParallelOptions.cs">
+      <Link>Threading\Tasks\ParallelOptions.cs</Link>
+    </Compile>
     <Compile Include="..\Threading\Thread.cs">
       <Link>Threading\Thread.cs</Link>
     </Compile>
@@ -252,7 +264,6 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\Shim.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <Import Project="..\Standard.Shim.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
