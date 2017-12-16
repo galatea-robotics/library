@@ -22,7 +22,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\UWP\</OutputPath>
+    <OutputPath>..\..\..\bin\UWP\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,66 +32,130 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\UWP\</OutputPath>
+    <OutputPath>..\..\..\bin\UWP\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Accord.snk" />
+    <None Include="..\Accord.snk">
+      <Link>Accord.snk</Link>
+    </None>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AForge.Imaging\Blob.cs" />
-    <Compile Include="AForge.Imaging\BlobCounter.cs" />
-    <Compile Include="AForge.Imaging\BlobCounterBase.cs" />
-    <Compile Include="AForge.Imaging\ColorConverter.cs" />
-    <Compile Include="AForge.Imaging\Exceptions.cs" />
-    <Compile Include="AForge.Imaging\Filters\Adaptive Binarization\OtsuThreshold.cs" />
-    <Compile Include="AForge.Imaging\Filters\Base classes\BaseFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\Base classes\BaseInPlacePartialFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\Base classes\BaseRotateFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\Base classes\BaseTransformationFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\Base classes\BaseUsingCopyPartialFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\Binarization\Threshold.cs" />
-    <Compile Include="AForge.Imaging\Filters\Color Filters\ContrastCorrection.cs" />
-    <Compile Include="AForge.Imaging\Filters\Color Filters\Grayscale.cs" />
-    <Compile Include="AForge.Imaging\Filters\Color Filters\Invert.cs" />
-    <Compile Include="AForge.Imaging\Filters\Color Filters\LevelsLinear.cs" />
-    <Compile Include="AForge.Imaging\Filters\FiltersSequence.cs" />
-    <Compile Include="AForge.Imaging\Filters\IFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\IFilterInformation.cs" />
-    <Compile Include="AForge.Imaging\Filters\IInPlaceFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\IInPlacePartialFilter.cs" />
-    <Compile Include="AForge.Imaging\Filters\Smooting\AdaptiveSmooth.cs" />
-    <Compile Include="AForge.Imaging\Filters\Transform\RotateBicubic.cs" />
-    <Compile Include="AForge.Imaging\IBlobsFilter.cs" />
-    <Compile Include="AForge.Imaging\Image.cs" />
-    <Compile Include="AForge.Imaging\Interpolation.cs" />
-    <Compile Include="AForge.Imaging\MemoryManager.cs" />
-    <Compile Include="AForge.Imaging\RecursiveBlobCounter.cs" />
-    <Compile Include="AForge.Imaging\UnmanagedImage.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\AForge.Imaging\Blob.cs">
+      <Link>AForge.Imaging\Blob.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\BlobCounter.cs">
+      <Link>AForge.Imaging\BlobCounter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\BlobCounterBase.cs">
+      <Link>AForge.Imaging\BlobCounterBase.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\ColorConverter.cs">
+      <Link>AForge.Imaging\ColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Exceptions.cs">
+      <Link>AForge.Imaging\Exceptions.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Adaptive Binarization\OtsuThreshold.cs">
+      <Link>AForge.Imaging\Filters\Adaptive Binarization\OtsuThreshold.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Base Classes\BaseFilter.cs">
+      <Link>AForge.Imaging\Filters\Base classes\BaseFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Base Classes\BaseInPlacePartialFilter.cs">
+      <Link>AForge.Imaging\Filters\Base Classes\BaseInPlacePartialFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Base Classes\BaseRotateFilter.cs">
+      <Link>AForge.Imaging\Filters\Base Classes\BaseRotateFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Base Classes\BaseTransformationFilter.cs">
+      <Link>AForge.Imaging\Filters\Base Classes\BaseTransformationFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Base Classes\BaseUsingCopyPartialFilter.cs">
+      <Link>AForge.Imaging\Filters\Base Classes\BaseUsingCopyPartialFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Binarization\Threshold.cs">
+      <Link>AForge.Imaging\Filters\Binarization\Threshold.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Color Filters\ContrastCorrection.cs">
+      <Link>AForge.Imaging\Filters\Color Filters\ContrastCorrection.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Color Filters\Grayscale.cs">
+      <Link>AForge.Imaging\Filters\Color Filters\Grayscale.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Color Filters\Invert.cs">
+      <Link>AForge.Imaging\Filters\Color Filters\Invert.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Color Filters\LevelsLinear.cs">
+      <Link>AForge.Imaging\Filters\Color Filters\LevelsLinear.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\FiltersSequence.cs">
+      <Link>AForge.Imaging\Filters\FiltersSequence.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\IFilter.cs">
+      <Link>AForge.Imaging\Filters\IFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\IFilterInformation.cs">
+      <Link>AForge.Imaging\Filters\IFilterInformation.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\IInPlaceFilter.cs">
+      <Link>AForge.Imaging\Filters\IInPlaceFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\IInPlacePartialFilter.cs">
+      <Link>AForge.Imaging\Filters\IInPlacePartialFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Smooting\AdaptiveSmooth.cs">
+      <Link>AForge.Imaging\Filters\Smoothing\AdaptiveSmooth.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Filters\Transform\RotateBicubic.cs">
+      <Link>AForge.Imaging\Filters\Transform\RotateBicubic.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\IBlobsFilter.cs">
+      <Link>AForge.Imaging\IBlobsFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Image.cs">
+      <Link>AForge.Imaging\Image.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\Interpolation.cs">
+      <Link>AForge.Imaging\Interpolation.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\MemoryManager.cs">
+      <Link>AForge.Imaging\MemoryManager.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\RecursiveBlobCounter.cs">
+      <Link>AForge.Imaging\RecursiveBlobCounter.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Imaging\UnmanagedImage.cs">
+      <Link>AForge.Imaging\UnmanagedImage.cs</Link>
+    </Compile>
+    <Compile Include="..\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <EmbeddedResource Include="Properties\UWP.Accord.Imaging.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Accord.Core\UWP.Accord.Core.csproj">
+    <ProjectReference Include="..\..\Accord.Core\_UWP\UWP.Accord.Core.csproj">
       <Project>{c952b32d-77d3-4571-b3c1-60d8bc078bd4}</Project>
       <Name>UWP.Accord.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Shim.Drawing\UWP.Shim.Drawing.csproj">
+    <ProjectReference Include="..\..\Shim.Drawing\_UWP\UWP.Shim.Drawing.csproj">
       <Project>{ee78a820-d1d8-488d-a92a-81505ed1f4f7}</Project>
       <Name>UWP.Shim.Drawing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Shim\_UWP\UWP.Shim.csproj">
+    <ProjectReference Include="..\..\Shim\_UWP\UWP.Shim.csproj">
       <Project>{7305ecb7-7102-4e92-bab5-a2760c77be76}</Project>
       <Name>UWP.Shim</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\CustomDictionary.xml" />
+    <CodeAnalysisDictionary Include="Properties\CustomDictionary.xml" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
@@ -100,7 +164,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Accord.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Accord.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

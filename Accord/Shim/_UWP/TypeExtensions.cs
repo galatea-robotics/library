@@ -108,6 +108,7 @@ namespace System
 #endif
         }
 
+        /*
         /// <include file='_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Type.GetMethod(System.String,System.Type[])"]/*' />
         /// <param name="type"><see cref="Type"/> object.</param>
         public static MethodInfo GetMethod(this Type type, string name, Type[] types)
@@ -155,6 +156,7 @@ namespace System
             throw new PlatformNotSupportedException("PCL");
 #endif
         }
+         */
 
         /// <include file='_Doc/mscorlib.xml' path='doc/members/member[@name="M:System.Type.GetFields(System.Reflection.BindingFlags)"]/*' />
         /// <param name="type"><see cref="Type"/> object.</param>

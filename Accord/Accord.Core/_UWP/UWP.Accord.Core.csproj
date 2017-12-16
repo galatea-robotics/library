@@ -11,7 +11,7 @@
     <AssemblyName>Accord</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -32,110 +32,241 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\UWP\</OutputPath>
+    <OutputPath>..\..\..\bin\UWP\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\UWP\Accord.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\bin\UWP\Accord.xml</DocumentationFile>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Accord.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Accord.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Accord.snk" />
-    <None Include="MachineLearning\Classifiers\Multiclass\Binary\Binary.cd" />
-    <None Include="MachineLearning\Classifiers\Multiclass\Multiclass.cd" />
-    <None Include="MachineLearning\Classifiers\Multilabel\Multilabel.cd" />
+    <None Include="..\Accord.snk">
+      <Link>Accord.snk</Link>
+    </None>
+    <None Include="..\MachineLearning\Classifiers\Multiclass\Binary\Binary.cd">
+      <Link>MachineLearning\Classifiers\Multiclass\Binary\Binary.cd</Link>
+    </None>
+    <None Include="..\MachineLearning\Classifiers\Multiclass\Multiclass.cd">
+      <Link>MachineLearning\Classifiers\Multiclass\Multiclass.cd</Link>
+    </None>
+    <None Include="..\MachineLearning\Classifiers\Multilabel\Multilabel.cd">
+      <Link>MachineLearning\Classifiers\Multilabel\Multilabel.cd</Link>
+    </None>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\UWP.Accord.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AForge.Core\Delegates.cs" />
-    <Compile Include="AForge.Core\DoublePoint.cs" />
-    <Compile Include="AForge.Core\EventArgs.cs" />
-    <Compile Include="AForge.Core\Exceptions.cs" />
-    <Compile Include="AForge.Core\IntPoint.cs" />
-    <Compile Include="AForge.Core\Point.cs" />
-    <Compile Include="AForge.Core\PolishExpression.cs" />
-    <Compile Include="AForge.Core\SystemTools.cs" />
-    <Compile Include="AForge.Core\ThreadSafeRandom.cs" />
-    <Compile Include="Attributes\IntegerAttribute.cs" />
-    <Compile Include="Attributes\RealAttribute.cs" />
-    <Compile Include="Attributes\SerializationBinderAttribute.cs" />
-    <Compile Include="Attributes\SourceTypeAttribute.cs" />
-    <Compile Include="Cast.cs" />
-    <Compile Include="Collections\KeyValuePairComparer`2.cs" />
-    <Compile Include="Collections\ReadOnlyDictionary.cs" />
-    <Compile Include="Collections\ReadOnlyOrderedDictionary.cs" />
-    <Compile Include="Collections\RedBlackTreeDictionary`2.cs" />
-    <Compile Include="Collections\RedBlackTreeNode.cs" />
-    <Compile Include="Collections\RedBlackTree`1.cs" />
-    <Compile Include="Collections\RedBlackTree`2.cs" />
-    <Compile Include="Collections\TwoWayDictionary.cs" />
-    <Compile Include="Compatibility\AggregateException.cs" />
-    <Compile Include="Compatibility\CancellationToken.cs" />
-    <Compile Include="Compatibility\Complex.cs" />
-    <Compile Include="Compatibility\ConcurrentBag.cs" />
-    <Compile Include="Compatibility\ConcurrentStack.cs" />
-    <Compile Include="Compatibility\IReadOnlyCollection.cs" />
-    <Compile Include="Compatibility\IReadOnlyDictionary.cs" />
-    <Compile Include="Compatibility\ISet.cs" />
-    <Compile Include="Compatibility\Lazy.cs" />
-    <Compile Include="Compatibility\Parallel.cs" />
-    <Compile Include="Compatibility\SortedSet.cs" />
-    <Compile Include="Compatibility\SpinLock.cs" />
-    <Compile Include="Compatibility\ThreadLocal.cs" />
-    <Compile Include="Compatibility\Tuple.cs" />
-    <Compile Include="Debug.cs" />
-    <Compile Include="Exceptions\ConvergenceException.cs" />
-    <Compile Include="Exceptions\DimensionMismatchException.cs" />
-    <Compile Include="Exceptions\NonPositiveDefiniteMatrixException.cs" />
-    <Compile Include="Exceptions\NonSymmetricMatrixException.cs" />
-    <Compile Include="Exceptions\SingularMatrixException.cs" />
-    <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="InterlockedEx.cs" />
-    <Compile Include="MachineLearning\Classifiers\IClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multiclass\Binary\IBinaryClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multiclass\Binary\IBinaryDistanceClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multiclass\Binary\IBinaryGenerativeClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multiclass\IMulticlassClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multiclass\IMulticlassDistanceClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multiclass\IMulticlassGenerativeClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multilabel\IMultilabelClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multilabel\IMultilabelDistanceClassifier.cs" />
-    <Compile Include="MachineLearning\Classifiers\Multilabel\IMultilabelGenerativeClassifier.cs" />
-    <Compile Include="MachineLearning\ITransform.cs" />
-    <Compile Include="MachineLearning\Regression\IMultipleRegression.cs" />
-    <Compile Include="MachineLearning\Regression\IRegression.cs" />
-    <Compile Include="MachineLearning\TransformBase.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\VersionInfo.cs" />
-    <Compile Include="Ranges\ByteRange.cs" />
-    <Compile Include="Ranges\DoubleRange.cs" />
-    <Compile Include="Ranges\IntRange.cs" />
-    <Compile Include="Ranges\IRange`1.cs" />
-    <Compile Include="Ranges\Range.cs" />
-    <Compile Include="Serializer.cs" />
-    <Compile Include="Sparse.cs" />
-    <Compile Include="Sparse`1.cs" />
+    <Compile Include="..\AForge.Core\Delegates.cs">
+      <Link>AForge.Core\Delegates.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\DoublePoint.cs">
+      <Link>AForge.Core\DoublePoint.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\EventArgs.cs">
+      <Link>AForge.Core\EventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\Exceptions.cs">
+      <Link>AForge.Core\Exceptions.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\IntPoint.cs">
+      <Link>AForge.Core\IntPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\Point.cs">
+      <Link>AForge.Core\Point.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\PolishExpression.cs">
+      <Link>AForge.Core\PolishExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\SystemTools.cs">
+      <Link>AForge.Core\SystemTools.cs</Link>
+    </Compile>
+    <Compile Include="..\AForge.Core\ThreadSafeRandom.cs">
+      <Link>AForge.Core\ThreadSafeRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\Attributes\IntegerAttribute.cs">
+      <Link>Attributes\IntegerAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Attributes\RealAttribute.cs">
+      <Link>Attributes\RealAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Attributes\SerializationBinderAttribute.cs">
+      <Link>Attributes\SerializationBinderAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Attributes\SourceTypeAttribute.cs">
+      <Link>Attributes\SourceTypeAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Cast.cs" />
+    <Compile Include="..\Collections\KeyValuePairComparer`2.cs">
+      <Link>Collections\KeyValuePairComparer`2.cs</Link>
+    </Compile>
+    <Compile Include="..\Collections\ReadOnlyDictionary.cs">
+      <Link>Collections\ReadOnlyDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Collections\ReadOnlyOrderedDictionary.cs">
+      <Link>Collections\ReadOnlyOrderedDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Collections\RedBlackTreeDictionary`2.cs">
+      <Link>Collections\RedBlackTreeDictionary`2.cs</Link>
+    </Compile>
+    <Compile Include="..\Collections\RedBlackTreeNode.cs">
+      <Link>Collections\RedBlackTreeNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Collections\RedBlackTree`1.cs">
+      <Link>Collections\RedBlackTree`1.cs</Link>
+    </Compile>
+    <Compile Include="..\Collections\RedBlackTree`2.cs">
+      <Link>Collections\RedBlackTree`2.cs</Link>
+    </Compile>
+    <Compile Include="..\Collections\TwoWayDictionary.cs">
+      <Link>Collections\TwoWayDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\AggregateException.cs">
+      <Link>Compatibility\AggregateException.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\CancellationToken.cs">
+      <Link>Compatibility\CancellationToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\Complex.cs">
+      <Link>Compatibility\Complex.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\ConcurrentBag.cs">
+      <Link>Compatibility\ConcurrentBag.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\ConcurrentStack.cs">
+      <Link>Compatibility\ConcurrentStack.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\IReadOnlyCollection.cs">
+      <Link>Compatibility\IReadOnlyCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\IReadOnlyDictionary.cs">
+      <Link>Compatibility\IReadOnlyDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\ISet.cs">
+      <Link>Compatibility\ISet.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\Lazy.cs">
+      <Link>Compatibility\Lazy.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\Parallel.cs">
+      <Link>Compatibility\Parallel.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\SortedSet.cs">
+      <Link>Compatibility\SortedSet.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\SpinLock.cs">
+      <Link>Compatibility\SpinLock.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\ThreadLocal.cs">
+      <Link>Compatibility\ThreadLocal.cs</Link>
+    </Compile>
+    <Compile Include="..\Compatibility\Tuple.cs">
+      <Link>Compatibility\Tuple.cs</Link>
+    </Compile>
+    <Compile Include="..\Debug.cs" />
+    <Compile Include="..\Exceptions\ConvergenceException.cs">
+      <Link>Exceptions\ConvergenceException.cs</Link>
+    </Compile>
+    <Compile Include="..\Exceptions\DimensionMismatchException.cs">
+      <Link>Exceptions\DimensionMismatchException.cs</Link>
+    </Compile>
+    <Compile Include="..\Exceptions\NonPositiveDefiniteMatrixException.cs">
+      <Link>Exceptions\NonPositiveDefiniteMatrixException.cs</Link>
+    </Compile>
+    <Compile Include="..\Exceptions\NonSymmetricMatrixException.cs">
+      <Link>Exceptions\NonSymmetricMatrixException.cs</Link>
+    </Compile>
+    <Compile Include="..\Exceptions\SingularMatrixException.cs">
+      <Link>Exceptions\SingularMatrixException.cs</Link>
+    </Compile>
+    <Compile Include="..\ExtensionMethods.cs" />
+    <Compile Include="..\GlobalSuppressions.cs" />
+    <Compile Include="..\InterlockedEx.cs" />
+    <Compile Include="..\MachineLearning\Classifiers\IClassifier.cs">
+      <Link>MachineLearning\Classifiers\IClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multiclass\Binary\IBinaryClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multiclass\Binary\IBinaryClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multiclass\Binary\IBinaryDistanceClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multiclass\Binary\IBinaryDistanceClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multiclass\Binary\IBinaryGenerativeClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multiclass\Binary\IBinaryGenerativeClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multiclass\IMulticlassClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multiclass\IMulticlassClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multiclass\IMulticlassDistanceClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multiclass\IMulticlassDistanceClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multiclass\IMulticlassGenerativeClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multiclass\IMulticlassGenerativeClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multilabel\IMultilabelClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multilabel\IMultilabelClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multilabel\IMultilabelDistanceClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multilabel\IMultilabelDistanceClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Classifiers\Multilabel\IMultilabelGenerativeClassifier.cs">
+      <Link>MachineLearning\Classifiers\Multilabel\IMultilabelGenerativeClassifier.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\ITransform.cs">
+      <Link>MachineLearning\ITransform.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Regression\IMultipleRegression.cs">
+      <Link>MachineLearning\Regression\IMultipleRegression.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\Regression\IRegression.cs">
+      <Link>MachineLearning\Regression\IRegression.cs</Link>
+    </Compile>
+    <Compile Include="..\MachineLearning\TransformBase.cs">
+      <Link>MachineLearning\TransformBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Properties\VersionInfo.cs">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Ranges\ByteRange.cs">
+      <Link>Ranges\ByteRange.cs</Link>
+    </Compile>
+    <Compile Include="..\Ranges\DoubleRange.cs">
+      <Link>Ranges\DoubleRange.cs</Link>
+    </Compile>
+    <Compile Include="..\Ranges\IntRange.cs">
+      <Link>Ranges\IntRange.cs</Link>
+    </Compile>
+    <Compile Include="..\Ranges\IRange`1.cs">
+      <Link>Ranges\IRange`1.cs</Link>
+    </Compile>
+    <Compile Include="..\Ranges\Range.cs">
+      <Link>Ranges\Range.cs</Link>
+    </Compile>
+    <Compile Include="..\Serializer.cs" />
+    <Compile Include="..\Sparse.cs" />
+    <Compile Include="..\Sparse`1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\CustomDictionary.xml" />
+    <CodeAnalysisDictionary Include="Properties\CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shim\_UWP\UWP.Shim.csproj">
+    <ProjectReference Include="..\..\Shim\_UWP\UWP.Shim.csproj">
       <Project>{7305ecb7-7102-4e92-bab5-a2760c77be76}</Project>
       <Name>UWP.Shim</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

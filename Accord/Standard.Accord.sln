@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA3ABCEA-4B79-4B41-8EC5-3B6356C69DBD}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Standard.Shim.Shared", "Shim\Standard.Shim.Shared.shproj", "{0E823463-1DDA-404E-AB29-3D4D60C9EDD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.Shim", "Shim\_NETStandard\Standard.Shim.csproj", "{56A94CF2-5B95-459A-B623-716EEDAA18FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.Shim.Drawing", "Shim.Drawing\Standard.Shim.Drawing.csproj", "{74E94795-F4B7-4B8B-ABAE-695FEBC5B753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.Accord.Core", "Accord.Core\Standard.Accord.Core.csproj", "{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.Accord.Imaging", "Accord.Imaging\Standard.Accord.Imaging.csproj", "{05E1D2F5-F28B-4689-B607-33EA288125FF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shim.Shared", "Shim\Shim.Shared.shproj", "{CB573E57-FEF7-4FB0-8922-560A85D80F20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.Accord.Math", "Accord.Math\Standard.Accord.Math.csproj", "{E5A5430F-60E8-44DE-9706-5CFFDD8B63E8}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shim\Shim.Shared.projitems*{cb573e57-fef7-4fb0-8922-560a85d80f20}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56A94CF2-5B95-459A-B623-716EEDAA18FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A94CF2-5B95-459A-B623-716EEDAA18FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A94CF2-5B95-459A-B623-716EEDAA18FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A94CF2-5B95-459A-B623-716EEDAA18FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E94795-F4B7-4B8B-ABAE-695FEBC5B753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E94795-F4B7-4B8B-ABAE-695FEBC5B753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E94795-F4B7-4B8B-ABAE-695FEBC5B753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E94795-F4B7-4B8B-ABAE-695FEBC5B753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A5430F-60E8-44DE-9706-5CFFDD8B63E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A5430F-60E8-44DE-9706-5CFFDD8B63E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A5430F-60E8-44DE-9706-5CFFDD8B63E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A5430F-60E8-44DE-9706-5CFFDD8B63E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

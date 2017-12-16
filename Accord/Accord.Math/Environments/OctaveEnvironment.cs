@@ -25,7 +25,9 @@ namespace Accord.Math.Environments
     using Accord.Math;
     using Accord.Math.Decompositions;
     using System.CodeDom.Compiler;
+#if !WINDOWS_UWP
     using System;
+#endif
     using System.Linq;
     using System.Collections.Generic;
     using System.Reflection;
@@ -246,7 +248,7 @@ namespace Accord.Math.Environments
         protected static mat magic(int n) { return Matrix.Magic(n); }
 
         // decompositions
-        #region svd
+#region svd
         /// <summary>Singular value decomposition.</summary>
         protected List<mat> svd(double[,] m)
         {
@@ -257,9 +259,9 @@ namespace Accord.Math.Environments
             };
         }
 
-        #endregion
+#endregion
 
-        #region qr
+#region qr
         /// <summary>QR decomposition.</summary>
         protected static void qr(double[,] m, out double[,] Q, out double[,] R)
         {
@@ -276,9 +278,9 @@ namespace Accord.Math.Environments
             R = qr.UpperTriangularFactor;
             d = qr.Diagonal;
         }
-        #endregion
+#endregion
 
-        #region eig
+#region eig
         /// <summary>Eigenvalue decomposition.</summary>
         protected static double[] eig(double[,] a, out double[,] V)
         {
@@ -334,16 +336,16 @@ namespace Accord.Math.Environments
             alphai = eig.ImaginaryAlphas;
             return eig.RealEigenvalues;
         }
-        #endregion
+#endregion
 
-        #region chol
+#region chol
         /// <summary>Cholesky decomposition.</summary>
         protected static double[,] chol(double[,] a)
         {
             var chol = new CholeskyDecomposition(a);
             return chol.LeftTriangularFactor;
         }
-        #endregion
+#endregion
 
         /// <summary>
         ///   Matrix placeholder.
@@ -528,8 +530,8 @@ namespace Accord.Math.Environments
             /// 
             public static implicit operator string(mat m)
             {
-                if ((Object)m == null) 
-                    return String.Empty;
+                if ((System.Object)m == null) 
+                    return System.String.Empty;
                 return Matrix.ToString(m.matrix, "e");
             }
 

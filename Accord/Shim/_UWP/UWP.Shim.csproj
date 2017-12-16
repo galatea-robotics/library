@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -121,33 +122,6 @@
     <Compile Include="..\Runtime\Serialization\SerializationInfo.cs">
       <Link>Runtime\Serialization\SerializationInfo.cs</Link>
     </Compile>
-    <Compile Include="..\Security\Cryptography\RNGCryptoServiceProvider.cs">
-      <Link>Security\Cryptography\RNGCryptoServiceProvider.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\OpenFlags.cs">
-      <Link>Security\Cryptography\X509Certificates\OpenFlags.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\StoreLocation.cs">
-      <Link>Security\Cryptography\X509Certificates\StoreLocation.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\StoreName.cs">
-      <Link>Security\Cryptography\X509Certificates\StoreName.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Certificate.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Certificate.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Certificate2Collection.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Certificate2Collection.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Chain.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Chain.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509FindType.cs">
-      <Link>Security\Cryptography\X509Certificates\X509FindType.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Store.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Store.cs</Link>
-    </Compile>
     <Compile Include="..\SerializableAttribute.cs">
       <Link>SerializableAttribute.cs</Link>
     </Compile>
@@ -166,15 +140,15 @@
     <Compile Include="..\_store\net\sockets\NetworkStream.Store.cs">
       <Link>Net\Sockets\NetworkStream.Store.cs</Link>
     </Compile>
-    <Compile Include="..\_store\net\sockets\TcpClient.Store.cs">
-      <Link>Net\Sockets\TcpClient.Store.cs</Link>
-    </Compile>
-    <Compile Include="..\_store\net\sockets\TcpListener.Store.cs">
-      <Link>Net\Sockets\TcpListener.Store.cs</Link>
-    </Compile>
     <Compile Include="..\_Store\Threading\ThreadPool.Store.cs">
       <Link>Threading\ThreadPool.Store.cs</Link>
     </Compile>
+    <Compile Include="Data\DataColumn.cs" />
+    <Compile Include="Data\DataColumnCollection.cs" />
+    <Compile Include="Data\DataRow.cs" />
+    <Compile Include="Data\DataRowCollection.cs" />
+    <Compile Include="Data\DataTable.cs" />
+    <Compile Include="Data\DataView.cs" />
     <Compile Include="TypeExtensions.cs" />
     <Compile Include="TypeForwarding.UWP.cs" />
   </ItemGroup>
