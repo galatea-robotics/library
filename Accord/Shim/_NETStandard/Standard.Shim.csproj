@@ -120,9 +120,6 @@
     <Compile Include="..\ICloneable.cs">
       <Link>ICloneable.cs</Link>
     </Compile>
-    <Compile Include="..\IConvertible.cs">
-      <Link>IConvertible.cs</Link>
-    </Compile>
     <Compile Include="..\Net\EndPoint.cs">
       <Link>Net\EndPoint.cs</Link>
     </Compile>
@@ -162,9 +159,6 @@
     <Compile Include="..\Reflection\Binder.cs">
       <Link>Reflection\Binder.cs</Link>
     </Compile>
-    <Compile Include="..\Reflection\BindingFlags.cs">
-      <Link>Reflection\BindingFlags.cs</Link>
-    </Compile>
     <Compile Include="..\ResolveEventArgs.cs">
       <Link>ResolveEventArgs.cs</Link>
     </Compile>
@@ -182,6 +176,12 @@
     </Compile>
     <Compile Include="..\Runtime\Serialization\SerializationInfo.cs">
       <Link>Runtime\Serialization\SerializationInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Runtime\Serialization\StreamingContext.cs">
+      <Link>Runtime\Serialization\StreamingContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Runtime\Serialization\StreamingContextStates.cs">
+      <Link>Runtime\Serialization\StreamingContextStates.cs</Link>
     </Compile>
     <Compile Include="..\Security\Authentication\SslProtocols.cs">
       <Link>Security\Authentication\SslProtocols.cs</Link>
@@ -246,11 +246,12 @@
     <Compile Include="..\Timers\Timer.cs">
       <Link>Timers\Timer.cs</Link>
     </Compile>
+    <Compile Include="..\TypeExtensions.cs">
+      <Link>TypeExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\UriFormatException.cs">
       <Link>UriFormatException.cs</Link>
     </Compile>
-    <Compile Include="Runtime\Serialization\StreamingContext.cs" />
-    <Compile Include="Runtime\Serialization\StreamingContextStates.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -258,6 +259,7 @@
   <ItemGroup>
     <None Include="project.json" />
   </ItemGroup>
+  <Import Project="..\Shim.Shared.projitems" Label="Shared" />
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>

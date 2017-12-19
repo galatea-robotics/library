@@ -48,6 +48,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Accord.Core\Properties\VersionInfo.cs">
+      <Link>Properties\VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="..\AForge.Imaging\Blob.cs">
       <Link>AForge.Imaging\Blob.cs</Link>
     </Compile>
