@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable111.Shim", "Shim\_Profile111\Portable111.Shim.csproj", "{0613BEC0-5897-43E7-BF79-03F709113688}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Shim.Drawing", "Shim.Drawing\Portable.Shim.Drawing.csproj", "{EB9C86B2-B9B3-4706-9919-8F0584F9BD33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Shim.Drawing", "Shim.Drawing\_PCL\Portable.Shim.Drawing.csproj", "{EB9C86B2-B9B3-4706-9919-8F0584F9BD33}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA3ABCEA-4B79-4B41-8EC5-3B6356C69DBD}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,15 +14,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.Imaging", "Accord.Imaging\Portable.Accord.Imaging.csproj", "{58BD7C42-8A03-4B5A-A8F3-D43B81485B9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.Imaging", "Accord.Imaging\_PCL\Portable.Accord.Imaging.csproj", "{58BD7C42-8A03-4B5A-A8F3-D43B81485B9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.Math", "Accord.Math\Portable.Accord.Math.csproj", "{A2E3375E-421D-4A53-9298-26180C915C97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.Math", "Accord.Math\_PCL\Portable.Accord.Math.csproj", "{A2E3375E-421D-4A53-9298-26180C915C97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.MachineLearning", "Accord.MachineLearning\Portable.Accord.MachineLearning.csproj", "{CFC7E81E-1E71-46BE-80B7-4DEDE5E51612}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.Statistics", "Accord.Statistics\Portable.Accord.Statistics.csproj", "{8DC51A9C-679F-433B-960E-DF18FD27D04F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.Core", "Accord.Core\Portable.Accord.Core.csproj", "{826F98EC-D69E-4283-99F6-1594B4FE8B77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Accord.Core", "Accord.Core\_PCL\Portable.Accord.Core.csproj", "{826F98EC-D69E-4283-99F6-1594B4FE8B77}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shim.Shared", "Shim\Shim.Shared.shproj", "{D4009E78-B90F-4FFB-9EE4-97E49F78E511}"
 EndProject

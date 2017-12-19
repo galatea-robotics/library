@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5E441557-080B-4664-A8EB-4185DDFD668D}</ProjectGuid>
+    <ProjectGuid>{826F98EC-D69E-4283-99F6-1594B4FE8B77}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Accord</RootNamespace>
@@ -109,7 +109,7 @@
     <CodeAnalysisDictionary Include="Properties\CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shim\_Profile111\Portable111.Shim.csproj">
+    <ProjectReference Include="..\..\Shim\_Profile111\Portable111.Shim.csproj">
       <Project>{0613bec0-5897-43e7-bf79-03f709113688}</Project>
       <Name>Portable111.Shim</Name>
     </ProjectReference>
