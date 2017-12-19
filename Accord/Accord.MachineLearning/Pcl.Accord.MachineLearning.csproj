@@ -190,7 +190,7 @@
       <Project>{826f98ec-d69e-4283-99f6-1594b4fe8b77}</Project>
       <Name>Pcl.Accord.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Accord.Math\_PCL\Portable.Accord.Math.csproj">
+    <ProjectReference Include="..\Accord.Math\_PCL\Pcl.Accord.Math.csproj">
       <Project>{a2e3375e-421d-4a53-9298-26180c915c97}</Project>
       <Name>Portable.Accord.Math</Name>
     </ProjectReference>
