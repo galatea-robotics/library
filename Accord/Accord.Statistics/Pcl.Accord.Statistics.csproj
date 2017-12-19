@@ -504,7 +504,7 @@
     <Folder Include="Running\Markov\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Accord.Core\_PCL\Portable.Accord.Core.csproj">
+    <ProjectReference Include="..\Accord.Core\_PCL\Pcl.Accord.Core.csproj">
       <Project>{826f98ec-d69e-4283-99f6-1594b4fe8b77}</Project>
       <Name>Portable.Accord.Core</Name>
     </ProjectReference>

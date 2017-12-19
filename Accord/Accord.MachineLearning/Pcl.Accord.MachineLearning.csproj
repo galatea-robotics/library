@@ -186,15 +186,15 @@
     <Content Include="Properties\CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Accord.Core\_PCL\Portable.Accord.Core.csproj">
+    <ProjectReference Include="..\Accord.Core\_PCL\Pcl.Accord.Core.csproj">
       <Project>{826f98ec-d69e-4283-99f6-1594b4fe8b77}</Project>
-      <Name>Portable.Accord.Core</Name>
+      <Name>Pcl.Accord.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Accord.Math\_PCL\Portable.Accord.Math.csproj">
       <Project>{a2e3375e-421d-4a53-9298-26180c915c97}</Project>
       <Name>Portable.Accord.Math</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Accord.Statistics\Portable.Accord.Statistics.csproj">
+    <ProjectReference Include="..\Accord.Statistics\Pcl.Accord.Statistics.csproj">
       <Project>{8dc51a9c-679f-433b-960e-df18fd27d04f}</Project>
       <Name>Portable.Accord.Statistics</Name>
     </ProjectReference>

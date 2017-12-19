@@ -335,23 +335,23 @@
     <Compile Include="Tools.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Accord.Core\_PCL\Portable.Accord.Core.csproj">
+    <ProjectReference Include="..\..\Accord.Core\_PCL\Pcl.Accord.Core.csproj">
       <Project>{826f98ec-d69e-4283-99f6-1594b4fe8b77}</Project>
       <Name>Portable.Accord.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Accord.MachineLearning\Portable.Accord.MachineLearning.csproj">
+    <ProjectReference Include="..\..\Accord.MachineLearning\Pcl.Accord.MachineLearning.csproj">
       <Project>{cfc7e81e-1e71-46be-80b7-4dede5e51612}</Project>
       <Name>Portable.Accord.MachineLearning</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Accord.Math\_PCL\Portable.Accord.Math.csproj">
+    <ProjectReference Include="..\..\Accord.Math\_PCL\Pcl.Accord.Math.csproj">
       <Project>{a2e3375e-421d-4a53-9298-26180c915c97}</Project>
       <Name>Portable.Accord.Math</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Accord.Statistics\Portable.Accord.Statistics.csproj">
+    <ProjectReference Include="..\..\Accord.Statistics\Pcl.Accord.Statistics.csproj">
       <Project>{8dc51a9c-679f-433b-960e-df18fd27d04f}</Project>
       <Name>Portable.Accord.Statistics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shim.Drawing\_PCL\Portable.Shim.Drawing.csproj">
+    <ProjectReference Include="..\..\Shim.Drawing\_PCL\Pcl.Shim.Drawing.csproj">
       <Project>{eb9c86b2-b9b3-4706-9919-8f0584f9bd33}</Project>
       <Name>Portable.Shim.Drawing</Name>
     </ProjectReference>
