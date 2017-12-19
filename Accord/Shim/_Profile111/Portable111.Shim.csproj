@@ -121,9 +121,6 @@
     <Compile Include="..\IConvertible.cs">
       <Link>IConvertible.cs</Link>
     </Compile>
-    <Compile Include="..\IO\Directory.cs">
-      <Link>IO\Directory.cs</Link>
-    </Compile>
     <Compile Include="..\IO\DirectoryInfo.cs">
       <Link>IO\DirectoryInfo.cs</Link>
     </Compile>
