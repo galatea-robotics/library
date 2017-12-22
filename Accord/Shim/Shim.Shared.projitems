@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Array (Shim).cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\Generic\ListExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attribute (Shim).cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FormattableStringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IO\BinaryReaderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IO\BinaryWriterExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IO\Path (Shim).cs" />

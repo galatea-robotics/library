@@ -22,8 +22,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWP.Accord.Core", "Accord.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWP.Accord.Math", "Accord.Math\_UWP\UWP.Accord.Math.csproj", "{6096A2B0-496D-4E53-8F8A-E2D8EE0B97BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard.Accord.Imaging", "Accord.Imaging\Standard.Accord.Imaging.csproj", "{05E1D2F5-F28B-4689-B607-33EA288125FF}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shim\Shim.Shared.projitems*{7305ecb7-7102-4e92-bab5-a2760c77be76}*SharedItemsImports = 4
@@ -120,22 +118,6 @@ Global
 		{6096A2B0-496D-4E53-8F8A-E2D8EE0B97BE}.Release|x64.Build.0 = Release|Any CPU
 		{6096A2B0-496D-4E53-8F8A-E2D8EE0B97BE}.Release|x86.ActiveCfg = Release|Any CPU
 		{6096A2B0-496D-4E53-8F8A-E2D8EE0B97BE}.Release|x86.Build.0 = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|ARM.Build.0 = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|x64.Build.0 = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Debug|x86.Build.0 = Debug|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|ARM.ActiveCfg = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|ARM.Build.0 = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|x64.ActiveCfg = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|x64.Build.0 = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|x86.ActiveCfg = Release|Any CPU
-		{05E1D2F5-F28B-4689-B607-33EA288125FF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
