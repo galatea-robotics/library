@@ -39,11 +39,10 @@ namespace System.Net
         private IPAddress(long newAddress)
         {
 #if PCL
-            throw new PlatformNotSupportedException("PCL");
-#endif
             this.newAddress = newAddress;
+#endif
         }
-        
+
         #endregion
     }
 }

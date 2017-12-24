@@ -89,6 +89,9 @@
     <Compile Include="..\Diagnostics\Trace.cs">
       <Link>Diagnostics\Trace.cs</Link>
     </Compile>
+    <Compile Include="..\FormattableStringExtension.cs">
+      <Link>FormattableStringExtension.cs</Link>
+    </Compile>
     <Compile Include="..\ICloneable.cs">
       <Link>ICloneable.cs</Link>
     </Compile>
@@ -149,12 +152,21 @@
     <Compile Include="Data\DataRowCollection.cs" />
     <Compile Include="Data\DataTable.cs" />
     <Compile Include="Data\DataView.cs" />
+    <Compile Include="Tuples\%27System.ValueTuple`3.cs" />
+    <Compile Include="Tuples\%27System.ValueTuple`2.cs" />
+    <Compile Include="Tuples\Numerics\Hashing\HashHelpers.cs" />
+    <Compile Include="Tuples\Runtime\CompilerServices\ITuple.cs" />
+    <Compile Include="Tuples\IValueTupleInternal.cs" />
+    <Compile Include="Tuples\%27System.ValueTuple`1.cs" />
+    <Compile Include="Tuples\Runtime\CompilerServices\TupleElementNamesAttribute.cs" />
+    <Compile Include="Tuples\ValueTuple.cs" />
     <Compile Include="TypeExtensions.cs" />
     <Compile Include="TypeForwarding.UWP.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\UWP.Shim.rd.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\Shim.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
