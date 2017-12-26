@@ -229,7 +229,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Shim\_NETStandard\Shim1_6.csproj">
+    <ProjectReference Include="..\..\Shim\_NETStandard1.3\Shim.csproj">
       <Project>{56a94cf2-5b95-459a-b623-716eedaa18fc}</Project>
       <Name>Shim1_6</Name>
     </ProjectReference>

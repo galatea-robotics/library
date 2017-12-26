@@ -838,11 +838,11 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Accord.Core\_NETStandard\Accord.Core.csproj">
+    <ProjectReference Include="..\..\Accord.Core\_NETStandard1.3\Accord.Core.csproj">
       <Project>{7fc1a925-cb31-4518-9952-f2f1f3dfa0b9}</Project>
       <Name>Accord.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shim\_NETStandard\Shim.csproj">
+    <ProjectReference Include="..\..\Shim\_NETStandard1.3\Shim.csproj">
       <Project>{56a94cf2-5b95-459a-b623-716eedaa18fc}</Project>
       <Name>Shim</Name>
       <Aliases>global,shim</Aliases>

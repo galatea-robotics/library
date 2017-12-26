@@ -120,36 +120,6 @@
     <Compile Include="..\ICloneable.cs">
       <Link>ICloneable.cs</Link>
     </Compile>
-    <Compile Include="..\Net\EndPoint.cs">
-      <Link>Net\EndPoint.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\IPAddress.cs">
-      <Link>Net\IPAddress.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Security\SslPolicyErrors.cs">
-      <Link>Net\Security\SslPolicyErrors.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Security\SslStream.cs">
-      <Link>Net\Security\SslStream.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Sockets\NetworkStream.cs">
-      <Link>Net\Sockets\NetworkStream.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Sockets\Socket.cs">
-      <Link>Net\Sockets\Socket.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Sockets\SocketError.cs">
-      <Link>Net\Sockets\SocketError.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Sockets\SocketException.cs">
-      <Link>Net\Sockets\SocketException.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Sockets\TcpClient.cs">
-      <Link>Net\Sockets\TcpClient.cs</Link>
-    </Compile>
-    <Compile Include="..\Net\Sockets\TcpListener.cs">
-      <Link>Net\Sockets\TcpListener.cs</Link>
-    </Compile>
     <Compile Include="..\NonSerializedAttribute.cs">
       <Link>NonSerializedAttribute.cs</Link>
     </Compile>
@@ -192,30 +162,6 @@
     <Compile Include="..\Security\Cryptography\RNGCryptoServiceProvider.cs">
       <Link>Security\Cryptography\RNGCryptoServiceProvider.cs</Link>
     </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\OpenFlags.cs">
-      <Link>Security\Cryptography\X509Certificates\OpenFlags.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\StoreLocation.cs">
-      <Link>Security\Cryptography\X509Certificates\StoreLocation.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\StoreName.cs">
-      <Link>Security\Cryptography\X509Certificates\StoreName.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Certificate.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Certificate.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Certificate2Collection.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Certificate2Collection.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Chain.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Chain.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509FindType.cs">
-      <Link>Security\Cryptography\X509Certificates\X509FindType.cs</Link>
-    </Compile>
-    <Compile Include="..\Security\Cryptography\X509Certificates\X509Store.cs">
-      <Link>Security\Cryptography\X509Certificates\X509Store.cs</Link>
-    </Compile>
     <Compile Include="..\SerializableAttribute.cs">
       <Link>SerializableAttribute.cs</Link>
     </Compile>
@@ -239,9 +185,6 @@
     </Compile>
     <Compile Include="..\Threading\ThreadPool.cs">
       <Link>Threading\ThreadPool.cs</Link>
-    </Compile>
-    <Compile Include="..\Threading\Timer.cs">
-      <Link>Threading\Timer.cs</Link>
     </Compile>
     <Compile Include="..\Timers\ElapsedEventArgs.cs">
       <Link>Timers\ElapsedEventArgs.cs</Link>
