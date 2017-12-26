@@ -147,19 +147,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Accord.Core\_NETStandard\Accord.Core.csproj">
+    <ProjectReference Include="..\..\Accord.Core\_NETStandard1.6\Accord.Core.csproj">
       <Project>{7fc1a925-cb31-4518-9952-f2f1f3dfa0b9}</Project>
       <Name>Accord.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Accord.Math\_NETStandard\Accord.Math.csproj">
+    <ProjectReference Include="..\..\Accord.Math\_NETStandard1.6\Accord.Math.csproj">
       <Project>{e5a5430f-60e8-44de-9706-5cffdd8b63e8}</Project>
       <Name>Accord.Math</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shim.Drawing\_NETStandard\Shim.Drawing.csproj">
+    <ProjectReference Include="..\..\Shim.Drawing\_NETStandard1.6\Shim.Drawing.csproj">
       <Project>{74e94795-f4b7-4b8b-abae-695febc5b753}</Project>
       <Name>Shim.Drawing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shim\_NETStandard\Shim1_6.csproj">
+    <ProjectReference Include="..\..\Shim\_NETStandard1.6\Shim.csproj">
       <Project>{56a94cf2-5b95-459a-b623-716eedaa18fc}</Project>
       <Name>Shim1_6</Name>
     </ProjectReference>
