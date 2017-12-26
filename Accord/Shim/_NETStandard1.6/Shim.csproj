@@ -159,9 +159,6 @@
     <Compile Include="..\Reflection\Binder.cs">
       <Link>Reflection\Binder.cs</Link>
     </Compile>
-    <Compile Include="..\Reflection\BindingFlags.cs">
-      <Link>Reflection\BindingFlags.cs</Link>
-    </Compile>
     <Compile Include="..\ResolveEventArgs.cs">
       <Link>ResolveEventArgs.cs</Link>
     </Compile>

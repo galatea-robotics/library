@@ -10,17 +10,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shim", "Shim\_NETStandard\Shim.csproj", "{56A94CF2-5B95-459A-B623-716EEDAA18FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shim", "Shim\_NETStandard1.6\Shim.csproj", "{56A94CF2-5B95-459A-B623-716EEDAA18FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shim.Drawing", "Shim.Drawing\_NETStandard\Shim.Drawing.csproj", "{74E94795-F4B7-4B8B-ABAE-695FEBC5B753}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shim.Drawing", "Shim.Drawing\_NETStandard1.6\Shim.Drawing.csproj", "{74E94795-F4B7-4B8B-ABAE-695FEBC5B753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Core", "Accord.Core\_NETStandard\Accord.Core.csproj", "{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Core", "Accord.Core\_NETStandard1.6\Accord.Core.csproj", "{7FC1A925-CB31-4518-9952-F2F1F3DFA0B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Imaging", "Accord.Imaging\_NETStandard\Accord.Imaging.csproj", "{05E1D2F5-F28B-4689-B607-33EA288125FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Imaging", "Accord.Imaging\_NETStandard1.6\Accord.Imaging.csproj", "{05E1D2F5-F28B-4689-B607-33EA288125FF}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shim.Shared", "Shim\Shim.Shared.shproj", "{CB573E57-FEF7-4FB0-8922-560A85D80F20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Math", "Accord.Math\_NETStandard\Accord.Math.csproj", "{E5A5430F-60E8-44DE-9706-5CFFDD8B63E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Math", "Accord.Math\_NETStandard1.6\Accord.Math.csproj", "{E5A5430F-60E8-44DE-9706-5CFFDD8B63E8}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Accord", ".", "{C5C31724-73FB-44DE-8CE6-5A623CC9426D}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -40,11 +40,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Accord", ".", "{C5C31724-73
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "35097"
-		SlnRelativePath = "..\Accord\"
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shim\Shim.Shared.projitems*{56a94cf2-5b95-459a-b623-716eedaa18fc}*SharedItemsImports = 4
 		Shim\Shim.Shared.projitems*{cb573e57-fef7-4fb0-8922-560a85d80f20}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

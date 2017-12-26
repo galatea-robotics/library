@@ -39,6 +39,9 @@ namespace Accord.Imaging.Filters
     /// 
     public class FiltersSequence : IFilter
     {
+        /// <summary>
+        /// Gets the enumerated list of Filters.
+        /// </summary>
         protected readonly List<IFilter> InnerList = new List<IFilter>();
 
         /// <summary>
