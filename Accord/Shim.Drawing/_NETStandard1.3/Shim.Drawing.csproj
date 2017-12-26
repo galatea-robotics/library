@@ -229,9 +229,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Shim\_NETStandard\Shim.csproj">
+    <ProjectReference Include="..\..\Shim\_NETStandard\Shim1_6.csproj">
       <Project>{56a94cf2-5b95-459a-b623-716eedaa18fc}</Project>
-      <Name>Shim</Name>
+      <Name>Shim1_6</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

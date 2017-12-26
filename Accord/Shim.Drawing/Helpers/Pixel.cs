@@ -242,7 +242,7 @@ namespace ImagePixelEnumerator.Helpers
             }
         }
 
-        private static IntPtr MarshalToPointer(Object data)
+        private static IntPtr MarshalToPointer<T>(T data)
         {
             Int32 size = Marshal.SizeOf(data);
             IntPtr pointer = Marshal.AllocHGlobal(size);

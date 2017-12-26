@@ -117,7 +117,7 @@ namespace Accord
         {
             var type = typeof(T);
 
-            int size = Marshal.SizeOf(type);
+            int size = Marshal.SizeOf<T>();
             byte[] buffer = new byte[size];
             if (stream.Read(buffer, 0, buffer.Length) == 0)
             {
@@ -126,7 +126,7 @@ namespace Accord
             }
 
             GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
-            structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
+            structure = Marshal.PtrToStructure<T>(handle.AddrOfPinnedObject());
             handle.Free();
 
             return true;
