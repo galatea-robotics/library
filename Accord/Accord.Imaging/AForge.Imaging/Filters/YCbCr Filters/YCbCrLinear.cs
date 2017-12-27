@@ -11,7 +11,7 @@ namespace Accord.Imaging.Filters
     using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Imaging;
-    using AForge;
+    //using AForge;
     using Accord;
 
     /// <summary>

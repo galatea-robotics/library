@@ -109,6 +109,7 @@ namespace Accord
             return source.ToString();
         }
 
+#if NETStandard
         /// <summary>
         ///   Reads a <c>struct</c> from a stream.
         /// </summary>
@@ -131,7 +132,30 @@ namespace Accord
 
             return true;
         }
+#else
+        /// <summary>
+        ///   Reads a <c>struct</c> from a stream.
+        /// </summary>
+        /// 
+        public static bool Read<T>(this BinaryReader stream, out T structure) where T : struct
+        {
+            var type = typeof(T);
 
+            int size = Marshal.SizeOf(type);
+            byte[] buffer = new byte[size];
+            if (stream.Read(buffer, 0, buffer.Length) == 0)
+            {
+                structure = default(T);
+                return false;
+            }
+
+            GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+            structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
+            handle.Free();
+
+            return true;
+        }
+#endif
 #if !NETFX_CORE
         /// <summary>
         ///   Gets the underlying buffer position for a StreamReader.
