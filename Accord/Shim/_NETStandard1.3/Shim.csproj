@@ -66,6 +66,9 @@
     <Compile Include="..\ComponentModel\ISynchronizeInvoke.cs">
       <Link>ComponentModel\ISynchronizeInvoke.cs</Link>
     </Compile>
+    <Compile Include="..\ComponentModel\ProgressChangedEventArgs.cs">
+      <Link>ComponentModel\ProgressChangedEventArgs.cs</Link>
+    </Compile>
     <Compile Include="..\Console.cs">
       <Link>Console.cs</Link>
     </Compile>

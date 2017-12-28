@@ -377,6 +377,9 @@
     <Compile Include="..\Optimization\Losses\SquareLoss.cs">
       <Link>Optimization\Losses\SquareLoss.cs</Link>
     </Compile>
+    <Compile Include="..\Optimization\Unconstrained\ResilientBackpropagation.cs">
+      <Link>Optimization\Unconstrained\ResilientBackpropagation.cs</Link>
+    </Compile>
     <Compile Include="..\Optimization\Unconstrained\TrustRegionNewtonMethod.cs">
       <Link>Optimization\Unconstrained\TrustRegionNewtonMethod.cs</Link>
     </Compile>
