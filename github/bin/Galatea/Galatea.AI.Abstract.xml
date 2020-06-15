@@ -1,0 +1,1195 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Galatea.AI.Abstract</name>
+    </assembly>
+    <members>
+        <member name="T:Galatea.AI.Characterization.UserFeedback">
+            <summary>
+            Represents a pattern specifying that a user response is 
+            positive/negative, and to what degree.
+            </summary>
+            <remarks>
+            UserFeedback inherits from the Template model, as it should
+            factor in the Artificial Intelligence system.
+            </remarks>
+        </member>
+        <member name="M:Galatea.AI.Characterization.UserFeedback.#ctor(System.Int32,Galatea.AI.Characterization.FeedbackType,System.Int32,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Galatea.AI.Characterization.UserFeedback"/> class.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedback.FeedbackType">
+            <summary>
+            Gets a value specifying if the feedback is Positive, Negative, or neutral.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedback.Level">
+            <summary>
+            Gets an integer specifying the degree by which the feedback is Positive or Negative.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedback.CompareValue">
+            <summary>
+            Gets a value that is used to compare two <see cref="T:Galatea.AI.Characterization.UserFeedback"/> template instances.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Characterization.UserFeedback.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.AI.Characterization.UserFeedbackTemplates">
+            <summary>
+            Some Strongly-typed Feedback Definitions for Robot Fun.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Default">
+            <summary>
+            A default instance of the <see cref="T:Galatea.AI.Characterization.UserFeedback"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Characterization.UserFeedbackTemplates.GetKeyForItem(Galatea.AI.Characterization.UserFeedback)">
+            <summary>
+            Extracts the <see cref="P:Galatea.AI.Abstract.BaseTemplate.Name"/> string value from
+            the specified <see cref="T:Galatea.AI.Characterization.UserFeedback"/> item.
+            </summary>
+            <param name="item">
+            The <see cref="T:Galatea.AI.Characterization.UserFeedback"/> from which to extract the 
+            <see cref="P:Galatea.AI.Abstract.BaseTemplate.Name"/> key.
+            </param>
+            <returns>
+            The <see cref="P:Galatea.AI.Abstract.BaseTemplate.Name"/> key for the 
+            specified <see cref="T:Galatea.AI.Characterization.UserFeedback"/>.
+            </returns>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Neutral">
+            <summary>
+            A <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance that is neither Positive nor Negative.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Meh">
+            <summary>
+            A <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance that is unenthusiastically positive.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Yes">
+            <summary>
+            A moderately positive <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Good">
+            <summary>
+            A very positive <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Great">
+            <summary>
+            A highly positive <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.MehNo">
+            <summary>
+            A <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance that is apathetically negative.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.No">
+            <summary>
+            A moderately negative <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Bad">
+            <summary>
+            A very negative <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Characterization.UserFeedbackTemplates.Awful">
+            <summary>
+            A highly negative <see cref="T:Galatea.AI.Characterization.UserFeedback"/> instance.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Characterization.UserFeedbackTemplates.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.IDisposable"/> and optionally 
+            releases the managed resources.
+            </summary>
+            <param name="disposing">
+            true to release both managed and unmanaged resources; false to release only unmanaged
+            resources.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Characterization.UserFeedbackTemplates.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:System.IDisposable"/>.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.ColorTemplate">
+            <summary>
+            Represents a binary pattern unique to a specific color that is either recognized by the 
+            Galatea Algorithm cognitive process, or learned for later retrieval.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplate.#ctor(System.Int32,System.String,System.Drawing.Color,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new instance of the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> class.
+            </summary>
+            <param name="id"> The key value of the ColorTemplate. </param>
+            <param name="name"> The name of the ColorTemplate. </param>
+            <param name="color">
+            A color that is used to initialize a <see cref="T:Galatea.AI.Abstract.ColorTemplateCollection"/>
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/>.
+            </param>
+            <remarks> This should only be called by a collection containing the Template. </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplate.#ctor(System.Int32,System.String,System.Drawing.Color,System.Boolean,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new instance of the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> class.
+            </summary>
+            <param name="id"> The key value of the ColorTemplate. </param>
+            <param name="name"> The name of the ColorTemplate. </param>
+            <param name="color">
+            A color that is used to initialize a <see cref="T:Galatea.AI.Abstract.ColorTemplateCollection"/>
+            </param>
+            <param name="monochrome"> 
+            A value that indicates that the color defined by the current instance is black, white, or gray.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/>.
+            </param>
+            <remarks> This should only be called by a collection containing the Template. </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplate.#ctor(System.Int32,System.String,System.String,System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the ColorTemplate. </param>
+            <param name="name"> The name of the ColorTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/>.
+            </param>
+            <param name="color">
+            A <see cref="T:System.Drawing.Color"/> pattern containing R, G, B values.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplate.#ctor(System.Int32,System.String,System.String,System.Drawing.Color,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the ColorTemplate. </param>
+            <param name="name"> The name of the ColorTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/>.
+            </param>
+            <param name="color">
+            A <see cref="T:System.Drawing.Color"/> pattern containing R, G, B values.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplate.GetColor">
+            <summary>
+            Gets the <see cref="T:System.Drawing.Color"/> of the ColorTemplate.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ColorTemplate.Hue">
+            <summary>
+            Gets an integer representing the Hue value of an RGB color, from 0-360.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ColorTemplate.Saturation">
+            <summary>
+            Gets an integer representing the Saturation value of an RGB color, from 0-100.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ColorTemplate.Brightness">
+            <summary>
+            Gets an integer representing the Brightness value of an RGB color, from 0-100.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ColorTemplate.Monochrome">
+            <summary>
+            Gets a value indicating that the color defined by the current instance is black, 
+            white, or gray.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ColorTemplate.CompareValue">
+            <summary>
+            Gets the Hue value of an RGB color, from 0-360.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.ColorTemplateCollection">
+            <summary>
+            A keyed collection of ColorTemplates, sortable by Hue.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplateCollection.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Galatea.AI.Abstract.ColorTemplateCollection"/>
+            class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplateCollection.CreateFromPattern(System.Int32,Galatea.AI.Abstract.TemplatePatternCollection,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> from a pattern, and adds it to the <see cref="T:Galatea.AI.Abstract.ColorTemplateCollection"/>.
+            </summary>
+            <param name="id">
+            The unique ID assigned by the Data Access Manager.
+            </param>
+            <param name="templatePattern">A pattern containing fields with which to construct a new ColorTemplate.</param>
+            <param name="name">The name of the new ColorTemplate, supplied by User Feedback.</param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/>.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplateCollection.CreateFromContext(Galatea.IO.ContextStream,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Not Implemented
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplateCollection.Identify(Galatea.AI.Abstract.ColorTemplate,System.Int16@)">
+            <summary>
+            Identifies the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> which most closely resembles the specified pattern.
+            </summary>
+            <param name="unknownItem"> A <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> instance for comparison. </param>
+            <param name="certainty">
+            The degree of certainty from 0 to 100 with which a Template is identified.
+            </param>
+            <returns> The <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> which most closely resembles the unknown item. </returns>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplateCollection.SerializeAll">
+            <summary>
+            Serializes all of the <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> instances contained in the 
+            <see cref="T:Galatea.AI.Abstract.ColorTemplateCollection"/> into a string value.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplateCollection.Serialize(Galatea.AI.Abstract.ColorTemplate)">
+            <summary>
+            Serializes the <see cref="M:Galatea.AI.Abstract.ColorTemplate.GetColor"/> value into a byte array with a length of 
+            three, and then serializes the byte array into a string.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ColorTemplateCollection.Deserialize(System.Int32,System.String,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.ColorTemplate"/> using the specified <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> 
+            attributes, and creates the color attributes from a serialized data string.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.IMemory">
+            <summary>
+            A collection of strongly-typed <see cref="T:Galatea.AI.Abstract.IBaseTemplateCollection"/> tables.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.IMemory.ColorTemplates">
+            <summary>
+            Gets a <see cref="T:Galatea.AI.Abstract.ColorTemplateCollection"/> for 
+            short-term memory retrieval.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.IMemory.ShapeTemplates">
+            <summary>
+            Gets a <see cref="T:Galatea.AI.Abstract.ShapeTemplateCollection"/> for 
+            short-term memory retrieval.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.IMemory.SymbolTemplates">
+            <summary>
+            Gets a <see cref="T:Galatea.AI.Abstract.SymbolTemplateCollection"/> for 
+            short-term memory retrieval.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.Memory">
+            <summary>
+            Contains a default instance of the Data Access component.
+            </summary> 
+        </member>
+        <member name="M:Galatea.AI.Abstract.Memory.Reset">
+            <summary>
+            Initializes the index of unique integer values representing <see cref="P:Galatea.AI.Abstract.BaseTemplate.Id"/> values from a 
+            Relational Database.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.Memory.Default">
+            <summary>
+            The default instance of a Data Access component.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.Memory.IndexOfTemplateIds">
+            <summary>
+            An index of unique integer values representing <see cref="P:Galatea.AI.Abstract.BaseTemplate.Id"/> values from a 
+            Relational Database.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.NamedEntityCollection">
+            <summary>
+            A collection of <see cref="T:Galatea.AI.Abstract.NamedEntity"/> instances whose keys are embedded in the template name.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.NamedEntityCollection.GetKeyForItem(Galatea.AI.Abstract.NamedEntity)">
+            <summary>
+            Extracts the Name key from the <see cref="T:Galatea.AI.Abstract.NamedEntity"/> instance.
+            </summary>
+            <param name="item">
+            The <see cref="T:Galatea.AI.Abstract.NamedEntity"/> instance from which to extract the key.
+            </param>
+            <returns>
+            The Name key for the specified <see cref="T:Galatea.AI.Abstract.NamedEntity"/> instance.
+            </returns>
+        </member>
+        <member name="M:Galatea.AI.Abstract.NamedEntityCollection.Add(Galatea.AI.Abstract.NamedEntity)">
+            <summary>
+            Adds a <see cref="T:Galatea.AI.Abstract.NamedEntity"/> to the end of the <see cref="T:Galatea.AI.Abstract.NamedEntityCollection"/>.
+            </summary>
+            <param name="item">
+            The <see cref="T:Galatea.AI.Abstract.NamedEntity"/> to be added to the end of the <see cref="T:Galatea.AI.Abstract.NamedEntityCollection"/>.
+            </param>
+        </member>
+        <member name="P:Galatea.AI.Abstract.NamedEntityCollection.Item(System.Int32)">
+            <summary>
+            Gets the element with the specified key.
+            </summary>
+            <param name="id"> The key of the element to get. </param>
+            <returns>
+            The element with the specified key. If an element with the specified key is not
+            found, an exception is thrown.
+            </returns>
+        </member>
+        <member name="M:Galatea.AI.Abstract.NamedEntityCollection.Identify(Galatea.AI.Abstract.NamedEntity,System.Int16@)">
+             <summary>
+             Identifies the <see cref="T:Galatea.AI.Abstract.NamedEntity"/> item which most closely resembles the 
+             specified pattern.
+             </summary>
+             <param name="unknownItem">
+             A <see cref="T:Galatea.AI.Abstract.NamedEntity"/> instance for comparison. 
+             </param>
+             <param name="certainty">
+             The degree of certainty from 0 to 100 with which a NamedEntity is identified.
+             </param>
+             <returns>
+             The <see cref="T:Galatea.AI.Abstract.NamedEntity"/> which most closely resembles the unknown item.
+            </returns>
+        </member>
+        <member name="P:Galatea.AI.Abstract.NamedEntityCollection.Site">
+            <summary>
+            Gets or sets the <see cref="T:System.ComponentModel.ISite"/> associated with the <see cref="T:System.ComponentModel.IComponent"/>.
+            </summary>
+        </member>
+        <member name="E:Galatea.AI.Abstract.NamedEntityCollection.Disposed">
+            <summary>
+            Represents the method that handles the <see cref="E:System.ComponentModel.IComponent.Disposed"/>
+            event of a component.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.NamedEntityCollection.Dispose">
+            <summary>
+            Disposes all Template items in the collection.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.NamedEntityCollection.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.AI.Abstract.SymbolTemplate">
+            <summary>
+            Represents a binary pattern unique to a specific letter, number, or symbol, 
+            that is either recognized by the Galatea Algorithm cognitive process, or learned 
+            for later retrieval.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplate.#ctor(System.Int32,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <remarks>
+            Internal Only - for Feedback Analysis
+            </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplate.#ctor(System.Int32,System.String,System.String,Galatea.Imaging.BitmapBlob,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the SymbolTemplate. </param>
+            <param name="name"> The name of the SymbolTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/>.
+            </param>
+            <param name="bitmapBlob">
+            A <see cref="T:Galatea.Imaging.BitmapBlob"/> representing a specific shape pattern.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/>.
+            </param>
+            <remarks> For Recognition Process </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplate.#ctor(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the SymbolTemplate. </param>
+            <param name="name"> The name of the SymbolTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/>.
+            </param>
+            <param name="asciiBitmap">
+            A <see cref="T:System.String"/> which depicts the current SymbolTemplate as 1s and 0s.
+            </param>
+            <param name="width"> An integer representing the width of the <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap"/>. </param>
+            <param name="height"> An integer representing the height of the <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap"/>. </param>
+            <remarks> For Recognition Process </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplate.#ctor(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the SymbolTemplate. </param>
+            <param name="name"> The name of the SymbolTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/>.
+            </param>
+            <param name="asciiBitmap">
+            A <see cref="T:System.String"/> value depicting the SymbolTemplate as 1s and 0s.
+            </param>
+            <param name="width"> An integer representing the width of the <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap"/>. </param>
+            <param name="height"> An integer representing the height of the <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap"/>. </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/>.
+            </param>
+        </member>
+        <member name="P:Galatea.AI.Abstract.SymbolTemplate.BitmapBlob">
+            <summary>
+            Gets the <see cref="T:Galatea.Imaging.BitmapBlob"/> which represents the current 
+            abstract SymbolTemplate instance.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.SymbolTemplate.Bitmap">
+            <summary>
+            Gets a blobified <see cref="P:Galatea.AI.Abstract.SymbolTemplate.Bitmap"/> from the Context Stream.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap">
+            <summary>
+            Gets a <see cref="T:System.String"/> which depicts the current SymbolTemplate as 1s and 0s.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmapSize">
+            <summary>
+            Gets a <see cref="T:System.Drawing.Size"/> appropriate for the <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap"/>
+            property of the SymbolTemplate instance.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplate.Initialize(Galatea.Imaging.BitmapBlob)">
+            <remarks>
+            Reverse-engineered to fit 2008 code
+            </remarks>
+        </member>
+        <member name="P:Galatea.AI.Abstract.SymbolTemplate.CompareValue">
+            <summary>
+            Gets a value unique to the Template for Comparison and Sorting.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.ShapeTemplate">
+            <summary>
+            Represents a binary pattern unique to a specific number, letter, symbol, or shape, 
+            that is either recognized by the Galatea Algorithm cognitive process, or learned 
+            for later retrieval.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.#ctor(System.Int32,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <remarks>
+            Internal Only - for Feedback Analysis
+            </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.#ctor(System.Int32,System.String,System.String,Galatea.Imaging.BitmapBlob)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the Sha peTemplate. </param>
+            <param name="name"> The name of the ShapeTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+            <param name="bitmapBlob">
+            A <see cref="T:Galatea.Imaging.BitmapBlob"/> representing a specific shape pattern.
+            </param>
+            <remarks> For Recognition Process </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.#ctor(System.Int32,System.String,System.String,Galatea.Imaging.BitmapBlob,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the Sha peTemplate. </param>
+            <param name="name"> The name of the ShapeTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+            <param name="bitmapBlob">
+            A <see cref="T:Galatea.Imaging.BitmapBlob"/> representing a specific shape pattern.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.#ctor(System.Int32,System.String,System.String,Galatea.Imaging.BlobPointList)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the Sha peTemplate. </param>
+            <param name="name"> The name of the ShapeTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+            <param name="blobPoints">
+            A <see cref="T:Galatea.Imaging.BlobPointList"/> representing a specific shape pattern.
+            </param>
+            <remarks> For Database memory collection. </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.#ctor(System.Int32,System.String,System.String,Galatea.Imaging.BitmapBlob,Galatea.Imaging.BlobPointList,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the Sha peTemplate. </param>
+            <param name="name"> The name of the ShapeTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+            <param name="bitmapBlob">
+            A <see cref="T:Galatea.Imaging.BitmapBlob"/> representing a specific shape pattern.
+            </param>
+            <param name="blobPoints">
+            A <see cref="T:Galatea.Imaging.BlobPointList"/> representing a specific shape pattern.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.#ctor(System.Int32,System.String,System.String,Galatea.Imaging.BitmapBlob,Galatea.Imaging.BlobPointList,Galatea.AI.Abstract.TemplateRelationshipCollection,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the Sha peTemplate. </param>
+            <param name="name"> The name of the ShapeTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+            <param name="bitmapBlob">
+            A <see cref="T:Galatea.Imaging.BitmapBlob"/> representing a specific shape pattern.
+            </param>
+            <param name="blobPoints">
+            A <see cref="T:Galatea.Imaging.BlobPointList"/> representing a specific shape pattern.
+            </param>
+            <param name="templateRelationships">
+            a collection of <see cref="T:Galatea.AI.Abstract.TemplateRelationship"/> values that are child values
+            to the new instance.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.#ctor(System.Int32,System.String,System.String,Galatea.Imaging.BlobPointList,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> 
+            class with the specified unique values.
+            </summary>
+            <param name="id"> The key value of the Sha peTemplate. </param>
+            <param name="name"> The name of the ShapeTemplate. </param>
+            <param name="friendlyName">
+            A user-friendly definition for the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+            <param name="blobPoints">
+            A <see cref="T:Galatea.Imaging.BlobPointList"/> representing a specific shape pattern.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/>.
+            </param>
+            <remarks> For Database memory collection. </remarks>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ShapeTemplate.BlobPoints">
+            <summary>
+            Gets or sets the <see cref="T:Galatea.Imaging.BlobPointList"/> which represents 
+            the current abstract ShapeTemplate instance.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.ReplaceBlobPoints(Galatea.Imaging.BlobPointList)">
+            <summary>
+            Replacesthe items in the <see cref="P:Galatea.AI.Abstract.ShapeTemplate.BlobPoints"/> collection property with the 
+            specified items, and re-calculates the <see cref="P:Galatea.AI.Abstract.ShapeTemplate.CompareValue"/>.
+            </summary>
+            <param name="blobPoints">
+            The items with which to replace the items in the <see cref="P:Galatea.AI.Abstract.ShapeTemplate.BlobPoints"/> property.
+            </param>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ShapeTemplate.BitmapBlob">
+            <summary>
+            Gets the <see cref="T:Galatea.Imaging.BitmapBlob"/> which represents the current 
+            abstract ShapeTemplate instance.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.ShapeTemplate.CompareValue">
+            <summary>
+            Gets a value unique to the Template for Comparison and Sorting.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplate.ReverseCompare">
+            <summary>
+            Gets a value unique to the Template for Comparison and Reverse Sorting.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.ShapeTemplateCollection">
+            <summary>
+            A keyed collection of ShapeTemplates.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplateCollection.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Galatea.AI.Abstract.ShapeTemplateCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplateCollection.CreateFromPattern(System.Int32,Galatea.AI.Abstract.TemplatePatternCollection,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> instance from a pattern and adds it to the 
+            <see cref="T:Galatea.AI.Abstract.ShapeTemplateCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplateCollection.CreateFromContext(Galatea.IO.ContextStream,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Not Implemented
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplateCollection.Serialize(Galatea.AI.Abstract.ShapeTemplate)">
+            <summary>
+            Serializes the <see cref="P:Galatea.AI.Abstract.ShapeTemplate.BlobPoints"/> collection into a comma-delimited text string.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplateCollection.Deserialize(System.Int32,System.String,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> using the specified <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> 
+            attributes, and creates the <see cref="P:Galatea.AI.Abstract.ShapeTemplate.BlobPoints"/> attribute from a 
+            serialized data string.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplateCollection.InsertItem(System.Int32,Galatea.AI.Abstract.ShapeTemplate)">
+            <summary>
+            Validates the ShapeTemplate template type before inserting.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.ShapeTemplateCollection.Identify(Galatea.AI.Abstract.ShapeTemplate,System.Int16@)">
+            <summary>
+            Identifies the <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> which most closely resembles the specified pattern.
+            </summary>
+            <param name="unknownItem"> A <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> instance for comparison. </param>
+            <param name="certainty">
+            The degree of certainty from 0 to 100 with which a Template is identified.
+            </param>
+            <returns> The <see cref="T:Galatea.AI.Abstract.ShapeTemplate"/> which most closely resembles the unknown item. </returns>
+        </member>
+        <member name="T:Galatea.AI.Abstract.SymbolTemplateCollection">
+            <summary>
+            A keyed collection of SymbolTemplates which represent ASCII numerals, text characters, or symbols. 
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplateCollection.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Galatea.AI.Abstract.SymbolTemplateCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplateCollection.CreateFromPattern(System.Int32,Galatea.AI.Abstract.TemplatePatternCollection,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> instance from a pattern and adds it to the <see cref="T:Galatea.AI.Abstract.SymbolTemplateCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplateCollection.CreateFromContext(Galatea.IO.ContextStream,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> instance from a <see cref="T:Galatea.IO.ContextStream"/>.
+            </summary>
+            <param name="context">
+            The <see cref="T:Galatea.IO.ContextStream"/> containing the attributes, used to construct the
+            <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/>.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplateCollection.Identify(Galatea.AI.Abstract.SymbolTemplate,System.Int16@)">
+            <summary>
+            Identifies the <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> which most closely resembles the specified pattern.
+            </summary>
+            <param name="unknownItem"> A <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> instance for comparison. </param>
+            <param name="certainty">
+            The degree of certainty from 0 to 100 with which a Template is identified.
+            </param>
+            <returns> The <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> which most closely resembles the unknown item. </returns>
+            <remarks>
+            Determine if the Bitmap resembles an Alpha-Numeric pattern by reducing the image to a 5x5 grid.  Then compare each 
+            square to a database of 5x5 bitmaps for each Alpha-Numeric  character.  Each 5x5 square is one point -- up to 25 points 
+            total.  The bitmap must score at least 18. 
+            
+            If you have a better algorithm, you would modify this method or override, if you are inheriting.
+            </remarks>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplateCollection.Add(System.Int32,System.String,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> instance and adds it to the end of the collection.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplateCollection.Serialize(Galatea.AI.Abstract.SymbolTemplate)">
+            <summary>
+            Serializes the <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmapSize"/> and <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap"/>
+            properties into a comma-delimited string.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.SymbolTemplateCollection.Deserialize(System.Int32,System.String,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.SymbolTemplate"/> using the specified <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> 
+            attributes, and creates the <see cref="P:Galatea.AI.Abstract.SymbolTemplate.AsciiBitmap"/> attribute from a 
+            serialized data string.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Abstract.BaseTemplateCollection`1">
+            <summary>
+            Provides the abstract base class for a <see cref="T:Galatea.AI.Abstract.BaseTemplate"/>
+            collection whose keys are embedded in the template name.
+            </summary>
+            <typeparam name="TTemplate">
+            The type of the Templates in the collection.
+            </typeparam>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.#ctor(Galatea.AI.Abstract.TemplateType)">
+            <summary>
+            Creates a new instance of the <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/> class.
+            </summary>
+            <param name="templateType">The type of the Templates in the collection.</param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.GetKeyForItem(`0)">
+            <summary>
+            Extracts the <see cref="P:Galatea.AI.Abstract.BaseTemplate.Name"/> key from the specified <see cref="T:Galatea.AI.Abstract.BaseTemplate"/>.
+            </summary>
+            <param name="item">
+            The <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> from which to extract the  <see cref="P:Galatea.AI.Abstract.BaseTemplate.Name"/> key.
+            </param>
+            <returns>
+            The <see cref="P:Galatea.AI.Abstract.BaseTemplate.Name"/> key for the specified  <see cref="T:Galatea.AI.Abstract.BaseTemplate"/>.
+            </returns>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Add(`0)">
+            <summary>
+            Adds a Template to the end of the <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/>.
+            </summary>
+            <param name="item">
+            The Template to be added to the end of the <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Remove(System.String)">
+            <summary>
+            Removes the Template item with the specified key from the <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/>.
+            </summary>
+            <param name="key">The <see cref="P:Galatea.AI.Abstract.BaseTemplate.Name"/> of the element to remove.</param>
+            <returns>
+            true if the element is successfully removed; otherwise, false. This method also
+            returns false if key is not found in the <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:Galatea.AI.Abstract.BaseTemplateCollection`1.Item(System.Int32)">
+            <summary> Gets the element with the specified identifier. </summary>
+            <param name="id"> The identifier of the BaseTemplate to get. </param>
+            <returns> The BaseTemplate with the specified identifier. </returns>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.CreateFromPattern(System.Int32,Galatea.AI.Abstract.TemplatePatternCollection,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> instance and adds it to the <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/>.
+            </summary>
+            <param name="id">
+            The unique ID assigned by the Data Access Manager.
+            </param>
+            <param name="templatePattern">
+            A collection of templates supplied by the Recognition Model.  The template 
+            returned by the function will have the same attributes as the Pattern instance
+            with a corresponding <see cref="P:Galatea.AI.Abstract.BaseTemplateCollection`1.TemplateType"/> attribute.
+            </param>
+            <param name="name">
+            The name of the template, parsed by the Language Model and passed along with
+            User Feedback.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <typeparamref name="TTemplate"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.CreateFromContext(Galatea.IO.ContextStream,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new instance of a <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> of type defined by
+            <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/> from a <see cref="T:Galatea.IO.ContextStream"/>.
+            </summary>
+            <param name="context">
+            The <see cref="T:Galatea.IO.ContextStream"/> containing the attributes, including 
+            Template Type, used to construct the BaseTemplate of type defined by
+            <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/>.
+            </param>
+            <param name="creator">
+            The component that created and labeled the <typeparamref name="TTemplate"/>.
+            </param>
+        </member>
+        <member name="P:Galatea.AI.Abstract.BaseTemplateCollection`1.HybridResultThreshold">
+            <summary>
+            Gets or sets a value that determines the threshold at which an unknown Template 
+            might contain two similar Templates.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.BaseTemplateCollection`1.TemplateType">
+            <summary>
+            Gets the type of Template contained in the collection.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Identify(`0,System.Int16@)">
+             <summary>
+             Identifies the <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> item which most closely resembles 
+             the specified pattern.
+             </summary>
+             <param name="unknownItem"> A <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> instance for comparison. </param>
+             <param name="certainty">
+             The degree of certainty from 0 to 100 with which a Template is identified.
+             </param>
+             <returns>
+             The <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> which most closely resembles the unknown item.
+            </returns>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Identify(`0,System.Collections.Generic.IComparer{`0},System.Int16@)">
+             <summary>
+             Identifies the <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> item which most closely resembles 
+             the specified pattern.
+             </summary>
+             <param name="unknownItem">
+             A <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> instance for comparison. 
+             </param>
+             <param name="comparer"> The comparer to use to determine how closely the unknown template resembles
+             Th
+             </param>
+             <param name="certainty">
+             The degree of certainty from 0 to 100 with which a Template is identified.
+             </param>
+             <returns>
+             The <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> which most closely resembles the unknown item.
+            </returns>
+        </member>
+        <member name="P:Galatea.AI.Abstract.BaseTemplateCollection`1.HybridResultItem">
+            <summary>
+            Gets a Template that is similar enough to a Named Template that the unknown Template
+            might be considered to contain both the Named Template and the similar hybrid result.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Add(System.Int32,System.String,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> instance and adds it to the end of the collection.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.SerializeAll">
+            <summary>
+            Serializes all of the <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> instances contained in the 
+            <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/> into a string value.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Serialize(`0)">
+            <summary>
+            Serializes the <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> properties which define a unique Template
+            into a string to store into a database.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Deserialize(System.Int32,System.String,System.String,System.String,Galatea.AI.Abstract.ICreator)">
+            <summary>
+            Creates a new class instance inheriting from <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> using 
+            the specified attributes, and creates the other attributes from a serialized 
+            data string.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Abstract.BaseTemplateCollection`1.Site">
+            <summary>
+            Gets or sets the <see cref="T:System.ComponentModel.ISite"/> associated with the <see cref="T:System.ComponentModel.IComponent"/>.
+            </summary>
+        </member>
+        <member name="E:Galatea.AI.Abstract.BaseTemplateCollection`1.Disposed">
+            <summary>
+            Represents the method that handles the <see cref="E:System.ComponentModel.IComponent.Disposed"/>
+            event of a component.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Dispose">
+            <summary>
+            Disposes all Template items in the collection.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.AI.Language.LanguageResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Commands">
+            <summary>
+              Looks up a localized string similar to Say.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.EvaluateName_Response">
+            <summary>
+              Looks up a localized string similar to {0} name is {1}..
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.FeedbackResponse_TypeOf_Format">
+            <summary>
+              Looks up a localized string similar to It&apos;s a type of {0}..
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.GrammarRules_CommitAndSave_ErrorText_Format">
+            <summary>
+              Looks up a localized string similar to Error in ISpeechGrammarRules.CommitAndSave:  {0}.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Request_Delimiter">
+            <summary>
+              Looks up a localized string similar to and then.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Response_Delimiter">
+            <summary>
+              Looks up a localized string similar to   and .
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.TextToSpeechGetVoicesErrorFormat">
+            <summary>
+              Looks up a localized string similar to An error occurred when invoking the method &apos;{0}.GetVoices().Item({1})&apos;..
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.TextToSpeechSubstitionsError">
+            <summary>
+              Looks up a localized string similar to WHY YOU SUBSTITUTION INCORRECTLY??!1.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_2nd_Person">
+            <summary>
+              Looks up a localized string similar to {0}, you, you&apos;re.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_Articles">
+            <summary>
+              Looks up a localized string similar to a:default,an:a-e-i-o-u.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_Evaluate">
+            <summary>
+              Looks up a localized string similar to what,what&apos;s.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_Feedback">
+            <summary>
+              Looks up a localized string similar to yes,good,great,no,bad,awful.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_Feedback_Templates">
+             <summary>
+               Looks up a localized string similar to Yes : Yes, Right, Correct;
+            Good : Good, Good Job, Nice;
+            Great : Great, Great Job, Fantastic, Excellent;
+            MehNo : Um, Eh;
+            No    : No, Wrong, Sorry;
+            Bad   : Bad;
+            Awful : Awful, Terrible, Horrible, You Suck;.
+             </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_It">
+            <summary>
+              Looks up a localized string similar to it.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_My">
+            <summary>
+              Looks up a localized string similar to my.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_TemplateType">
+            <summary>
+              Looks up a localized string similar to color:1,shape:2,symbol:3,letter:4,number:5,name:100.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_TemplateType_Plural">
+            <summary>
+              Looks up a localized string similar to colors:1,shapes:2,symbols:3,letters:4,numbers:5,names:100.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_The">
+            <summary>
+              Looks up a localized string similar to the.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_Thing">
+            <summary>
+              Looks up a localized string similar to thing,object,widget,blob.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_ToBe">
+            <summary>
+              Looks up a localized string similar to is,are,it&apos;s,its.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.Tokens_Your">
+            <summary>
+              Looks up a localized string similar to your.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.UNDEFINED">
+            <summary>
+              Looks up a localized string similar to #undefined#.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.UserEvaluateInput_NameEntity_Response_Format">
+            <summary>
+              Looks up a localized string similar to It&apos;s {0} {1}!.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.UserEvaluateInput_NameTemplate_Response_Format">
+            <summary>
+              Looks up a localized string similar to The {0} is {1}..
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.UserEvaluateInput_Response_IDK_Template">
+            <summary>
+              Looks up a localized string similar to I don&apos;t know the {0}..
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResources.UserEvaluateInput_Response_IDK_TemplateType">
+            <summary>
+              Looks up a localized string similar to I don&apos;t know what {0} means..
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Language.LanguageResponseManager">
+            <summary>
+            Contains all the good algorithms for Language Response.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResponseManager.Default">
+            <summary>
+            For <see cref="T:Galatea.AI.Language.InputTokenManager"/> reference.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResponseManager.Galatea#AI#Abstract#ITemplate#Name">
+            <summary>
+            Gets the system name of the AI Self-Awareness.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.LanguageResponseManager.Galatea#AI#Abstract#ITemplate#FriendlyName">
+            <summary>
+            Gets or sets a string value representing a user-friendly definition 
+            for the AI.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Language.LanguageResponseManager.GetResponse(System.String,Galatea.IO.IResponseBag,Galatea.IO.ContextNode)">
+            <summary>
+            Analyzes user input text and hardware context, applies comprehension, and 
+            formulates a response
+            </summary>
+            <returns>
+            The text response to user input.
+            </returns>
+        </member>
+        <member name="T:Galatea.AI.Language.SubstitutionsException">
+            <summary>
+            An error that occurs during the <see cref="M:Galatea.AI.Language.SubstitutionsManager.LoadSubstitutions(System.Collections.Generic.IEnumerable{System.String})"/> method.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Language.SubstitutionsException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Language.SubstitutionsException"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Language.SubstitutionsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Language.SubstitutionsException"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Language.SubstitutionsException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Language.SubstitutionsException"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Language.SubstitutionsException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            When overridden in a derived class, sets the System.Runtime.Serialization.SerializationInfo
+            with information about the exception.
+            </summary>
+            <param name="info">
+            The System.Runtime.Serialization.SerializationInfo that holds the serialized
+            object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The System.Runtime.Serialization.StreamingContext that contains contextual information
+            about the source or destination.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Language.SubstitutionsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Language.SubstitutionsException"/> class with 
+            serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the 
+            serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains 
+            contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The info parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+        </member>
+        <member name="P:Galatea.AI.Language.SubstitutionsException.SubstitutionArgument">
+            <summary>
+            A string value that was improperly formatted for Substitutions.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Language.SubstitutionsManager">
+            <summary>
+            Contains all the good algorithms for Language Response.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.SubstitutionsManager.Galatea#AI#Abstract#ITemplate#Name">
+            <summary>
+            Gets the system name of the AI Self-Awareness.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Language.SubstitutionsManager.Galatea#AI#Abstract#ITemplate#FriendlyName">
+            <summary>
+            Gets or sets a string value representing a user-friendly definition 
+            for the AI.
+            </summary>
+        </member>
+    </members>
+</doc>

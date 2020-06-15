@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ElizaBot</name>
+    </assembly>
+    <members>
+        <member name="T:ElizaBot.Doctor">
+            <summary>
+            This class contains the Eliza program adapted from a Java applet.
+            </summary>
+            <remarks>
+            http://users.rcn.com/mrex/samples/eliza/elizas.txt
+            </remarks>
+        </member>
+        <member name="M:ElizaBot.Doctor.#ctor(System.String)">
+            <summary>
+            Constructor -- Doctor class
+            </summary>
+        </member>
+        <member name="M:ElizaBot.Doctor.Ask(System.String)">
+            <summary>
+            takes in a question, searches the response sets, and builds a Response.
+            </summary>
+            <param name="question">The user input text</param>
+            <returns>the response to the user</returns>
+        </member>
+    </members>
+</doc>

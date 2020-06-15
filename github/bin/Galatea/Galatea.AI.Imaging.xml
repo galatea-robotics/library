@@ -1,0 +1,615 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Galatea.AI.Imaging</name>
+    </assembly>
+    <members>
+        <member name="M:Galatea.AI.Imaging.BlobPointsManager.GetNextPoint(Galatea.Imaging.BitmapBlob,System.Byte,System.Drawing.Point,Galatea.Imaging.Collections.CircularList{Galatea.AI.Imaging.BlobPointsManager.XYDirection},System.Int32@)">
+            <summary>
+            Where P is the point - analyze in a clockwise direction and
+            find the first Point that is not the background color.
+            </summary>
+            <remarks>
+            
+                14|15|00|01|02|
+                13|  |  |  |03|
+                12|  |P |  |04|
+                11|  |  |  |05|
+                10|09|08|07|06|
+                
+            </remarks>
+        </member>
+        <member name="T:Galatea.AI.Imaging.BlobPointsManager.NextPointException">
+            <summary>
+            An exception that occurs when the Next Point cannot be located.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.ColorStats">
+            <summary>
+            Gets statistical data for the <see cref="M:Galatea.AI.Imaging.IBlobImageAnalyzer.GetBlobImage(System.Drawing.Bitmap)"/>  method.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Imaging.ColorStats.#ctor(System.Drawing.Bitmap,Galatea.Imaging.BitmapBlob)">
+            <summary>
+            Instantiates a new ColorStats object.
+            </summary>
+            <param name="source"> The original image containing the pixel colors to analyze. </param>
+            <param name="bitmapBlob"> The monochrome blob image containing the background. </param>
+            <remarks>
+            You can improve performance by limiting the types of statistical data to calculate.
+            </remarks>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ColorStats.Mean">
+            <summary>
+            Gets the Mean color of the pixels from the source image, while ignoring the 
+            background area specified by the blob image.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ColorStats.Median">
+            <summary>
+            Gets the Median color of the pixels from the source image, while ignoring the 
+            background area specified by the blob image.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ColorStats.Mode">
+            <summary>
+            Gets the Mode color of the pixels from the source image, while ignoring the 
+            background area specified by the blob image.
+            </summary>
+            <remarks> Don't use. </remarks>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Filters.CropFilter">
+            <summary>
+            An extension of <see cref="T:Accord.Imaging.Filters.IFilter"/> for internal use.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Filters.FrameFilter">
+            <summary>
+            Applies a frame around a bitmap.
+            </summary>
+            <remarks>
+            A 32 x 24 bitmap with a frame width of 2 will return a 36 x 28 bitmap.
+            </remarks>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Filters.MonochromeBlobFilter">
+            <summary>
+            A FiltersSequence optimized to obtain the largest object blob bitmap from
+            a static two-dimensional image and to transform the image into a monochrome
+            two-color black and white bitmap.
+            </summary>
+            <remarks> For internal use. </remarks>
+        </member>
+        <member name="M:Galatea.AI.Imaging.Filters.MonochromeBlobFilter.Apply(System.Drawing.Bitmap)">
+            <summary>
+            Applies the filter to an image.
+            </summary>
+            <param name="image">The source image to apply filter to.</param>
+            <returns> 
+            A monochrome bitmap with an indexed color palette containing two 
+            entries (black and white).
+            </returns>
+        </member>
+        <member name="M:Galatea.AI.Imaging.Filters.MonochromeBlobFilter.Apply(System.Drawing.Bitmap,System.Int32)">
+            <summary>
+            Applies the filter to an image.
+            </summary>
+            <param name="image">The source image to apply filter to.</param>
+            <param name="frameThreshold"> 
+            A value specifying whether to adjust the bitmap before and after applying the filter sequence.
+            </param>
+            <returns> 
+            A monochrome bitmap with an indexed color palette containing two 
+            entries (black and white).
+            </returns>
+        </member>
+        <member name="M:Galatea.AI.Imaging.Filters.MonochromeBlobFilter.SetWhiteBackgroundToBlack(System.Drawing.Bitmap)">
+            <remarks>
+            LockBits example:  https://msdn.microsoft.com/en-us/library/5ey6h79d(v=vs.110).aspx
+            </remarks>
+        </member>
+        <member name="M:Galatea.AI.Imaging.Filters.MonochromeBlobFilter.GetStats(System.Drawing.Bitmap)">
+            <summary>
+            Scans a monochrome bitmap to determine if the background is black, or white.  Also
+            determines the weight of foreground pixels to black pixels, but that isn't being 
+            used right now.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Filters.MonochromeBlobFilter.BackgroundIsBlack">
+            <summary>
+            Gets a value indicating that the bitmap contains a white blob on a 
+            black background, or a black blob on a white background.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Filters.MonochromeBlobFilter.Weight">
+            <summary>
+            Gets a value specifying the ratio of blob pixels to background pixels. 
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Filters.RotateFilter">
+            <summary>
+            A FiltersSequence optimized to obtain the edges from a monochrome
+            two-color black and white bitmap.
+            </summary>
+            <remarks> For internal use. </remarks>
+        </member>
+        <member name="T:Galatea.AI.Imaging.GuiImaging">
+            <summary>
+            Provides Bitmaps representing the AI image processing attributes to a GUI.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Imaging.GuiImaging.GetBitmapBlobImage(Galatea.Imaging.BitmapBlob,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Draws a <see cref="T:System.Drawing.Bitmap"/> and fills it with the specified <see cref="T:Galatea.Imaging.BitmapBlob"/>.
+            </summary>
+            <param name="bitmapBlob"> 
+            The <see cref="T:Galatea.Imaging.BitmapBlob"/> containing binary information for reconstructing the Bitmap.
+            </param>
+            <param name="fillColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to fill the Bitmap blob.
+            </param>
+            <param name="backgroundColor">
+            The specified background color.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.Imaging.GuiImaging.GetBitmapBlobImage(Galatea.Imaging.BitmapBlob,System.Drawing.Color,System.Drawing.Color,System.Boolean)">
+            <summary>
+            Draws a <see cref="T:System.Drawing.Bitmap"/> and fills it with the specified <see cref="T:Galatea.Imaging.BitmapBlob"/>.
+            </summary>
+            <param name="bitmapBlob"> 
+            The <see cref="T:Galatea.Imaging.BitmapBlob"/> containing binary information for reconstructing the Bitmap.
+            </param>
+            <param name="fillColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to fill the Bitmap blob.
+            </param>
+            <param name="backgroundColor">
+            The specified background color.
+            </param>
+            <param name="drawRectangle">
+            A boolean to determine if a rectangle border is to be drawn.
+            </param>        
+            <returns>A <see cref="T:System.Drawing.Bitmap"/> instance.</returns>
+        </member>
+        <member name="M:Galatea.AI.Imaging.GuiImaging.GetBitmapBlobInitialPointsImage(Galatea.Imaging.BitmapBlob,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,Galatea.AI.Imaging.GuiPointShape)">
+            <summary>
+            Creates a <see cref="T:System.Drawing.Bitmap"/>, fills it with the specified <see cref="T:Galatea.Imaging.BitmapBlob"/>, and 
+            then draws a list of <see cref="T:System.Drawing.Point"/>s obtained from a <see cref="N:Galatea.AI.Imaging"/>
+            algorithm.
+            </summary>
+            <param name="bitmapBlob"> 
+            The <see cref="T:Galatea.Imaging.BitmapBlob"/> containing binary information for reconstructing the Bitmap.
+            </param>
+            <param name="fillColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to fill the Bitmap blob.
+            </param>
+            <param name="backgroundColor">
+            The specified background color.
+            </param>
+            <param name="penColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the points.
+            </param>
+            <param name="shape"> 
+            A <see cref="T:Galatea.AI.Imaging.GuiPointShape"/> value specifying a token to draw at the specified point.
+            </param>
+            <returns>A <see cref="T:System.Drawing.Bitmap"/> instance.</returns>
+        </member>
+        <member name="M:Galatea.AI.Imaging.GuiImaging.GetThresholdBlobPointsImage(Galatea.Imaging.BitmapBlob,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Boolean@,System.Boolean@,System.Boolean@)">
+            <summary>
+            Creates a <see cref="T:System.Drawing.Bitmap"/> and fills it with the specified <see cref="T:Galatea.Imaging.BitmapBlob"/>, then 
+            draws a list of initial <see cref="T:System.Drawing.Point"/>s, and then draws a <see cref="T:Galatea.Imaging.BlobPointList"/> 
+            with vertices identifying straight line segments.
+            </summary>
+            <param name="bitmapBlob"> 
+            The <see cref="T:Galatea.Imaging.BitmapBlob"/> containing binary information for reconstructing the Bitmap.
+            </param>
+            <param name="fillColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to fill the Bitmap blob.
+            </param>
+            <param name="backgroundColor">
+            The specified background color.
+            </param>
+            <param name="pointColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the initial points.
+            </param>
+            <param name="blobPointColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the <see cref="T:Galatea.Imaging.BlobPointList"/>.
+            </param>
+            <param name="convexColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the line segment indicating that a 
+            <see cref="T:Galatea.Imaging.BlobPoint"/> is convex.
+            </param>
+            <param name="curveColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the line segment indicating that a 
+            <see cref="T:Galatea.Imaging.BlobPoint"/> is curved.
+            </param>
+            <param name="hasLines"> Specifies that the BlobImage has line segments that are straight.</param>
+            <param name="hasCurves"> Specifies that the BlobImage has line segments that are curved.</param>
+            <param name="isCircle"> Specifies that the BloBImage is entirely curved and concave.</param>
+            <returns>A <see cref="T:System.Drawing.Bitmap"/> instance.</returns>
+        </member>
+        <member name="M:Galatea.AI.Imaging.GuiImaging.GetTangentBlobPointsImage(Galatea.Imaging.BitmapBlob,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Boolean@,System.Boolean@,System.Boolean@)">
+            <summary>
+            Creates a <see cref="T:System.Drawing.Bitmap"/> and fills it with the specified <see cref="T:Galatea.Imaging.BitmapBlob"/>, then 
+            draws a list of initial <see cref="T:System.Drawing.Point"/>s, and then draws a <see cref="T:Galatea.Imaging.BlobPointList"/> 
+            with vertices identifying straight line segments and curved arcs.
+            </summary>
+            <param name="bitmapBlob"> 
+            The <see cref="T:Galatea.Imaging.BitmapBlob"/> containing binary information for reconstructing the Bitmap.
+            </param>
+            <param name="fillColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to fill the Bitmap blob.
+            </param>
+            <param name="backgroundColor">
+            The specified background color.
+            </param>
+            <param name="pointColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the initial points.
+            </param>
+            <param name="blobPointColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the <see cref="T:Galatea.Imaging.BlobPointList"/>.
+            </param>
+            <param name="convexColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the line segment indicating that a 
+            <see cref="T:Galatea.Imaging.BlobPoint"/> is convex.
+            </param>
+            <param name="curveColor">
+            The specified <see cref="T:System.Drawing.Color"/> with which to draw the line segment indicating that a 
+            <see cref="T:Galatea.Imaging.BlobPoint"/> is curved.
+            </param>
+            <param name="hasLines"> Specifies that the BlobImage has line segments that are straight.</param>
+            <param name="hasCurves"> Specifies that the BlobImage has line segments that are curved.</param>
+            <param name="isCircle"> Specifies that the BloBImage is entirely curved and concave.</param>
+            <returns>A <see cref="T:System.Drawing.Bitmap"/> instance.</returns>
+        </member>
+        <member name="T:Galatea.AI.Imaging.GuiPointsGraphics">
+            <summary>
+            Provides Bitmaps representing the AI image processing attributes to a GUI.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.GuiPointShape">
+            <summary>
+            Indicates a bitmap token to paint onto a <see cref="T:Galatea.Imaging.BitmapBlob"/>
+            at a specified point.
+            </summary>
+        </member>
+        <member name="F:Galatea.AI.Imaging.GuiPointShape.Dot">
+            <summary> Draws only a dot at the specified point. </summary>
+            <remarks> Default. </remarks>
+        </member>
+        <member name="F:Galatea.AI.Imaging.GuiPointShape.Cross">
+            <summary> Draws a 3x3 cross with 5 pixels centered at the specified point. 
+            </summary>
+        </member>
+        <member name="F:Galatea.AI.Imaging.GuiPointShape.BigCross">
+            <summary> Draws a 5x5 cross with 9 pixels centered at the specified point. 
+            </summary>
+        </member>
+        <member name="F:Galatea.AI.Imaging.GuiPointShape.X">
+            <summary> Draws a 3x3 'X' with 5 pixels centered at the specified point. 
+            </summary>
+        </member>
+        <member name="F:Galatea.AI.Imaging.GuiPointShape.BigX">
+            <summary> Draws a 5x5 'X' with 9 pixels centered at the specified point. 
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.ImagingSettings">
+            <summary>
+            Contains settings used to dynamically filter Bitmap images for Object Recognition.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Imaging.ImagingSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Imaging.ImagingSettings"/> class.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.Timeout">
+            <summary>
+            Gets or sets the time limit, in milliseconds, for a recursive image recognition function to process.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.SuppressTimeout">
+            <summary>
+            Gets or sets a boolean specifying whether to ignore a time limit specified by <see cref="P:Galatea.AI.Imaging.ImagingSettings.Timeout"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.DebugRecognitionSaveImages">
+            <summary>
+            Gets or sets a boolean value specifying whether to save trace bitmap iterations
+            during image processing.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.DebugRecognitionSaveFolder">
+            <summary>
+            Gets or sets a string specifying where to save trace bitmap iterations to create
+            test cases.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.ColorStatsSettings">
+            <summary>
+            Gets or sets a <see cref="T:Galatea.AI.Imaging.Configuration.ColorStatsSettings"/> instance containing settings used to 
+            determine statistical Color properties.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.MonochromeBlobFilterSettings">
+            <summary>
+            Gets or sets a <see cref="T:Galatea.AI.Imaging.Configuration.MonochromeBlobFilterSettings"/> instance containing settings
+            used in creating Monochrome Blob Images.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.BlobPointSettings">
+            <summary>
+            Gets or sets a <see cref="T:Galatea.AI.Imaging.Configuration.BlobPointSettings"/> instance containing settings used in 
+            creating a <see cref="T:Galatea.Imaging.BlobPoint"/> list.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.ImagingSettings.TemplateRecognitionSettings">
+            <summary>
+            Gets or sets a <see cref="T:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings"/> instance containing settings
+            used by Template Recognition algorithms.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Configuration.ColorStatsSettings">
+            <summary>
+            Contains settings used to determine statistical Color properties.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.ColorStatsSettings.StatisticalAnalysisTypes">
+            <summary>
+            Specifies the types of statistical data to calculate.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Configuration.MonochromeBlobFilterSettings">
+            <summary>
+            Contains settings used in creating Monochrome Blob Images.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.MonochromeBlobFilterSettings.ContrastCorrectionFactor">
+            <summary>
+            Gets or sets the <see cref="P:Accord.Imaging.Filters.ContrastCorrection.Factor"/> value.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.MonochromeBlobFilterSettings.AdaptiveSmoothingFactor">
+            <summary>
+            Gets or sets the <see cref="P:Accord.Imaging.Filters.AdaptiveSmoothing.Factor"/> value.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.MonochromeBlobFilterSettings.FrameWidth">
+            <summary>
+            Gets or sets a value which wraps a frame around the image before applying the 
+            MonochromeBlobFilter, and then removes the frame after applying the filter.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Configuration.BlobPointSettings">
+            <summary>
+            Contains settings used in creating a <see cref="T:Galatea.Imaging.BlobPoint"/> list.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.BlobPointSettings.LineSegmentThreshold">
+            <summary>
+            The minimum length, in Pixels, for determining if a line segment
+            is part of a polygon.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.BlobPointSettings.LineAngleThreshold">
+            <summary>
+            The minimum value, in degrees, for determining if a point is part 
+            of a line segment, or if it is a vertex defining a new line segment.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.BlobPointSettings.CurveAngleThreshold">
+            <summary>
+            The minimum value, in degrees, for determining if a point is part 
+            of a curved arc, or if it is a vertex defining a new line segment.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings">
+            <summary>
+            Contains settings used by Template Recognition algorithms.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings.ColorBrightnessThreshold">
+            <summary>
+            Gets or sets the threshold which determines if an abstract ColorTemplate is dark (black)
+            or very bright (white).
+            </summary>
+            <remarks>
+            If the color Brightness value is below the threshold, the ColorTemplate will be identified 
+            as black.<br/>
+            If the color Brightness value is greater than 100 minus the threshold, the ColorTemplate
+            will be identified as white.
+            </remarks>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings.ColorSaturationThreshold">
+            <summary>
+            Gets or sets the threshold which determines if an abstract ColorTemplate is monochrome.
+            </summary>
+            <remarks>
+            If the color Saturation value is below the threshold, the ColorTemplate will be identified 
+            as monochrome (gray).  This logic is applied after the logic using Brightness to determine
+            if the ColorTemplate is white or black.
+            </remarks>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings.ShapeOblongThreshold">
+            <summary>
+            Gets or sets the threshold which determines if an abstract ShapeTemplate is oblong.
+            </summary>
+            <remarks>
+            If the shape length / width or shape width / length is greater than the threshold, 
+            the ShapeTemplate will be determined to be oblong.
+            </remarks>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings.ShapeOblongRecognitionLevel">
+            <summary>
+            Gets or sets an integer determining the degree to which a ShapeTemplate is calculated
+            as oblong.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <item>
+            A value of 1 indicates that the ShapeTemplate oblong value will be calculated based
+            solely on the ratio of the height and width of the blob.
+            </item>
+            <item>
+            A value of 2 indicates that the ShapeTemplate oblong value will be calculated based
+            on the ratio of the height and width of the blob, and then by analyzing if the image
+            is diagonally oblong.
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings.ShapeOblongRecognitionNormalization">
+            <summary>
+            Gets or sets a boolean determining whether an oblong ShapeTemplate should be 
+            normalized until the height and width are approximately equal, before analyzing
+            the Blob Points to identify the shape.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.Configuration.TemplateRecognitionSettings.IdentifyShapeCertaintyMinimum">
+            <summary>
+            Gets or sets a number determining the confidence level of a ShapeTemplate 
+            recognition process.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.ContextImageAnalyzer">
+            <summary>
+            Contains Artificial Intelligence methods for processing raw images from a static, fixed camera source.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Imaging.ContextImageAnalyzer.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.AI.Imaging.StaticFixedImageAnalyzer">
+            <summary>
+            Contains Artificial Intelligence methods for processing raw images from a static, fixed camera source.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Imaging.VisualProcessor">
+            <summary>
+            A running process that contains Artificial Intelligence methods for 
+            raw binary image and stereoscopic processing, and 3D modeling.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Imaging.VisualProcessor.#ctor(Galatea.AI.Imaging.ImagingSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.Imaging.VisualProcessor"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Imaging.VisualProcessor.Initialize(Galatea.Runtime.IRuntimeEngine)">
+            <summary>
+            Adds the <see cref="T:Galatea.AI.Imaging.VisualProcessor"/> component to the runtime Engine.
+            </summary>
+            <param name="runtimeEngine">
+            The runtime Engine.
+            </param>
+        </member>
+        <member name="P:Galatea.AI.Imaging.VisualProcessor.IsInitialized">
+            <summary>
+            Gets a value indicating that the <see cref="T:Galatea.AI.Imaging.VisualProcessor"/> component
+            has been added to the runtime Engine container, and that components can 
+            be instantiated and added to the <see cref="T:Galatea.AI.Imaging.VisualProcessor"/> container.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.VisualProcessor.ImageAnalyzer">
+            <summary>
+            Gets a reference to the raw binary image processing component 
+            of the <see cref="T:Galatea.AI.Imaging.VisualProcessingSystem"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.VisualProcessor.ImagingSystemType">
+            <summary>
+            Specifies the robotics imaging hardware.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Imaging.VisualProcessor.Galatea#Runtime#IFoundation#IsInitialized">
+            <summary>
+            Gets the <see cref="T:Galatea.Runtime.IEngine"/> that contains the 
+            <see cref="T:Galatea.AI.Imaging.VisualProcessingSystem"/> component.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Imaging.VisualProcessor.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.ComponentModel.Component"/> and optionally
+            releases the managed resources.
+            </summary>
+            <param name="disposing">
+            true to release both managed and unmanaged resources; false to release only unmanaged
+            resources.
+            </param>
+        </member>
+        <member name="T:Galatea.Imaging.IO.ImagingContextStream">
+            <summary> 
+            Creates a Stream that provides additional context information to the AI components.
+            </summary>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.Copy">
+            <summary>
+            Creates a copy of the current <see cref="T:Galatea.IO.ContextStream"/> instance.
+            </summary>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.ExtractBlob``1">
+            <summary>
+            Extracts the <see cref="T:Galatea.Imaging.BlobImage"/> instance from the <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/>.
+            </summary>
+            <typeparam name="TBlob">Must be typeof(<see cref="T:Galatea.Imaging.BlobImage"/>).</typeparam>
+            <returns>A <see cref="T:Galatea.Imaging.BlobImage"/> instance.</returns>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.ExtractColor">
+            <summary> 
+            Reads a <see cref="T:Galatea.IO.ContextStream"/> into a Color. 
+            </summary>
+            <returns> A <see cref="T:System.Drawing.Color"/> derived from the stream. </returns>       
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.FromColor(System.Drawing.Color)">
+            <summary> 
+            Writes a <see cref="T:System.Drawing.Color"/> to an ImagingContextStream. 
+            </summary>
+            <param name="color"> The Color to write to the Stream. </param>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.ExtractBitmap">
+            <summary> 
+            Reads an <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/> into a Bitmap. 
+            </summary>
+            <returns> A <see cref="T:System.Drawing.Bitmap"/> derived from the <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/>. </returns>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.FromImage(System.Drawing.Image)">
+            <summary>
+            Writes a <see cref="T:System.Drawing.Bitmap"/> to an <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/>. 
+            </summary>
+            <param name="image"> The Bitmap to write to the Stream. </param>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.FromBitmapStream(System.IO.Stream)">
+            <summary>
+            Writes a <see cref="T:System.IO.Stream"/> encoded from a <see cref="T:System.Drawing.Bitmap"/> to an 
+            <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/>. 
+            </summary>
+            <param name="bitmapStream"> 
+            The <see cref="T:System.IO.Stream"/> encoded from a <see cref="T:System.Drawing.Bitmap"/> to write to 
+            the <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.ExtractBitmapBlob">
+            <summary> 
+            Reads an <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/> into a <see cref="T:Galatea.Imaging.BitmapBlob"/>. 
+            </summary>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.FromBitmapBlob(Galatea.Imaging.BitmapBlob)">
+            <summary>
+            Writes a <see cref="T:Galatea.Imaging.BitmapBlob"/> to an ImagingContextStream. 
+            </summary>
+            <param name="bitmapBlob"> The BitmapBlob to write to the Stream. </param>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.ExtractBlobImage">
+            <summary> 
+            Reads an <see cref="T:Galatea.Imaging.IO.ImagingContextStream"/> into a <see cref="T:Galatea.Imaging.BlobImage"/>. 
+            </summary>
+        </member>
+        <member name="M:Galatea.Imaging.IO.ImagingContextStream.FromBlobImage(Galatea.Imaging.BlobImage)">
+            <summary> 
+            Writes a <see cref="T:Galatea.Imaging.BlobImage"/> to an ImagingContextStream. 
+            </summary>
+            <param name="blobImage"> The BlobImage to write to the ImagingContextStream. </param>
+        </member>
+    </members>
+</doc>

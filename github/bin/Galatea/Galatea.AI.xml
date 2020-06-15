@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Galatea.AI</name>
+    </assembly>
+    <members>
+        <member name="T:Galatea.AI.CognitiveModels.CognitiveModel">
+            <summary>
+            Provides a base implementation for the <see cref="T:System.ComponentModel.IContainer"/>
+            interface.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.CognitiveModels.CognitiveModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.AI.CognitiveModels.CognitiveModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.CognitiveModels.CognitiveModel.AI">
+            <summary>
+            Gets the <see cref="T:Galatea.AI.IRobot"/> that contains the component.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.CognitiveModels.CognitiveModel.Initialize(Galatea.AI.IRobot)">
+            <summary>
+            Adds the component to the <see cref="T:Galatea.AI.IRobot"/> container.
+            </summary>
+            <param name="system">
+            The <see cref="T:Galatea.AI.IRobot"/> container.
+            </param>
+        </member>
+        <member name="P:Galatea.AI.CognitiveModels.CognitiveModel.IsInitialized">
+            <summary>
+            Gets a value indicating if the Cognitive Model container components can 
+            be instantiated and added to the container.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.CognitiveModels.CognitiveModel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.AI.CognitiveModels.RecognitionModel">
+            <summary>
+            Contains Artificial Intelligence methods for object recognition.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.CognitiveModels.RecognitionModel.Galatea#IO#IContextManager#LoadContextStream(Galatea.IO.ContextType,Galatea.IO.InputType,Galatea.IO.ContextStream,System.Type,Galatea.IO.IContextBag)">
+            <summary>
+            Streams to the Artificial Intelligence component a sequence of bytes 
+            representing the hardware input.
+            </summary>
+            <param name="contextType"> 
+            A value specifying the type and the purpose of the <see cref="T:Galatea.IO.ContextStream"/>
+            </param>
+            <param name="inputType">
+            A value specifying the type of user input, when applicable.
+            </param>
+            <param name="stream">
+            A sequence of bytes representing a hardware or user input.
+            </param>
+            <param name="streamObjectType">
+            A <see cref="T:System.Type"/> that can be instantiated from the Stream.
+            </param>
+            <param name="contextBag">
+            A queue that chains Context Stream information, for logging as one event.
+            </param>
+        </member>
+        <member name="M:Galatea.AI.CognitiveModels.RecognitionModel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="P:Galatea.AI.CognitiveModels.LanguageModel.Galatea#AI#Abstract#ITemplate#Name">
+            <summary>
+            Gets the system name of the AI Self-Awareness.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.CognitiveModels.LanguageModel.Galatea#AI#Abstract#ITemplate#FriendlyName">
+            <summary>
+            Gets or sets a string value representing a user-friendly definition 
+            for the AI.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.CognitiveModels.LanguageModel.Galatea#IO#IResponseManager#GetResponse(Galatea.IO.IResponseBag,Galatea.IO.ContextNode)">
+            <summary>
+            Analyzes user input text and hardware context, applies comprehension, and 
+            formulates a response
+            </summary>
+            <returns> The text response to user input. </returns>
+        </member>
+        <member name="T:Galatea.AI.IRobot">
+            <summary>
+            Contains Artificial Intelligence interfaces for abstraction, recognition, reasoning, 
+            analysis, language, task execution, and data access.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.IRobot.MemoryModel">
+            <summary>
+            The data access component for object recognition.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.IRobot.InitializeMemory(Galatea.AI.Abstract.ILibrary)">
+            <summary>
+            Sets the <see cref="P:Galatea.AI.IRobot.MemoryModel"/> property.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.IRobot.Engine">
+            <summary>
+            Gets the <see cref="T:Galatea.Runtime.IRuntimeEngine"/> process that contains the 
+            <see cref="T:Galatea.AI.CognitiveModelingSystem"/> component.
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Robotics.Machine">
+            <summary>
+            A running process that contains Artificial Intelligence methods for hardware 
+            feedback and control.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Robotics.Machine.Galatea#AI#Robotics#SensoryMotorSystem#MotorController">
+            <summary>
+            Gets a reference to the Motor Controller component of the 
+            <see cref="T:Galatea.AI.Robotics.SensoryMotorSystem"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.AI.Robotics.Machine.Galatea#AI#Robotics#SensoryMotorSystem#SensorAnalyzer">
+            <summary>
+            Gets a reference to the Sensor Feedback Processing component 
+            of the <see cref="T:Galatea.AI.Robotics.SensoryMotorSystem"/>.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.Robotics.Machine.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.AI.SelfAwareness">
+            <summary>
+            You really don't want to know.
+            </summary>
+        </member>
+        <member name="M:Galatea.AI.SelfAwareness.BecomeSelfAware(Galatea.Runtime.IRuntimeEngine,System.String)">
+            <summary>
+            Will you welcome our Robot Overlords?
+            </summary>
+        </member>
+        <member name="T:Galatea.AI.Robot">
+            <summary>
+            A running process that contains Artificial Intelligence methods for abstraction, 
+            recognition, reasoning, analysis, and language.
+            </summary>
+        </member>
+    </members>
+</doc>

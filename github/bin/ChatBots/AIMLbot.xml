@@ -1,0 +1,1776 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AIMLbot</name>
+    </assembly>
+    <members>
+        <member name="T:AIMLBot.AIMLTagHandlers.bot">
+            <summary>
+            An element called bot, which may be considered a restricted version of get, is used to 
+            tell the AIML interpreter that it should substitute the contents of a "bot predicate". The 
+            value of a bot predicate is set at load-time, and cannot be changed at run-time. The AIML 
+            interpreter may decide how to set the values of bot predicate at load-time. If the bot 
+            predicate has no value defined, the AIML interpreter should substitute an empty string.
+            
+            The bot element has a required name attribute that identifies the bot predicate. 
+            
+            The bot element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.bot.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.condition">
+             <summary>
+             The condition element instructs the AIML interpreter to return specified contents depending 
+             upon the results of matching a predicate against a pattern. 
+             
+             NB: The condition element has three different types. The three different types specified 
+             here are distinguished by an xsi:type attribute, which permits a validating XML Schema 
+             processor to validate them. Two of the types may contain li elements, of which there are 
+             three different types, whose validity is determined by the type of enclosing condition. In 
+             practice, an AIML interpreter may allow the omission of the xsi:type attribute and may instead 
+             heuristically determine which type of condition (and hence li) is in use. 
+             
+             Block Condition 
+             ---------------
+             
+             The blockCondition type of condition has a required attribute "name", which specifies an AIML 
+             predicate, and a required attribute "value", which contains a simple pattern expression. 
+            
+             If the contents of the value attribute match the value of the predicate specified by name, then 
+             the AIML interpreter should return the contents of the condition. If not, the empty string "" 
+             should be returned.
+             
+             Single-predicate Condition 
+             --------------------------
+             
+             The singlePredicateCondition type of condition has a required attribute "name", which specifies 
+             an AIML predicate. This form of condition must contain at least one li element. Zero or more of 
+             these li elements may be of the valueOnlyListItem type. Zero or one of these li elements may be 
+             of the defaultListItem type.
+             
+             The singlePredicateCondition type of condition is processed as follows: 
+            
+             Reading each contained li in order: 
+            
+             1. If the li is a valueOnlyListItem type, then compare the contents of the value attribute of 
+             the li with the value of the predicate specified by the name attribute of the enclosing 
+             condition. 
+                 a. If they match, then return the contents of the li and stop processing this condition. 
+                 b. If they do not match, continue processing the condition. 
+             2. If the li is a defaultListItem type, then return the contents of the li and stop processing
+             this condition.
+             
+             Multi-predicate Condition 
+             -------------------------
+             
+             The multiPredicateCondition type of condition has no attributes. This form of condition must 
+             contain at least one li element. Zero or more of these li elements may be of the 
+             nameValueListItem type. Zero or one of these li elements may be of the defaultListItem type.
+             
+             The multiPredicateCondition type of condition is processed as follows: 
+            
+             Reading each contained li in order: 
+            
+             1. If the li is a nameValueListItem type, then compare the contents of the value attribute of 
+             the li with the value of the predicate specified by the name attribute of the li. 
+                 a. If they match, then return the contents of the li and stop processing this condition. 
+                 b. If they do not match, continue processing the condition. 
+             2. If the li is a defaultListItem type, then return the contents of the li and stop processing 
+             this condition. 
+             
+             ****************
+             
+             Condition List Items
+             
+             As described above, two types of condition may contain li elements. There are three types of 
+             li elements. The type of li element allowed in a given condition depends upon the type of that 
+             condition, as described above. 
+             
+             Default List Items 
+             ------------------
+             
+             An li element of the type defaultListItem has no attributes. It may contain any AIML template 
+             elements. 
+            
+             Value-only List Items
+             ---------------------
+             
+             An li element of the type valueOnlyListItem has a required attribute value, which must contain 
+             a simple pattern expression. The element may contain any AIML template elements.
+             
+             Name and Value List Items
+             -------------------------
+             
+             An li element of the type nameValueListItem has a required attribute name, which specifies an 
+             AIML predicate, and a required attribute value, which contains a simple pattern expression. The 
+             element may contain any AIML template elements. 
+             </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.condition.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.date">
+            <summary>
+            The date element tells the AIML interpreter that it should substitute the system local 
+            date and time. No formatting constraints on the output are specified.
+            
+            The date element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.date.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.formal">
+            <summary>
+            The formal element tells the AIML interpreter to render the contents of the element 
+            such that the first letter of each word is in uppercase, as defined (if defined) by 
+            the locale indicated by the specified language (if specified). This is similar to methods 
+            that are sometimes called "Title Case". 
+            
+            If no character in this string has a different uppercase version, based on the Unicode 
+            standard, then the original string is returned.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.formal.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.gender">
+             <summary>
+             The atomic version of the gender element is a shortcut for:
+             
+             <gender><star/></gender> 
+            
+             The atomic gender does not have any content. 
+             
+             The non-atomic gender element instructs the AIML interpreter to: 
+             
+             1. replace male-gendered words in the result of processing the contents of the gender element 
+             with the grammatically-corresponding female-gendered words; and 
+             
+             2. replace female-gendered words in the result of processing the contents of the gender element 
+             with the grammatically-corresponding male-gendered words. 
+             
+             The definition of "grammatically-corresponding" is left up to the implementation.
+             
+             Historically, implementations of gender have exclusively dealt with pronouns, likely due to the 
+             fact that most AIML has been written in English. However, the decision about whether to 
+             transform gender of other words is left up to the implementation.
+             </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.gender.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.get">
+            <summary>
+            The get element tells the AIML interpreter that it should substitute the contents of a 
+            predicate, if that predicate has a value defined. If the predicate has no value defined, 
+            the AIML interpreter should substitute the empty string "". 
+            
+            The AIML interpreter implementation may optionally provide a mechanism that allows the 
+            AIML author to designate default values for certain predicates (see [9.3.]). 
+            
+            The get element must not perform any text formatting or other "normalization" on the predicate
+            contents when returning them. 
+            
+            The get element has a required name attribute that identifies the predicate with an AIML 
+            predicate name. 
+            
+            The get element does not have any content.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.get.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.gossip">
+            <summary>
+            The gossip element instructs the AIML interpreter to capture the result of processing the 
+            contents of the gossip elements and to store these contents in a manner left up to the 
+            implementation. Most common uses of gossip have been to store captured contents in a separate 
+            file. 
+            
+            The gossip element does not have any attributes. It may contain any AIML template elements.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.gossip.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.id">
+            <summary>
+            The id element tells the AIML interpreter that it should substitute the user ID. 
+            The determination of the user ID is not specified, since it will vary by application. 
+            A suggested default return value is "localhost". 
+            
+            The id element does not have any content.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.id.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.input">
+            <summary>
+            The input element tells the AIML interpreter that it should substitute the contents of a 
+            previous user input. 
+            
+            The template-side input has an optional index attribute that may contain either a single 
+            integer or a comma-separated pair of integers. The minimum value for either of the integers 
+            in the index is "1". The index tells the AIML interpreter which previous user input should 
+            be returned (first dimension), and optionally which "sentence" (see [8.3.2.]) of the previous 
+            user input. 
+            
+            The AIML interpreter should raise an error if either of the specified index dimensions is 
+            invalid at run-time. 
+            
+            An unspecified index is the equivalent of "1,1". An unspecified second dimension of the index 
+            is the equivalent of specifying a "1" for the second dimension. 
+            
+            The input element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.input.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.javascript">
+            <summary>
+            NOT IMPLEMENTED FOR SECURITY REASONS
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.javascript.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.learn">
+            <summary>
+            The learn element instructs the AIML interpreter to retrieve a resource specified by a URI, 
+            and to process its AIML object contents.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.learn.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.lowercase">
+            <summary>
+            The lowercase element tells the AIML interpreter to render the contents of the element 
+            in lowercase, as defined (if defined) by the locale indicated by the specified language
+            (if specified). 
+            
+            If no character in this string has a different lowercase version, based on the Unicode 
+            standard, then the original string is returned. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.lowercase.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.person">
+             <summary>
+             The atomic version of the person element is a shortcut for: 
+             
+             <person><star/></person> 
+            
+             The atomic person does not have any content. 
+             
+             The non-atomic person element instructs the AIML interpreter to: 
+             
+             1. replace words with first-person aspect in the result of processing the contents of the 
+             person element with words with the grammatically-corresponding third-person aspect; and 
+             
+             2. replace words with third-person aspect in the result of processing the contents of the 
+             person element with words with the grammatically-corresponding first-person aspect.
+             
+             The definition of "grammatically-corresponding" is left up to the implementation. 
+             
+             Historically, implementations of person have dealt with pronouns, likely due to the fact that 
+             most AIML has been written in English. However, the decision about whether to transform the 
+             person aspect of other words is left up to the implementation.
+             </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.person.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.person2">
+            <summary>
+            The atomic version of the person2 element is a shortcut for: 
+            
+            <person2><star/></person2> 
+            
+            The atomic person2 does not have any content.
+            
+            The non-atomic person2 element instructs the AIML interpreter to: 
+            
+            1. replace words with first-person aspect in the result of processing the contents of the 
+            person2 element with words with the grammatically-corresponding second-person aspect; and,
+            
+            2. replace words with second-person aspect in the result of processing the contents of the 
+            person2 element with words with the grammatically-corresponding first-person aspect. 
+            
+            The definition of "grammatically-corresponding" is left up to the implementation.
+            
+            Historically, implementations of person2 have dealt with pronouns, likely due to the fact 
+            that most AIML has been written in English. However, the decision about whether to transform 
+            the person aspect of other words is left up to the implementation.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.person2.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.random">
+            <summary>
+            The random element instructs the AIML interpreter to return exactly one of its contained li 
+            elements randomly. The random element must contain one or more li elements of type 
+            defaultListItem, and cannot contain any other elements.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.random.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.sentence">
+            <summary>
+            The sentence element tells the AIML interpreter to render the contents of the element 
+            such that the first letter of each sentence is in uppercase, as defined (if defined) by 
+            the locale indicated by the specified language (if specified). Sentences are interpreted 
+            as strings whose last character is the period or full-stop character .. If the string does 
+            not contain a ., then the entire string is treated as a sentence.
+            
+            If no character in this string has a different uppercase version, based on the Unicode 
+            standard, then the original string is returned. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.sentence.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.set">
+            <summary>
+            The set element instructs the AIML interpreter to set the value of a predicate to the result 
+            of processing the contents of the set element. The set element has a required attribute name, 
+            which must be a valid AIML predicate name. If the predicate has not yet been defined, the AIML 
+            interpreter should define it in memory. 
+            
+            The AIML interpreter should, generically, return the result of processing the contents of the 
+            set element. The set element must not perform any text formatting or other "normalization" on 
+            the predicate contents when returning them. 
+            
+            The AIML interpreter implementation may optionally provide a mechanism that allows the AIML 
+            author to designate certain predicates as "return-name-when-set", which means that a set 
+            operation using such a predicate will return the name of the predicate, rather than its 
+            captured value. (See [9.2].) 
+            
+            A set element may contain any AIML template elements.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.set.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.size">
+            <summary>
+            The size element tells the AIML interpreter that it should substitute the number of 
+            categories currently loaded.
+            
+            The size element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.size.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.sr">
+            <summary>
+            The sr element is a shortcut for: 
+            
+            <srai><star/></srai> 
+            
+            The atomic sr does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.sr.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.srai">
+            <summary>
+            The srai element instructs the AIML interpreter to pass the result of processing the contents 
+            of the srai element to the AIML matching loop, as if the input had been produced by the user 
+            (this includes stepping through the entire input normalization process). The srai element does 
+            not have any attributes. It may contain any AIML template elements. 
+            
+            As with all AIML elements, nested forms should be parsed from inside out, so embedded srais are 
+            perfectly acceptable. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.srai.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.star">
+            <summary>
+            The star element indicates that an AIML interpreter should substitute the value "captured" 
+            by a particular wildcard from the pattern-specified portion of the match path when returning 
+            the template. 
+            
+            The star element has an optional integer index attribute that indicates which wildcard to use. 
+            The minimum acceptable value for the index is "1" (the first wildcard), and the maximum 
+            acceptable value is equal to the number of wildcards in the pattern. 
+            
+            An AIML interpreter should raise an error if the index attribute of a star specifies a wildcard 
+            that does not exist in the category element's pattern. Not specifying the index is the same as 
+            specifying an index of "1". 
+            
+            The star element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.star.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.system">
+            <summary>
+            NOT IMPLEMENTED FOR SECURITY REASONS
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.system.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.that">
+            <summary>
+            The template-side that element indicates that an AIML interpreter should substitute the 
+            contents of a previous bot output. 
+            
+            The template-side that has an optional index attribute that may contain either a single 
+            integer or a comma-separated pair of integers. The minimum value for either of the integers 
+            in the index is "1". The index tells the AIML interpreter which previous bot output should be 
+            returned (first dimension), and optionally which "sentence" (see [8.3.2.]) of the previous bot
+            output (second dimension). 
+            
+            The AIML interpreter should raise an error if either of the specified index dimensions is 
+            invalid at run-time. 
+            
+            An unspecified index is the equivalent of "1,1". An unspecified second dimension of the index 
+            is the equivalent of specifying a "1" for the second dimension. 
+            
+            The template-side that element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.that.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.thatstar">
+            <summary>
+            The thatstar element tells the AIML interpreter that it should substitute the contents of a 
+            wildcard from a pattern-side that element. 
+            
+            The thatstar element has an optional integer index attribute that indicates which wildcard 
+            to use; the minimum acceptable value for the index is "1" (the first wildcard). 
+            
+            An AIML interpreter should raise an error if the index attribute of a star specifies a 
+            wildcard that does not exist in the that element's pattern content. Not specifying the index 
+            is the same as specifying an index of "1". 
+            
+            The thatstar element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.thatstar.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.think">
+            <summary>
+            The think element instructs the AIML interpreter to perform all usual processing of its 
+            contents, but to not return any value, regardless of whether the contents produce output.
+            
+            The think element has no attributes. It may contain any AIML template elements.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.think.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.topicstar">
+            <summary>
+            The topicstar element tells the AIML interpreter that it should substitute the contents of 
+            a wildcard from the current topic (if the topic contains any wildcards).
+            
+            The topicstar element has an optional integer index attribute that indicates which wildcard 
+            to use; the minimum acceptable value for the index is "1" (the first wildcard). Not 
+            specifying the index is the same as specifying an index of "1". 
+            
+            The topicstar element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.topicstar.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.uppercase">
+            <summary>
+            The uppercase element tells the AIML interpreter to render the contents of the element
+            in uppercase, as defined (if defined) by the locale indicated by the specified language
+            if specified).
+            
+            If no character in this string has a different uppercase version, based on the Unicode 
+            standard, then the original string is returned. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.uppercase.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.AIMLTagHandlers.version">
+            <summary>
+            The version element tells the AIML interpreter that it should substitute the version number
+            of the AIML interpreter.
+            
+            The version element does not have any content. 
+            </summary>
+        </member>
+        <member name="M:AIMLBot.AIMLTagHandlers.version.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request inputted into the system</param>
+            <param name="result">The result to be passed to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="T:AIMLBot.Bot">
+            <summary>
+            Encapsulates a bot. If no settings.xml file is found or referenced the bot will try to
+            default to safe settings.
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.GlobalSettings">
+            <summary>
+            A dictionary object that looks after all the settings associated with this bot
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.GenderSubstitutions">
+            <summary>
+            A dictionary of all the gender based substitutions used by this bot
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.Person2Substitutions">
+            <summary>
+            A dictionary of all the first person to second person (and back) substitutions
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.PersonSubstitutions">
+            <summary>
+            A dictionary of first / third person substitutions
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.Substitutions">
+            <summary>
+            Generic substitutions that take place during the normalization process
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.DefaultPredicates">
+            <summary>
+            The default predicates to set up for a user
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.CustomTags">
+            <summary>
+            Holds information about the available custom tag handling classes (if loaded)
+            Key = class name
+            Value = TagHandler class that provides information about the class
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.LateBindingAssemblies">
+            <summary>
+            Holds references to the assemblies that hold the custom tag handling code.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:AIMLBot.Bot.Splitters" -->
+        <member name="F:AIMLBot.Bot.LogBuffer">
+            <summary>
+            A buffer to hold log messages to be written out to the log file when a max size is reached
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.MaxLogBufferSize">
+            <summary>
+            How big to let the log buffer get before writing to disk
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.isAcceptingUserInput">
+            <summary>
+            Flag to show if the bot is willing to accept user input
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.NotAcceptingUserInputMessage">
+            <summary>
+            The message to show if a user tries to use the bot whilst it is set to not process user input
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.TimeOut">
+            <summary>
+            The maximum amount of time a request should take (in milliseconds)
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.TimeOutMessage">
+            <summary>
+            The message to display in the event of a timeout
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.Locale">
+            <summary>
+            The locale of the bot as a CultureInfo object
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.Strippers">
+            <summary>
+            Will match all the illegal characters that might be inputted by the user
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.AdminEmail">
+            <summary>
+            The email address of the botmaster to be used if WillCallHome is set to true
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.IsLogging">
+            <summary>
+            Flag to denote if the bot is writing messages to its logs
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.WillCallHome">
+            <summary>
+            Flag to denote if the bot will email the botmaster using the AdminEmail setting should an error
+            occur
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.StartedOn">
+            <summary>
+            When the Bot was initialised
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.Sex">
+            <summary>
+            The supposed sex of the bot
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.PathToAIML">
+            <summary>
+            The directory to look in for the AIML files
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.PathToConfigFiles">
+            <summary>
+            The directory to look in for the various XML configuration files
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Bot.PathToLogs">
+            <summary>
+            The directory into which the various log files will be written
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.Size">
+            <summary>
+            The number of categories this bot has in its graphmaster "brain"
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.Graphmaster">
+            <summary>
+            The "brain" of the bot
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.TrustAIML">
+            <summary>
+            If set to false the input from AIML files will undergo the same normalization process that
+            user input goes through. If true the bot will assume the AIML is correct. Defaults to true.
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Bot.MaxThatSize">
+            <summary>
+            The maximum number of characters a "that" element of a path is allowed to be. Anything above
+            this length will cause "that" to be "*". This is to avoid having the graphmaster process
+            huge "that" elements in the path that might have been caused by the bot reporting third party
+            data.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Bot.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Bot.loadAIMLFromFiles">
+            <summary>
+            Loads AIML from .aiml files into the graphmaster "brain" of the bot
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Bot.loadAIMLFromXML(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Allows the bot to load a new XML version of some AIML
+            </summary>
+            <param name="newAIML">The XML document containing the AIML</param>
+            <param name="filename">The originator of the XML document</param>
+        </member>
+        <member name="M:AIMLBot.Bot.setup">
+            <summary>
+            Instantiates the dictionary objects and collections associated with this class
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Bot.loadSettings">
+            <summary>
+            Loads settings based upon the default location of the Settings.xml file
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Bot.loadSettings(System.String)">
+            <summary>
+            Loads settings and configuration info from various xml files referenced in the settings file passed in the args. 
+            Also generates some default values if such values have not been set by the settings file.
+            </summary>
+            <param name="pathToSettings">Path to the settings xml file</param>
+        </member>
+        <member name="M:AIMLBot.Bot.loadSplitters(System.String)">
+            <summary>
+            Loads the splitters for this bot from the supplied config file (or sets up some safe defaults)
+            </summary>
+            <param name="pathToSplitters">Path to the config file</param>
+        </member>
+        <member name="F:AIMLBot.Bot.LastLogMessage">
+            <summary>
+            The last message to be entered into the log (for testing purposes)
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Bot.writeToLog(System.String)">
+            <summary>
+            Writes a (timestamped) message to the bot's log.
+            
+            Log files have the form of yyyyMMdd.log.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:AIMLBot.Bot.Chat(System.String,System.String)">
+            <summary>
+            Given some raw input and a unique ID creates a response for a new user
+            </summary>
+            <param name="rawInput">the raw input</param>
+            <param name="UserGUID">an ID for the new user (referenced in the result object)</param>
+            <returns>the result to be output to the user</returns>
+        </member>
+        <member name="M:AIMLBot.Bot.Chat(AIMLBot.Request)">
+            <summary>
+            Given a request containing user input, produces a result from the bot
+            </summary>
+            <param name="request">the request from the user</param>
+            <returns>the result to be output to the user</returns>
+        </member>
+        <member name="M:AIMLBot.Bot.processNode(System.Xml.XmlNode,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,AIMLBot.User)">
+            <summary>
+            Recursively evaluates the template nodes returned from the bot
+            </summary>
+            <param name="node">the node to evaluate</param>
+            <param name="query">the query that produced this node</param>
+            <param name="request">the request from the user</param>
+            <param name="result">the result to be sent to the user</param>
+            <param name="user">the user who originated the request</param>
+            <returns>the output string</returns>
+        </member>
+        <member name="M:AIMLBot.Bot.getBespokeTags(AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Searches the CustomTag collection and processes the AIML if an appropriate tag handler is found
+            </summary>
+            <param name="user">the user who originated the request</param>
+            <param name="query">the query that produced this node</param>
+            <param name="request">the request from the user</param>
+            <param name="result">the result to be sent to the user</param>
+            <param name="node">the node to evaluate</param>
+            <returns>the output string</returns>
+        </member>
+        <member name="M:AIMLBot.Bot.saveToBinaryFile(System.String)">
+            <summary>
+            Saves the graphmaster node (and children) to a binary file to avoid processing the AIML each time the 
+            bot starts
+            </summary>
+            <param name="path">the path to the file for saving</param>
+        </member>
+        <member name="M:AIMLBot.Bot.loadFromBinaryFile(System.String)">
+            <summary>
+            Loads a dump of the graphmaster into memory so avoiding processing the AIML files again
+            </summary>
+            <param name="path">the path to the dump file</param>
+        </member>
+        <member name="M:AIMLBot.Bot.loadCustomTagHandlers(System.String)">
+            <summary>
+            Loads any custom tag handlers found in the dll referenced in the argument
+            </summary>
+            <param name="pathToDLL">the path to the dll containing the custom tag handling code</param>
+        </member>
+        <member name="M:AIMLBot.Bot.phoneHome(System.String,AIMLBot.Request)">
+            <summary>
+            Attempts to send an email to the botmaster at the AdminEmail address setting with error messages
+            resulting from a query to the bot
+            </summary>
+            <param name="errorMessage">the resulting error message</param>
+            <param name="request">the request object that encapsulates all sorts of useful information</param>
+        </member>
+        <member name="T:AIMLBot.Normalize.ApplySubstitutions">
+            <summary>
+            Checks the text for any matches in the bot's substitutions dictionary and makes
+            any appropriate changes.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Normalize.ApplySubstitutions.getMarker(System.Int32)">
+            <summary>
+            Produces a random "marker" string that tags text that is already the result of a substitution
+            </summary>
+            <param name="len">The length of the marker</param>
+            <returns>the resulting marker</returns>
+        </member>
+        <member name="M:AIMLBot.Normalize.ApplySubstitutions.Substitute(AIMLBot.Bot,AIMLBot.Utils.SettingsDictionary,System.String)">
+            <summary>
+            Static helper that applies replacements from the passed dictionary object to the 
+            target string
+            </summary>
+            <param name="bot">The bot for whom this is being processed</param>
+            <param name="dictionary">The dictionary containing the substitutions</param>
+            <param name="target">the target string to which the substitutions are to be applied</param>
+            <returns>The processed string</returns>
+        </member>
+        <member name="M:AIMLBot.Normalize.ApplySubstitutions.makeRegexSafe(System.String)">
+            <summary>
+            Given an input, escapes certain characters so they can be used as part of a regex
+            </summary>
+            <param name="input">The raw input</param>
+            <returns>the safe version</returns>
+        </member>
+        <member name="T:AIMLBot.Normalize.MakeCaseInsensitive">
+            <summary>
+            Normalizes the input text into upper case
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Normalize.MakeCaseInsensitive.TransformInput(System.String)">
+            <summary>
+            An ease-of-use static method that re-produces the instance transformation methods
+            </summary>
+            <param name="input">The string to transform</param>
+            <returns>The resulting string</returns>
+        </member>
+        <member name="T:AIMLBot.Normalize.SplitIntoSentences">
+            <summary>
+            Splits the raw input into its constituent sentences. Split using the tokens found in 
+            the bots Splitters string array.
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Normalize.SplitIntoSentences.bot">
+            <summary>
+            The bot this sentence splitter is associated with
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Normalize.SplitIntoSentences.inputString">
+            <summary>
+            The raw input string
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Normalize.SplitIntoSentences.#ctor(AIMLBot.Bot,System.String)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot this sentence splitter is associated with</param>
+            <param name="inputString">The raw input string to be processed</param>
+        </member>
+        <member name="M:AIMLBot.Normalize.SplitIntoSentences.#ctor(AIMLBot.Bot)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot this sentence splitter is associated with</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Normalize.SplitIntoSentences.Transform(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Normalize.SplitIntoSentences.Transform" -->
+        <member name="T:AIMLBot.Normalize.StripIllegalCharacters">
+            <summary>
+            Strips any illegal characters found within the input string. Illegal characters are referenced from
+            the bot's Strippers regex that is defined in the setup XML file.
+            </summary>
+        </member>
+        <member name="T:AIMLBot.Request">
+            <summary>
+            Encapsulates all sorts of information about a request to the bot for processing
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Request.rawInput">
+            <summary>
+            The raw input from the user
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Request.StartedOn">
+            <summary>
+            The time at which this request was created within the system
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Request.user">
+            <summary>
+            The user who made this request
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Request.bot">
+            <summary>
+            The bot to which the request is being made
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Request.result">
+            <summary>
+            The final result produced by this request
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Request.hasTimedOut">
+            <summary>
+            Flag to show that the request has timed out
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Request.#ctor(System.String,AIMLBot.User,AIMLBot.Bot,System.Boolean)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="rawInput">The raw input from the user</param>
+            <param name="user">The user who made the request</param>
+            <param name="bot">The bot to which this is a request</param>
+        </member>
+        <member name="T:AIMLBot.Result">
+            <summary>
+            Encapsulates information about the result of a request to the bot
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.bot">
+            <summary>
+            The bot that is providing the answer
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.user">
+            <summary>
+            The user for whom this is a result
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.request">
+            <summary>
+            The request from the user
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Result.RawInput">
+            <summary>
+            The raw input from the user
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.NormalizedPaths">
+            <summary>
+            The normalized sentence(s) (paths) fed into the graphmaster
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.Duration">
+            <summary>
+            The amount of time the request took to process
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Result.Output">
+            <summary>
+            The result from the bot with logging and checking
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Result.RawOutput">
+            <summary>
+            Returns the raw sentences without any logging 
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.SubQueries">
+            <summary>
+            The subQueries processed by the bot's graphmaster that contain the templates that 
+            are to be converted into the collection of Sentences
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.OutputSentences">
+            <summary>
+            The individual sentences produced by the bot that form the complete response
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Result.InputSentences">
+            <summary>
+            The individual sentences that constitute the raw input from the user
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Result.#ctor(AIMLBot.User,AIMLBot.Bot,AIMLBot.Request)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="user">The user for whom this is a result</param>
+            <param name="bot">The bot providing the result</param>
+            <param name="request">The request that originated this result</param>
+        </member>
+        <member name="M:AIMLBot.Result.ToString">
+            <summary>
+            Returns the raw output from the bot
+            </summary>
+            <returns>The raw output from the bot</returns>
+        </member>
+        <member name="M:AIMLBot.Result.checkEndsAsSentence(System.String)">
+            <summary>
+            Checks that the provided sentence ends with a sentence splitter
+            </summary>
+            <param name="sentence">the sentence to check</param>
+            <returns>True if ends with an appropriate sentence splitter</returns>
+        </member>
+        <member name="T:AIMLBot.User">
+            <summary>
+            Encapsulates information and history of a user who has interacted with the bot
+            </summary>
+        </member>
+        <member name="F:AIMLBot.User.id">
+            <summary>
+            The local instance of the GUID that identifies this user to the bot
+            </summary>
+        </member>
+        <member name="F:AIMLBot.User.bot">
+            <summary>
+            The bot this user is using
+            </summary>
+        </member>
+        <member name="P:AIMLBot.User.UserID">
+            <summary>
+            The GUID that identifies this user to the bot
+            </summary>
+        </member>
+        <member name="F:AIMLBot.User.Results">
+            <summary>
+            A collection of all the result objects returned to the user in this session
+            </summary>
+        </member>
+        <member name="P:AIMLBot.User.Topic">
+            <summary>
+            the value of the "topic" predicate
+            </summary>
+        </member>
+        <member name="F:AIMLBot.User.Predicates">
+            <summary>
+            the predicates associated with this particular user
+            </summary>
+        </member>
+        <member name="P:AIMLBot.User.LastResult">
+            <summary>
+            The most recent result to be returned by the bot
+            </summary>
+        </member>
+        <member name="M:AIMLBot.User.#ctor(System.String,AIMLBot.Bot)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="UserID">The GUID of the user</param>
+            <param name="bot">the bot the user is connected to</param>
+        </member>
+        <member name="M:AIMLBot.User.getLastBotOutput">
+            <summary>
+            Returns the string to use for the next that part of a subsequent path
+            </summary>
+            <returns>the string to use for that</returns>
+        </member>
+        <member name="M:AIMLBot.User.getThat">
+            <summary>
+            Returns the first sentence of the last output from the bot
+            </summary>
+            <returns>the first sentence of the last output from the bot</returns>
+        </member>
+        <member name="M:AIMLBot.User.getThat(System.Int32)">
+            <summary>
+            Returns the first sentence of the output "n" steps ago from the bot
+            </summary>
+            <param name="n">the number of steps back to go</param>
+            <returns>the first sentence of the output "n" steps ago from the bot</returns>
+        </member>
+        <member name="M:AIMLBot.User.getThat(System.Int32,System.Int32)">
+            <summary>
+            Returns the sentence numbered by "sentence" of the output "n" steps ago from the bot
+            </summary>
+            <param name="n">the number of steps back to go</param>
+            <param name="sentence">the sentence number to get</param>
+            <returns>the sentence numbered by "sentence" of the output "n" steps ago from the bot</returns>
+        </member>
+        <member name="M:AIMLBot.User.getResultSentence">
+            <summary>
+            Returns the first sentence of the last output from the bot
+            </summary>
+            <returns>the first sentence of the last output from the bot</returns>
+        </member>
+        <member name="M:AIMLBot.User.getResultSentence(System.Int32)">
+            <summary>
+            Returns the first sentence from the output from the bot "n" steps ago
+            </summary>
+            <param name="n">the number of steps back to go</param>
+            <returns>the first sentence from the output from the bot "n" steps ago</returns>
+        </member>
+        <member name="M:AIMLBot.User.getResultSentence(System.Int32,System.Int32)">
+            <summary>
+            Returns the identified sentence number from the output from the bot "n" steps ago
+            </summary>
+            <param name="n">the number of steps back to go</param>
+            <param name="sentence">the sentence number to return</param>
+            <returns>the identified sentence number from the output from the bot "n" steps ago</returns>
+        </member>
+        <member name="M:AIMLBot.User.addResult(AIMLBot.Result)">
+            <summary>
+            Adds the latest result from the bot to the Results collection
+            </summary>
+            <param name="latestResult">the latest result from the bot</param>
+        </member>
+        <member name="T:AIMLBot.Utils.AIMLLoader">
+            <summary>
+            A utility class for loading AIML files from disk into the graphmaster structure that 
+            forms an AIML bot's "brain"
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.AIMLLoader.bot">
+            <summary>
+            The bot whose brain is being processed
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.#ctor(AIMLBot.Bot)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot whose brain is being processed</param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIML">
+            <summary>
+            Loads the AIML from files found in the bot's AIMLpath into the bot's brain
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIML(System.String)">
+            <summary>
+            Loads the AIML from files found in the path
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIMLFile(System.String)">
+            <summary>
+            Given the name of a file in the AIML path directory, attempts to load it into the 
+            graphmaster
+            </summary>
+            <param name="filename">The name of the file to process</param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIMLFromXML(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Given an XML document containing valid AIML, attempts to load it into the graphmaster
+            </summary>
+            <param name="doc">The XML document containing the AIML</param>
+            <param name="filename">Where the XML document originated</param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.processTopic(System.Xml.XmlNode,System.String)">
+            <summary>
+            Given a "topic" node, processes all the categories for the topic and adds them to the 
+            graphmaster "brain"
+            </summary>
+            <param name="node">the "topic" node</param>
+            <param name="filename">the file from which this node is taken</param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.processCategory(System.Xml.XmlNode,System.String)">
+            <summary>
+            Adds a category to the graphmaster structure using the default topic ("*")
+            </summary>
+            <param name="node">the XML node containing the category</param>
+            <param name="filename">the file from which this category was taken</param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.processCategory(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            Adds a category to the graphmaster structure using the given topic
+            </summary>
+            <param name="node">the XML node containing the category</param>
+            <param name="topicName">the topic to be used</param>
+            <param name="filename">the file from which this category was taken</param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.generatePath(System.Xml.XmlNode,System.String,System.Boolean)">
+            <summary>
+            Generates a path from a category XML node and topic name
+            </summary>
+            <param name="node">the category XML node</param>
+            <param name="topicName">the topic</param>
+            <param name="isUserInput">marks the path to be created as originating from user input - so
+            normalize out the * and _ wildcards used by AIML</param>
+            <returns>The appropriately processed path</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.FindNode(System.String,System.Xml.XmlNode)">
+            <summary>
+            Given a name will try to find a node named "name" in the childnodes or return null
+            </summary>
+            <param name="name">The name of the node</param>
+            <param name="node">The node whose children need searching</param>
+            <returns>The node (or null)</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.generatePath(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Generates a path from the passed arguments
+            </summary>
+            <param name="pattern">the pattern</param>
+            <param name="that">the that</param>
+            <param name="topicName">the topic</param>
+            <param name="isUserInput">marks the path to be created as originating from user input - so
+            normalize out the * and _ wildcards used by AIML</param>
+            <returns>The appropriately processed path</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLLoader.Normalize(System.String,System.Boolean)">
+            <summary>
+            Given an input, provide a normalized output
+            </summary>
+            <param name="input">The string to be normalized</param>
+            <param name="isUserInput">True if the string being normalized is part of the user input path - 
+            flags that we need to normalize out * and _ chars</param>
+            <returns>The normalized string</returns>
+        </member>
+        <member name="T:AIMLBot.Utils.AIMLTagHandler">
+            <summary>
+            The template for all classes that handle the AIML tags found within template nodes of a
+            category.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLTagHandler.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot involved in this request</param>
+            <param name="user">The user making the request</param>
+            <param name="query">The query that originated this node</param>
+            <param name="request">The request itself</param>
+            <param name="result">The result to be passed back to the user</param>
+            <param name="templateNode">The node to be processed</param>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLTagHandler.#ctor">
+            <summary>
+            Default ctor to use when late binding
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.AIMLTagHandler.isRecursive">
+            <summary>
+            A flag to denote if inner tags are to be processed recursively before processing this tag
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.AIMLTagHandler.user">
+            <summary>
+            A representation of the user who made the request
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.AIMLTagHandler.query">
+            <summary>
+            The query that produced this node containing the wildcard matches
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.AIMLTagHandler.request">
+            <summary>
+            A representation of the input into the bot made by the user
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.AIMLTagHandler.result">
+            <summary>
+            A representation of the result to be returned to the user
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.AIMLTagHandler.templateNode">
+            <summary>
+            The template node to be processed by the class
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.AIMLTagHandler.getNode(System.String)">
+            <summary>
+            Helper method that turns the passed string into an XML node
+            </summary>
+            <param name="outerXML">the string to XMLize</param>
+            <returns>The XML node</returns>
+        </member>
+        <member name="T:AIMLBot.Utils.CustomTagAttribute">
+            <summary>
+            A custom attribute to be applied to all custom tags in external "late bound" dlls
+            </summary>
+        </member>
+        <member name="T:AIMLBot.Utils.Gender">
+            <summary>
+            Used to determine the gender of things
+            </summary>
+        </member>
+        <member name="T:AIMLBot.Utils.MatchState">
+            <summary>
+            Denotes what part of the input path a node represents.
+            
+            Used when pushing values represented by wildcards onto collections for
+            the star, thatstar and topicstar AIML values.
+            </summary>
+        </member>
+        <member name="T:AIMLBot.Utils.Node">
+            <summary>
+            Encapsulates a node in the graphmaster tree structure
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.Node.children">
+            <summary>
+            Contains the child nodes of this node
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Utils.Node.NumberOfChildNodes">
+            <summary>
+            The number of direct children (non-recursive) of this node
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.Node.template">
+            <summary>
+            The template (if any) associated with this node
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.Node.filename">
+            <summary>
+            The AIML source for the category that defines the template
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.Node.word">
+            <summary>
+            The word that identifies this node to it's parent node
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.Node.addCategory(System.String,System.String,System.String)">
+            <summary>
+            Adds a category to the node
+            </summary>
+            <param name="path">the path for the category</param>
+            <param name="template">the template to find at the end of the path</param>
+            <param name="filename">the file that was the source of this category</param>
+        </member>
+        <member name="M:AIMLBot.Utils.Node.evaluate(System.String,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Utils.MatchState,System.Text.StringBuilder)">
+            <summary>
+            Navigates this node (and recusively into child nodes) for a match to the path passed as an argument
+            whilst processing the referenced request
+            </summary>
+            <param name="path">The normalized path derived from the user's input</param>
+            <param name="query">The query that this search is for</param>
+            <param name="request">An encapsulation of the request from the user</param>
+            <param name="matchstate">The part of the input path the node represents</param>
+            <param name="wildcard">The contents of the user input absorbed by the AIML wildcards "_" and "*"</param>
+            <returns>The template to process to generate the output</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.Node.storeWildCard(System.String,System.Text.StringBuilder)">
+            <summary>
+            Correctly stores a word in the wildcard slot
+            </summary>
+            <param name="word">The word matched by the wildcard</param>
+            <param name="wildcard">The contents of the user input absorbed by the AIML wildcards "_" and "*"</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:AIMLBot.Utils.SettingsDictionary" -->
+        <member name="F:AIMLBot.Utils.SettingsDictionary.settingsHash">
+            <summary>
+            Holds a dictionary of settings
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:AIMLBot.Utils.SettingsDictionary.orderedKeys" -->
+        <member name="F:AIMLBot.Utils.SettingsDictionary.bot">
+            <summary>
+            The bot this dictionary is associated with
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Utils.SettingsDictionary.Count">
+            <summary>
+            The number of items in the dictionary
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Utils.SettingsDictionary.DictionaryAsXML">
+            <summary>
+            An XML representation of the contents of this dictionary
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.SettingsDictionary.#ctor(AIMLBot.Bot)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="bot">The bot for whom this is a settings dictionary</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.loadSettings(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.loadSettings(System.Xml.XmlDocument)" -->
+        <member name="M:AIMLBot.Utils.SettingsDictionary.addSetting(System.String,System.String)">
+            <summary>
+            Adds a bespoke setting to the Settings class (accessed via the grabSettings(string name)
+            method.
+            </summary>
+            <param name="name">The name of the new setting</param>
+            <param name="value">The value associated with this setting</param>
+        </member>
+        <member name="M:AIMLBot.Utils.SettingsDictionary.removeSetting(System.String)">
+            <summary>
+            Removes the named setting from this class
+            </summary>
+            <param name="name">The name of the setting to remove</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.removeFromHash(System.String)" -->
+        <member name="M:AIMLBot.Utils.SettingsDictionary.updateSetting(System.String,System.String)">
+            <summary>
+            Updates the named setting with a new value whilst retaining the position in the
+            dictionary
+            </summary>
+            <param name="name">the name of the setting</param>
+            <param name="value">the new value</param>
+        </member>
+        <member name="M:AIMLBot.Utils.SettingsDictionary.clearSettings">
+            <summary>
+            Clears the dictionary to an empty state
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.SettingsDictionary.grabSetting(System.String)">
+            <summary>
+            Returns the value of a setting given the name of the setting
+            </summary>
+            <param name="name">the name of the setting whose value we're interested in</param>
+            <returns>the value of the setting</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.SettingsDictionary.containsSettingCalled(System.String)">
+            <summary>
+            Checks to see if a setting of a particular name exists
+            </summary>
+            <param name="name">The setting name to check</param>
+            <returns>Existential truth value</returns>
+        </member>
+        <member name="P:AIMLBot.Utils.SettingsDictionary.SettingNames">
+            <summary>
+            Returns a collection of the names of all the settings defined in the dictionary
+            </summary>
+            <returns>A collection of the names of all the settings defined in the dictionary</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.SettingsDictionary.Clone(AIMLBot.Utils.SettingsDictionary)">
+            <summary>
+            Copies the values in the current object into the SettingsDictionary passed as the target
+            </summary>
+            <param name="target">The target to recieve the values from this SettingsDictionary</param>
+        </member>
+        <member name="T:AIMLBot.Utils.SubQuery">
+            <summary>
+            A container class for holding wildcard matches encountered during an individual path's 
+            interrogation of the graphmaster.
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.SubQuery.FullPath">
+            <summary>
+            The path that this query relates to
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.SubQuery.Template">
+            <summary>
+            The template found from searching the graphmaster brain with the path 
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.SubQuery.InputStar">
+            <summary>
+            If the raw input matches a wildcard then this attribute will contain the block of 
+            text that the user has inputted that is matched by the wildcard.
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.SubQuery.ThatStar">
+            <summary>
+            If the "that" part of the normalized path contains a wildcard then this attribute 
+            will contain the block of text that the user has inputted that is matched by the wildcard.
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.SubQuery.TopicStar">
+            <summary>
+            If the "topic" part of the normalized path contains a wildcard then this attribute 
+            will contain the block of text that the user has inputted that is matched by the wildcard.
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.SubQuery.#ctor(System.String)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="fullPath">The path that this query relates to</param>
+        </member>
+        <member name="T:AIMLBot.Utils.TagHandler">
+            <summary>
+            Encapsulates information about a custom tag class
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.TagHandler.AssemblyName">
+            <summary>
+            The assembly this class is found in
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.TagHandler.ClassName">
+            <summary>
+            The class name for the assembly
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.TagHandler.TagName">
+            <summary>
+            The name of the tag this class will deal with
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.TagHandler.Instantiate(System.Collections.Generic.Dictionary{System.String,System.Reflection.Assembly})">
+            <summary>
+            Provides an instantiation of the class represented by this tag-handler
+            </summary>
+            <param name="Assemblies">All the assemblies the bot knows about</param>
+            <returns>The instantiated class</returns>
+        </member>
+        <member name="T:AIMLBot.Utils.TextTransformer">
+            <summary>
+            Encapsulates all the required methods and attributes for any text transformation.
+            
+            An input string is provided and various methods and attributes can be used to grab
+            a transformed string.
+            
+            The protected ProcessChange() method is abstract and should be overridden to contain 
+            the code for transforming the input text into the output text.
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.TextTransformer.inputString">
+            <summary>
+            Instance of the input string
+            </summary>
+        </member>
+        <member name="F:AIMLBot.Utils.TextTransformer.bot">
+            <summary>
+            The bot that this transformation is connected with
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Utils.TextTransformer.InputString">
+            <summary>
+            The input string to be transformed in some way
+            </summary>
+        </member>
+        <member name="P:AIMLBot.Utils.TextTransformer.OutputString">
+            <summary>
+            The transformed string
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.TextTransformer.#ctor(AIMLBot.Bot,System.String)">
+            <summary>
+            ctor
+            </summary>
+            <param name="bot">The bot this transformer is a part of</param>
+            <param name="inputString">The input string to be transformed</param>
+        </member>
+        <member name="M:AIMLBot.Utils.TextTransformer.#ctor(AIMLBot.Bot)">
+            <summary>
+            ctor
+            </summary>
+            <param name="bot">The bot this transformer is a part of</param>
+        </member>
+        <member name="M:AIMLBot.Utils.TextTransformer.#ctor">
+            <summary>
+            Default ctor for used as part of late binding mechanism
+            </summary>
+        </member>
+        <member name="M:AIMLBot.Utils.TextTransformer.Transform(System.String)">
+            <summary>
+            Do a transformation on the supplied input string
+            </summary>
+            <param name="input">The string to be transformed</param>
+            <returns>The resulting output</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.TextTransformer.Transform">
+            <summary>
+            Do a transformation on the string found in the InputString attribute
+            </summary>
+            <returns>The resulting transformed string</returns>
+        </member>
+        <member name="M:AIMLBot.Utils.TextTransformer.ProcessChange">
+            <summary>
+            The method that does the actual processing of the text.
+            </summary>
+            <returns>The resulting processed text</returns>
+        </member>
+    </members>
+</doc>

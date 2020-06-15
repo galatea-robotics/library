@@ -1,0 +1,812 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Galatea.Runtime</name>
+    </assembly>
+    <members>
+        <member name="P:Galatea.Runtime.ResponseBag.Galatea#IO#IResponseBag#Input">
+            <summary>
+            Gets the text input that the user applied to initiate the Response.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.IRuntimeEngine">
+            <summary>
+            The Galatea Runtime Engine.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.IRuntimeEngine.HttpService">
+            <summary>
+            Gets an Http component that actively awaits Http Requests from the web.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.IRuntimeEngine.ExecutiveFunctions">
+            <summary>
+            Gets the Task Management component of the Galatea Runtime Engine.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.IRuntimeEngine.DataAccessManager">
+            <summary>
+            Gets the Data Access component of the Galatea Runtime Engine.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.IRuntimeEngine.StartupStatus">
+            <summary>
+            Gets the Runtime Engine status during startup.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.IContextCache">
+            <summary>
+            A collection of Cached Context Streaming data.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.IContextCache.GetItem(Galatea.IO.ContextKey)">
+            <summary>
+            Gets the <see cref="T:Galatea.IO.ContextNode"/> with the specified key.
+            </summary>
+            <param name="key">
+            The specified key.
+            </param>
+            <returns>
+            A <see cref="T:Galatea.IO.ContextNode"/> instance.
+            </returns>
+        </member>
+        <member name="M:Galatea.Runtime.IContextCache.GetHandledContextNodes(System.Boolean)">
+            <summary>
+            Gets a <see cref="T:Galatea.IO.ContextNode"/> collection from this original collection with the specified parameters.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.IContextCache.GetContextNodes(Galatea.IO.ContextType)">
+            <summary>
+            Gets a <see cref="T:Galatea.IO.ContextNode"/> collection from this original collection with the specified parameters.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.IContextCache.GetContextNodes(Galatea.IO.ContextType,Galatea.IO.InputType)">
+            <summary>
+            Gets a <see cref="T:Galatea.IO.ContextNode"/> collection from this original collection with the specified parameters.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.IContextCache.GetPatternEntityNodes">
+            <summary>
+            Gets all of the <see cref="T:Galatea.IO.ContextNode"/>s contained in this original collection having a <see cref="T:Galatea.AI.Abstract.PatternEntity"/> value.
+            </summary>
+            <returns>
+            An <see cref="T:Galatea.Runtime.IContextCache"/> collection with all nodes having a <see cref="T:Galatea.AI.Abstract.PatternEntity"/> value.
+            </returns>
+        </member>
+        <member name="M:Galatea.Runtime.IContextCache.GetRecognitionPatternNodes(Galatea.IO.InputType)">
+            <summary>
+            Gets a <see cref="T:Galatea.IO.ContextNode"/> collection from this original collection having a Recognition Pattern corresponding to the InputType.
+            </summary>
+            <param name="inputType"> The InputType. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Galatea.Runtime.IContextCache.GetMostRecent">
+            <summary>
+            Gets the last <see cref="T:Galatea.IO.ContextNode"/> inserted into this collection.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.Net.IHttpService">
+            <summary>
+            Exposes the Galatea Runtime Web services component to the public API.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Net.IHttpService.StartListener">
+            <summary>
+            Starts the thread that listens to the Http Web Socket stream.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Net.IHttpService.StopListener">
+            <summary>
+            Stops the Http Web thread.
+            </summary>
+            <remarks>
+            This should not call the <see cref="M:System.IDisposable.Dispose"/> method.  Garbage
+            collection should occur in the Component Model runtime and should be called by 
+            an <see cref="T:System.ComponentModel.IContainer"/> containing the <see cref="T:Galatea.Runtime.Net.IHttpService"/> component.
+            </remarks>
+        </member>
+        <member name="P:Galatea.Runtime.Net.IHttpService.IsListening">
+            <summary>
+            Gets a boolean indicating whether the Http Listener thread is actively 
+            awaiting Http web requests.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.Services.RuntimeEngine">
+            <summary>
+            Provides Runtime Robotics services to a UI application.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.RuntimeEngine.#ctor">
+            <summary>
+            Creates a new instance of the runtime <see cref="T:Galatea.Runtime.Services.RuntimeEngine"/> class.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.HttpService">
+            <summary>
+            Gets or sets the Http component that actively awaits Http Requests.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.StartupStatus">
+            <summary>
+            Gets the Runtime Engine status during startup.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.ExecutiveFunctions">
+            <summary>
+            Gets the Task Management component of the current runtime <see cref="T:Galatea.Runtime.Services.RuntimeEngine"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.DataAccessManager">
+            <summary>
+            Gets the Data Access component of the current runtime <see cref="T:Galatea.Runtime.Services.RuntimeEngine"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.AI">
+            <summary>
+            Gets the <see cref="T:Galatea.AI.CognitiveModelingSystem"/> component of the 
+            current runtime <see cref="T:Galatea.Runtime.Services.RuntimeEngine"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.Machine">
+            <summary>
+            Gets the <see cref="T:Galatea.AI.Robotics.SensoryMotorSystem"/> component of the 
+            current runtime <see cref="T:Galatea.Runtime.Services.RuntimeEngine"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.Vision">
+            <summary>
+            Gets the <see cref="T:Galatea.AI.Imaging.VisualProcessingSystem"/> component of the 
+            current runtime <see cref="T:Galatea.Runtime.Services.RuntimeEngine"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.Debugger">
+            <summary>
+            Gets or sets the current running Debugger service as a component of the Engine process.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.RuntimeEngine.User">
+            <summary>
+            Gets or sets the current User.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.RuntimeEngine.Startup">
+            <summary>
+            Instantiates Robotics services, adds them to the Engine component
+            container, and validates all processes.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.RuntimeEngine.Shutdown">
+            <summary>
+            Handles shutdown of all Robotics services and garbage collection.
+            </summary>
+        </member>
+        <member name="E:Galatea.Runtime.Services.RuntimeEngine.StartupComplete">
+            <summary>
+            Occurs after the Engine component container is fully initiated.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.RuntimeEngine.Add(System.ComponentModel.IComponent)">
+            <summary>
+            Adds the specified <see cref="T:System.ComponentModel.IComponent"/> to the <see cref="T:Galatea.Runtime.Services.RuntimeEngine"/>
+            at the end of the list.
+            </summary>
+            <param name="component">
+            The <see cref="T:System.ComponentModel.IComponent"/> to add.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.Services.RuntimeEngine.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.Runtime.Services.Chatbot">
+            <summary>
+            A generic component service for responding to text input.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Chatbot.#ctor">
+            <summary>
+            A base AI process for processing text input.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Chatbot.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:Galatea.Runtime.Services.Chatbot"/> instance 
+            without any functional methods.
+            </summary>
+            <param name="name">
+            The database name of the Chatbot.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Chatbot.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Galatea.Runtime.Services.Chatbot"/> instance. 
+            </summary>
+            <param name="name">
+            The database name of the Chatbot.
+            </param>
+            <param name="friendlyName">
+            The user-friendly name of the Chatbot.
+            </param>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Chatbot.Name">
+            <summary>
+            Gets or sets the machine-assigned name of the Chatbot.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Chatbot.FriendlyName">
+            <summary>
+            Gets or sets a string value representing a user-friendly definition for 
+            the <see cref="T:Galatea.Runtime.Services.Chatbot"/>.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Chatbot.Galatea#IO#IResponseManager#GetResponse(Galatea.IO.IResponseBag,Galatea.IO.ContextNode)">
+            <summary>
+            A generic method that responds to a text input.
+            </summary>
+            <param name="responseBag"> 
+            A collection of text responses generated by a chain of <see cref="T:Galatea.IO.IResponseManager"/> components
+            in response to a single User Input.
+            </param>
+            <param name="inputContext"> Text input from the user, or machine context streaming. </param>
+            <returns> The text response. </returns>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Chatbot.GetResponse(System.String)">
+            <summary>
+            A generic method that responds to a text input.
+            </summary>
+            <param name="input"> The text input to process. </param>
+            <returns> The text response. </returns>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Chatbot.Greeting">
+            <summary>
+            The default response text that the Chatbot outputs when it is 
+            first activated.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Chatbot.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.Runtime.Services.Debugger">
+            <summary>
+            A generic component service for handling errors.
+            </summary>
+            <remarks>
+            This class should only be implemented during the design/debug phase of the SDLC.
+            </remarks>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Debugger.IsInitialized">
+            <summary>
+            Gets a boolean value indicating that the Debugger has been initialized.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.Services.Debugger"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.#ctor(Galatea.Diagnostics.DebuggerLogLevel,Galatea.Diagnostics.DebuggerLogLevel)">
+            <summary> Initializes a new instance of the <see cref="T:Galatea.Runtime.Services.Debugger"/> class. </summary>
+            <param name="logLevel"> The threshold that determines how messages are logged. </param>
+            <param name="alertLevel"> the threshold that determines how messages are displayed to the UI. </param>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.Log(Galatea.Diagnostics.DebuggerLogLevel,System.String)">
+            <summary>
+            Logs messages and errors.
+            </summary>
+            <param name="level">
+            The <see cref="T:Galatea.Diagnostics.DebuggerLogLevel"/> of the message to be logged.
+            </param>
+            <param name="message"> The message to be logged. </param>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.Log(Galatea.Diagnostics.DebuggerLogLevel,System.String,System.Boolean)">
+            <summary>
+            Logs messages and errors.
+            </summary>
+            <param name="level">
+            The <see cref="T:Galatea.Diagnostics.DebuggerLogLevel"/> of the message to be logged.
+            </param>
+            <param name="message"> The message to be logged. </param>
+            <param name="overrideLevel"> 
+            A boolean value indicating that the Debugger should log the 
+            message, regardless of <see cref="T:Galatea.Diagnostics.DebuggerLogLevel"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.LogContext(System.Object,Galatea.IO.ContextStreamingEventArgs)">
+            <summary>
+            Handles Context Streaming events.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.LogContextRecognition(System.Object,Galatea.AI.Abstract.ContextRecognitionEventArgs)">
+            <summary>
+            Handles Context Recognition events.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.LogSpeechRecognition(System.Object,Galatea.Speech.SpeechRecognizedEventArgs)">
+            <summary>
+            Handles Speech Recognition events.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.LogResponse(System.Object,Galatea.IO.ResponseEventArgs)">
+            <summary>
+            Handles language Response events.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Debugger.Exception">
+            <summary>
+            Gets the Exception that is passed to the <see cref="M:Galatea.Runtime.Services.Debugger.HandleTeaException(Galatea.TeaException,Galatea.IProvider)"/>
+            or <see cref="M:Galatea.Runtime.Services.Debugger.ThrowSystemException(System.Exception,Galatea.IProvider)"/> error handlers.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Debugger.ErrorMessage">
+            <summary>
+            Gets the user-friendly Error Message that is passed with the <see cref="P:Galatea.Runtime.Services.Debugger.Exception"/>
+            to the <see cref="M:Galatea.Runtime.Services.Debugger.HandleTeaException(Galatea.TeaException,Galatea.IProvider)"/> or <see cref="M:Galatea.Runtime.Services.Debugger.ThrowSystemException(System.Exception,Galatea.IProvider)"/> 
+            error handlers.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.ClearError">
+            <summary>
+            Assigns Null to the <see cref="P:Galatea.Diagnostics.IDebugger.Exception"/> and <see cref="P:Galatea.Diagnostics.IDebugger.ErrorMessage"/> 
+            values.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.HandleTeaException(Galatea.TeaException,Galatea.IProvider)">
+            <summary>
+            Handles expected Galatea Core Exceptions, typically by logging them.
+            </summary>
+            <param name="ex">
+            A run-time <see cref="T:Galatea.TeaException"/>.
+            </param>
+            <param name="provider">
+            The runtime component where the exception occurred.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.HandleTeaException(Galatea.TeaException,Galatea.IProvider,System.Boolean)">
+            <param name="ex">
+            A run-time <see cref="T:Galatea.TeaException"/>.
+            </param>
+            <param name="provider">
+            The runtime component where the exception occurred.
+            </param>
+            <param name="throwException">
+            A value indicating if the Exception should remain unhandled after
+            processing by the <see cref="T:Galatea.Diagnostics.IDebugger"/> instance.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.ThrowSystemException(System.Exception,Galatea.IProvider)">
+            <summary>
+            Handles unexpected System Errors, typically by logging them, and then
+            re-throwing them.
+            </summary>
+            <param name="ex">
+            A run-time <see cref="T:System.Exception"/>.
+            </param>
+            <param name="provider">
+            The runtime component where the exception occurred.
+            </param>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Debugger.LogLevel">
+            <summary>
+            Gets or sets the threshold to determine how messages are logged.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.Debugger.Galatea#Diagnostics#IDebugger#LogLevel">
+            <summary>
+            Gets or sets the threshold to determine how messages are logged.
+            </summary>
+            <remarks>
+            Messages defined with a LogLevel below the threshold will be ignored.
+            </remarks>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.GetLogLevelToken(Galatea.Diagnostics.DebuggerLogLevel)">
+            <summary>
+            Gets a string representing a <see cref="T:Galatea.Diagnostics.DebuggerLogLevel"/> value that
+            is visible to the user.
+            </summary>
+            <param name="level">
+            The <see cref="T:Galatea.Diagnostics.DebuggerLogLevel"/> to tokenize.
+            </param>
+            <returns>
+            A string representing a <see cref="T:Galatea.Diagnostics.DebuggerLogLevel"/> value that is visible 
+            to the user.
+            </returns>
+        </member>
+        <member name="M:Galatea.Runtime.Services.Debugger.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:Galatea.Runtime.Services.Debugger"/>
+            and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">
+            true to release both managed and unmanaged resources; false to release only unmanaged
+            resources.
+            </param>
+        </member>
+        <member name="T:Galatea.Runtime.Services.User">
+            <summary>
+            A generic class representing the current user.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.User.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:Galatea.Runtime.Services.User"/> instance.
+            </summary>
+            <param name="name">
+            The UI name of the User.
+            </param>
+        </member>
+        <member name="P:Galatea.Runtime.Services.User.Name">
+            <summary>
+            Gets or sets the machine-assigned name of the current user.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.User.FriendlyName">
+            <summary>
+            Gets or sets a string value representing a user-friendly definition for the
+            <see cref="T:Galatea.Runtime.Services.User"/>.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.Services.User.CreatorName">
+            <summary>
+            A string representing the unique User Name.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.Services.User.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:Galatea.Runtime.IDataAccessManager">
+            <summary>
+            A common interface containing Data Access methods for reading from/writing to an external 
+            data source and result sets into <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> collections.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.IDataAccessManager.FeedbackCounterTable">
+            <summary>
+            A datatable that tallies the number of occurrences for a Feedback/User/Template combination.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.IExecutiveFunctions">
+            <summary>
+            The Task Management Component of the Galatea Runtime Engine.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.IExecutiveFunctions.ContextCache">
+            <summary>
+            Gets or sets a collection containing cached Context Streaming data.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.IExecutiveFunctions.InitializeContextCache(Galatea.Runtime.IContextCache)">
+            <summary>
+            Disposes the existing <see cref="P:Galatea.Runtime.IExecutiveFunctions.ContextCache"/>,
+            and then replaces it with the specified parameter value.
+            </summary>
+            <param name="contextCache">
+            The <see cref="T:Galatea.Runtime.IContextCache"/> instance that will replace the current
+            <see cref="P:Galatea.Runtime.IExecutiveFunctions.ContextCache"/>.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.IExecutiveFunctions.StreamContext``1(Galatea.IProvider,Galatea.IO.IContextManager,Galatea.IO.ContextType,Galatea.IO.InputType,``0,System.Type)">
+            <summary>
+            Streams binary Context from a Runtime component to an <see cref="T:Galatea.IO.IContextManager"/> 
+            Analysis Model.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.IExecutiveFunctions.ContextRecognitionAnalysis(Galatea.IO.ContextType,Galatea.IO.InputType,Galatea.AI.Abstract.TemplateType,Galatea.AI.Abstract.BaseTemplate,Galatea.AI.Abstract.NamedEntity,Galatea.AI.Abstract.PatternEntity)">
+            <summary>
+            Process and cache the Recognition Response from the IObjectAnalyzer.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.IExecutiveFunctions.GetResponse(Galatea.IO.IResponseManager,System.String)">
+            <summary>
+            Sends a User Input text string to an <see cref="T:Galatea.IO.IResponseManager"/> component 
+            and gets the string response.
+            </summary>
+            <param name="responseManager"> The <see cref="T:Galatea.IO.IResponseManager"/> component. </param>
+            <param name="input"> The user text request. </param>
+        </member>
+        <member name="M:Galatea.Runtime.IExecutiveFunctions.GetResponse(Galatea.IO.IResponseManager,System.String,System.String)">
+            <summary>
+            Sends a User Input text string to an <see cref="T:Galatea.IO.IResponseManager"/> component 
+            and gets the string response.
+            </summary>
+            <param name="responseManager"> The <see cref="T:Galatea.IO.IResponseManager"/> component. </param>
+            <param name="input"> The user text request. </param>
+            <param name="userName"> The user name for the Response Manager to factor into the response. </param>
+        </member>
+        <member name="M:Galatea.Runtime.IExecutiveFunctions.FeedbackAnalysis(Galatea.AI.Characterization.IFeedbackAnalyzer,Galatea.AI.Characterization.IUserFeedback,Galatea.AI.Abstract.IUser,Galatea.IO.ContextNode)">
+            <remarks>
+            There is no Feedback Logging switch.  Feedback Analysis should always fire Feedback event
+            for implementations of <see cref="T:Galatea.AI.Characterization.IFeedbackAnalyzer"/>.
+            </remarks>
+        </member>
+        <member name="T:Galatea.Runtime.RuntimeComponent">
+            <summary>
+            Provides the base implementation for the <see cref="T:System.ComponentModel.IComponent"/> 
+            interface based on the Visual Studio Component class installed template.
+            </summary>
+            <remarks>
+            I created the RuntimeComponent class because the Visual Studio designed template
+            is really annoying.
+            </remarks>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeComponent.#ctor">
+            <summary>
+            Initializes a
+            new instance of the <see cref="T:Galatea.Runtime.RuntimeComponent"/> class.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.RuntimeComponent.DesignMode">
+            <summary>
+             Gets a value that indicates whether the <see cref="T:Galatea.Runtime.RuntimeComponent"/> 
+             is currently in design mode.
+             </summary>
+             <returns>true if the <see cref="T:Galatea.Runtime.RuntimeComponent"/> is in design mode; otherwise, false.</returns>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeComponent.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the System.ComponentModel.Component
+            and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">
+            true to release both managed and unmanaged resources; false to release only unmanaged
+            resources.
+            </param>
+        </member>
+        <member name="P:Galatea.Runtime.RuntimeComponent.ProviderId">
+            <summary>
+            Gets a unique value representing the Runtime Component process queued
+            into a Provider List.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.RuntimeComponent.ProviderName">
+            <summary>
+            The name that is displayed by UI and logging functions.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.RuntimeContainer">
+            <summary>
+            Provides a base implementation for the <see cref="T:System.ComponentModel.IContainer"/>
+            interface.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeContainer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.RuntimeContainer"/> class.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.RuntimeContainer.Components">
+            <summary>
+            Gets all the components in the <see cref="T:Galatea.Runtime.RuntimeContainer"/>.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeContainer.Add(System.ComponentModel.IComponent)">
+            <summary>
+            Adds the specified <see cref="T:System.ComponentModel.IComponent"/>
+             to the <see cref="T:Galatea.Runtime.RuntimeContainer"/> at the end 
+            of the list.
+            </summary>
+            <param name="component">
+            The System.ComponentModel.IComponent to add.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeContainer.Add(System.ComponentModel.IComponent,System.String)">
+            <summary>
+            Adds the specified <see cref="T:System.ComponentModel.IComponent"/> 
+             to the <see cref="T:Galatea.Runtime.RuntimeContainer"/> at the end 
+             of the list, and assigns a name to the component.
+            </summary>
+            <param name="component">
+            The System.ComponentModel.IComponent to add.
+            </param>
+            <param name="name">
+            The unique, case-insensitive name to assign to the component.
+            -or- null that leaves the component unnamed.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeContainer.Remove(System.ComponentModel.IComponent)">
+            <summary>
+            Removes a component from the <see cref="T:Galatea.Runtime.RuntimeContainer"/>.
+            </summary>
+            <param name="component">
+            The System.ComponentModel.IComponent to remove.
+            </param>
+        </member>
+        <member name="F:Galatea.Runtime.RuntimeContainer.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeContainer.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeContainer.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.RuntimeException">
+            <summary>
+            Represents errors that occur during execution of General Applications robotics assemblies.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.RuntimeException"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.RuntimeException"/> class with a specified 
+            error message.
+            </summary>
+            <param name="message">
+            The message that describes the error.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.RuntimeException"/> class with 
+            serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the 
+            serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains 
+            contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The info parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.TeaException"/> class with a specified
+            error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">
+            The error message that explains the reason for the exception.
+            </param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference (Nothing in 
+            Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="T:Galatea.Runtime.EngineStartupStatus">
+            <summary>
+            Indicates an <see cref="T:Galatea.Runtime.IRuntimeEngine"/> status during startup.
+            </summary>
+        </member>
+        <member name="F:Galatea.Runtime.EngineStartupStatus.Empty">
+            <summary>
+            Not initialized.
+            </summary>
+        </member>
+        <member name="F:Galatea.Runtime.EngineStartupStatus.EngineCreating">
+            <summary>
+            Creating Galatea Runtime Engine.
+            </summary>
+        </member>
+        <member name="F:Galatea.Runtime.EngineStartupStatus.EngineStarting">
+            <summary>
+            Starting Galatea Runtime Engine.
+            </summary>
+        </member>
+        <member name="F:Galatea.Runtime.EngineStartupStatus.EngineStarted">
+            <summary>
+            Galatea Runtime Engine started.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.RuntimeEngineStartupStatusExtension">
+            <summary>
+            Provides methods to get the retrieve the descriptive text value 
+            of a <see cref="T:Galatea.Runtime.EngineStartupStatus"/> instance from a
+            globalized resource store.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.RuntimeEngineStartupStatusExtension.GetDescription(Galatea.Runtime.EngineStartupStatus)">
+            <summary>
+            Retrieves the descriptive text value of a <see cref="T:Galatea.Runtime.EngineStartupStatus"/> 
+            instance from a globalized resource store.
+            </summary>
+        </member>
+        <member name="T:Galatea.Runtime.TeaInitializationException">
+            <summary>
+            The exception that is thrown when a Galatea Runtime Component or Container is 
+            initialized improperly.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.TeaInitializationException.Container">
+            <summary>
+            Gets the Container of the Runtime Component.
+            </summary>
+        </member>
+        <member name="P:Galatea.Runtime.TeaInitializationException.Component">
+            <summary>
+            Gets the Runtime Component.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.TeaInitializationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.TeaInitializationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.TeaInitializationException.#ctor(System.ComponentModel.IContainer,Galatea.IProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.TeaInitializationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Galatea.Runtime.TeaInitializationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.TeaInitializationException"/> class 
+            with a specified error message.
+            </summary>
+            <param name="message">
+            The message that describes the error.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.TeaInitializationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.TeaInitializationException"/> class 
+            with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the 
+            serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains 
+            contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The info parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+        </member>
+        <member name="M:Galatea.Runtime.TeaInitializationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galatea.Runtime.TeaInitializationException"/> class 
+            with a specified error message and a reference to the inner exception that is the 
+            cause of this exception.
+            </summary>
+            <param name="message">
+            The error message that explains the reason for the exception.
+            </param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference (Nothing 
+            in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="M:Galatea.Runtime.TeaInitializationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            When overridden in a derived class, sets the System.Runtime.Serialization.SerializationInfo
+             with information about the exception.
+            </summary>
+            <param name="info">
+            The System.Runtime.Serialization.SerializationInfo that holds the serialized
+            object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The System.Runtime.Serialization.StreamingContext that contains contextual information
+            about the source or destination.
+            </param>
+        </member>
+    </members>
+</doc>
