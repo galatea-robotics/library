@@ -1,9 +1,0 @@
-﻿{
-  "supports": {},
-  "dependencies": {},
-  "frameworks": {
-    ".NETFramework,Version=4.5.1": {},
-    ".NETPlatform,Version=5.0": {},
-    ".NETPortable,Version=v4.5,Profile=Profile111": {}
-  }
-}
