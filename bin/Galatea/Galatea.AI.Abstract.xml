@@ -806,6 +806,15 @@
             <param name="id"> The identifier of the BaseTemplate to get. </param>
             <returns> The BaseTemplate with the specified identifier. </returns>
         </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.GetEqualCompareValueItems(`0)">
+            <summary>
+            Evaluates the given <see cref="P:Galatea.AI.Abstract.BaseTemplate.CompareValue"/> and returns 
+            all items from the collection with identical compare values.
+            </summary>
+            <param name="value">
+            The <typeparamref name="TTemplate"/> item to evaluate. 
+            </param>
+        </member>
         <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.CreateFromPattern(System.Int32,Galatea.AI.Abstract.TemplatePatternCollection,System.String,Galatea.AI.Abstract.ICreator)">
             <summary>
             Creates a new <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> instance and adds it to the <see cref="T:Galatea.AI.Abstract.BaseTemplateCollection`1"/>.
@@ -887,6 +896,16 @@
             Gets a Template that is similar enough to a Named Template that the unknown Template
             might be considered to contain both the Named Template and the similar hybrid result.
             </summary>
+        </member>
+        <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.GetParentTemplate(`0)">
+            <summary>
+            Evaluates the relationships in a <see cref="P:Galatea.AI.Abstract.BaseTemplate.TemplateRelationships"/> 
+            collection and returns the parent template.
+            </summary>
+            <param name="item"> The <see cref="T:Galatea.AI.Abstract.BaseTemplate"/> to evaluate. </param>
+            <returns> 
+            The Parent <typeparamref name="TTemplate"/> of the specified template. 
+            </returns>
         </member>
         <member name="M:Galatea.AI.Abstract.BaseTemplateCollection`1.Add(System.Int32,System.String,System.String,System.String,Galatea.AI.Abstract.ICreator)">
             <summary>
