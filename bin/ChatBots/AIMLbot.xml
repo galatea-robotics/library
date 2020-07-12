@@ -535,7 +535,7 @@
             <param name="result">The result to be passed to the user</param>
             <param name="templateNode">The node to be processed</param>
         </member>
-        <member name="T:AIMLBot.AIMLTagHandlers.srai">
+        <member name="T:AIMLBot.AIMLTagHandlers.Srai">
             <summary>
             The srai element instructs the AIML interpreter to pass the result of processing the contents 
             of the srai element to the AIML matching loop, as if the input had been produced by the user 
@@ -546,7 +546,7 @@
             perfectly acceptable. 
             </summary>
         </member>
-        <member name="M:AIMLBot.AIMLTagHandlers.srai.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+        <member name="M:AIMLBot.AIMLTagHandlers.Srai.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
             <summary>
             Ctor
             </summary>
@@ -677,7 +677,7 @@
             <param name="result">The result to be passed to the user</param>
             <param name="templateNode">The node to be processed</param>
         </member>
-        <member name="T:AIMLBot.AIMLTagHandlers.topicstar">
+        <member name="T:AIMLBot.AIMLTagHandlers.Topicstar">
             <summary>
             The topicstar element tells the AIML interpreter that it should substitute the contents of 
             a wildcard from the current topic (if the topic contains any wildcards).
@@ -689,7 +689,7 @@
             The topicstar element does not have any content. 
             </summary>
         </member>
-        <member name="M:AIMLBot.AIMLTagHandlers.topicstar.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+        <member name="M:AIMLBot.AIMLTagHandlers.Topicstar.#ctor(AIMLBot.Bot,AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
             <summary>
             Ctor
             </summary>
@@ -899,36 +899,36 @@
             Ctor
             </summary>
         </member>
-        <member name="M:AIMLBot.Bot.loadAIMLFromFiles">
+        <member name="M:AIMLBot.Bot.LoadAIMLFromFiles">
             <summary>
             Loads AIML from .aiml files into the graphmaster "brain" of the bot
             </summary>
         </member>
-        <member name="M:AIMLBot.Bot.loadAIMLFromXML(System.Xml.XmlDocument,System.String)">
+        <member name="M:AIMLBot.Bot.LoadAIMLFromXML(System.Xml.XmlDocument,System.String)">
             <summary>
             Allows the bot to load a new XML version of some AIML
             </summary>
             <param name="newAIML">The XML document containing the AIML</param>
             <param name="filename">The originator of the XML document</param>
         </member>
-        <member name="M:AIMLBot.Bot.setup">
+        <member name="M:AIMLBot.Bot.Setup">
             <summary>
             Instantiates the dictionary objects and collections associated with this class
             </summary>
         </member>
-        <member name="M:AIMLBot.Bot.loadSettings">
+        <member name="M:AIMLBot.Bot.LoadSettings">
             <summary>
             Loads settings based upon the default location of the Settings.xml file
             </summary>
         </member>
-        <member name="M:AIMLBot.Bot.loadSettings(System.String)">
+        <member name="M:AIMLBot.Bot.LoadSettings(System.String)">
             <summary>
             Loads settings and configuration info from various xml files referenced in the settings file passed in the args. 
             Also generates some default values if such values have not been set by the settings file.
             </summary>
             <param name="pathToSettings">Path to the settings xml file</param>
         </member>
-        <member name="M:AIMLBot.Bot.loadSplitters(System.String)">
+        <member name="M:AIMLBot.Bot.LoadSplitters(System.String)">
             <summary>
             Loads the splitters for this bot from the supplied config file (or sets up some safe defaults)
             </summary>
@@ -939,7 +939,7 @@
             The last message to be entered into the log (for testing purposes)
             </summary>
         </member>
-        <member name="M:AIMLBot.Bot.writeToLog(System.String)">
+        <member name="M:AIMLBot.Bot.WriteToLog(System.String)">
             <summary>
             Writes a (timestamped) message to the bot's log.
             
@@ -962,7 +962,7 @@
             <param name="request">the request from the user</param>
             <returns>the result to be output to the user</returns>
         </member>
-        <member name="M:AIMLBot.Bot.processNode(System.Xml.XmlNode,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,AIMLBot.User)">
+        <member name="M:AIMLBot.Bot.ProcessNode(System.Xml.XmlNode,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,AIMLBot.User)">
             <summary>
             Recursively evaluates the template nodes returned from the bot
             </summary>
@@ -973,7 +973,7 @@
             <param name="user">the user who originated the request</param>
             <returns>the output string</returns>
         </member>
-        <member name="M:AIMLBot.Bot.getBespokeTags(AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
+        <member name="M:AIMLBot.Bot.GetBespokeTags(AIMLBot.User,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Result,System.Xml.XmlNode)">
             <summary>
             Searches the CustomTag collection and processes the AIML if an appropriate tag handler is found
             </summary>
@@ -984,26 +984,26 @@
             <param name="node">the node to evaluate</param>
             <returns>the output string</returns>
         </member>
-        <member name="M:AIMLBot.Bot.saveToBinaryFile(System.String)">
+        <member name="M:AIMLBot.Bot.SaveToBinaryFile(System.String)">
             <summary>
             Saves the graphmaster node (and children) to a binary file to avoid processing the AIML each time the 
             bot starts
             </summary>
             <param name="path">the path to the file for saving</param>
         </member>
-        <member name="M:AIMLBot.Bot.loadFromBinaryFile(System.String)">
+        <member name="M:AIMLBot.Bot.LoadFromBinaryFile(System.String)">
             <summary>
             Loads a dump of the graphmaster into memory so avoiding processing the AIML files again
             </summary>
             <param name="path">the path to the dump file</param>
         </member>
-        <member name="M:AIMLBot.Bot.loadCustomTagHandlers(System.String)">
+        <member name="M:AIMLBot.Bot.LoadCustomTagHandlers(System.String)">
             <summary>
             Loads any custom tag handlers found in the dll referenced in the argument
             </summary>
             <param name="pathToDLL">the path to the dll containing the custom tag handling code</param>
         </member>
-        <member name="M:AIMLBot.Bot.phoneHome(System.String,AIMLBot.Request)">
+        <member name="M:AIMLBot.Bot.PhoneHome(System.String,AIMLBot.Request)">
             <summary>
             Attempts to send an email to the botmaster at the AdminEmail address setting with error messages
             resulting from a query to the bot
@@ -1262,26 +1262,26 @@
             <param name="UserID">The GUID of the user</param>
             <param name="bot">the bot the user is connected to</param>
         </member>
-        <member name="M:AIMLBot.User.getLastBotOutput">
+        <member name="M:AIMLBot.User.GetLastBotOutput">
             <summary>
             Returns the string to use for the next that part of a subsequent path
             </summary>
             <returns>the string to use for that</returns>
         </member>
-        <member name="M:AIMLBot.User.getThat">
+        <member name="M:AIMLBot.User.GetThat">
             <summary>
             Returns the first sentence of the last output from the bot
             </summary>
             <returns>the first sentence of the last output from the bot</returns>
         </member>
-        <member name="M:AIMLBot.User.getThat(System.Int32)">
+        <member name="M:AIMLBot.User.GetThat(System.Int32)">
             <summary>
             Returns the first sentence of the output "n" steps ago from the bot
             </summary>
             <param name="n">the number of steps back to go</param>
             <returns>the first sentence of the output "n" steps ago from the bot</returns>
         </member>
-        <member name="M:AIMLBot.User.getThat(System.Int32,System.Int32)">
+        <member name="M:AIMLBot.User.GetThat(System.Int32,System.Int32)">
             <summary>
             Returns the sentence numbered by "sentence" of the output "n" steps ago from the bot
             </summary>
@@ -1289,20 +1289,20 @@
             <param name="sentence">the sentence number to get</param>
             <returns>the sentence numbered by "sentence" of the output "n" steps ago from the bot</returns>
         </member>
-        <member name="M:AIMLBot.User.getResultSentence">
+        <member name="M:AIMLBot.User.GetResultSentence">
             <summary>
             Returns the first sentence of the last output from the bot
             </summary>
             <returns>the first sentence of the last output from the bot</returns>
         </member>
-        <member name="M:AIMLBot.User.getResultSentence(System.Int32)">
+        <member name="M:AIMLBot.User.GetResultSentence(System.Int32)">
             <summary>
             Returns the first sentence from the output from the bot "n" steps ago
             </summary>
             <param name="n">the number of steps back to go</param>
             <returns>the first sentence from the output from the bot "n" steps ago</returns>
         </member>
-        <member name="M:AIMLBot.User.getResultSentence(System.Int32,System.Int32)">
+        <member name="M:AIMLBot.User.GetResultSentence(System.Int32,System.Int32)">
             <summary>
             Returns the identified sentence number from the output from the bot "n" steps ago
             </summary>
@@ -1310,7 +1310,7 @@
             <param name="sentence">the sentence number to return</param>
             <returns>the identified sentence number from the output from the bot "n" steps ago</returns>
         </member>
-        <member name="M:AIMLBot.User.addResult(AIMLBot.Result)">
+        <member name="M:AIMLBot.User.AddResult(AIMLBot.Result)">
             <summary>
             Adds the latest result from the bot to the Results collection
             </summary>
@@ -1333,32 +1333,32 @@
             </summary>
             <param name="bot">The bot whose brain is being processed</param>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIML">
+        <member name="M:AIMLBot.Utils.AIMLLoader.LoadAIML">
             <summary>
             Loads the AIML from files found in the bot's AIMLpath into the bot's brain
             </summary>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIML(System.String)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.LoadAIML(System.String)">
             <summary>
             Loads the AIML from files found in the path
             </summary>
             <param name="path"></param>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIMLFile(System.String)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.LoadAIMLFile(System.String)">
             <summary>
             Given the name of a file in the AIML path directory, attempts to load it into the 
             graphmaster
             </summary>
             <param name="filename">The name of the file to process</param>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.loadAIMLFromXML(System.Xml.XmlDocument,System.String)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.LoadAIMLFromXML(System.Xml.XmlDocument,System.String)">
             <summary>
             Given an XML document containing valid AIML, attempts to load it into the graphmaster
             </summary>
             <param name="doc">The XML document containing the AIML</param>
             <param name="filename">Where the XML document originated</param>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.processTopic(System.Xml.XmlNode,System.String)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.ProcessTopic(System.Xml.XmlNode,System.String)">
             <summary>
             Given a "topic" node, processes all the categories for the topic and adds them to the 
             graphmaster "brain"
@@ -1366,14 +1366,14 @@
             <param name="node">the "topic" node</param>
             <param name="filename">the file from which this node is taken</param>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.processCategory(System.Xml.XmlNode,System.String)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.ProcessCategory(System.Xml.XmlNode,System.String)">
             <summary>
             Adds a category to the graphmaster structure using the default topic ("*")
             </summary>
             <param name="node">the XML node containing the category</param>
             <param name="filename">the file from which this category was taken</param>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.processCategory(System.Xml.XmlNode,System.String,System.String)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.ProcessCategory(System.Xml.XmlNode,System.String,System.String)">
             <summary>
             Adds a category to the graphmaster structure using the given topic
             </summary>
@@ -1381,7 +1381,7 @@
             <param name="topicName">the topic to be used</param>
             <param name="filename">the file from which this category was taken</param>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.generatePath(System.Xml.XmlNode,System.String,System.Boolean)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.GeneratePath(System.Xml.XmlNode,System.String,System.Boolean)">
             <summary>
             Generates a path from a category XML node and topic name
             </summary>
@@ -1399,7 +1399,7 @@
             <param name="node">The node whose children need searching</param>
             <returns>The node (or null)</returns>
         </member>
-        <member name="M:AIMLBot.Utils.AIMLLoader.generatePath(System.String,System.String,System.String,System.Boolean)">
+        <member name="M:AIMLBot.Utils.AIMLLoader.GeneratePath(System.String,System.String,System.String,System.Boolean)">
             <summary>
             Generates a path from the passed arguments
             </summary>
@@ -1526,7 +1526,7 @@
             The word that identifies this node to it's parent node
             </summary>
         </member>
-        <member name="M:AIMLBot.Utils.Node.addCategory(System.String,System.String,System.String)">
+        <member name="M:AIMLBot.Utils.Node.AddCategory(System.String,System.String,System.String)">
             <summary>
             Adds a category to the node
             </summary>
@@ -1534,7 +1534,7 @@
             <param name="template">the template to find at the end of the path</param>
             <param name="filename">the file that was the source of this category</param>
         </member>
-        <member name="M:AIMLBot.Utils.Node.evaluate(System.String,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Utils.MatchState,System.Text.StringBuilder)">
+        <member name="M:AIMLBot.Utils.Node.Evaluate(System.String,AIMLBot.Utils.SubQuery,AIMLBot.Request,AIMLBot.Utils.MatchState,System.Text.StringBuilder)">
             <summary>
             Navigates this node (and recusively into child nodes) for a match to the path passed as an argument
             whilst processing the referenced request
@@ -1546,7 +1546,7 @@
             <param name="wildcard">The contents of the user input absorbed by the AIML wildcards "_" and "*"</param>
             <returns>The template to process to generate the output</returns>
         </member>
-        <member name="M:AIMLBot.Utils.Node.storeWildCard(System.String,System.Text.StringBuilder)">
+        <member name="M:AIMLBot.Utils.Node.StoreWildCard(System.String,System.Text.StringBuilder)">
             <summary>
             Correctly stores a word in the wildcard slot
             </summary>
@@ -1581,9 +1581,9 @@
             </summary>
             <param name="bot">The bot for whom this is a settings dictionary</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.loadSettings(System.String)" -->
-        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.loadSettings(System.Xml.XmlDocument)" -->
-        <member name="M:AIMLBot.Utils.SettingsDictionary.addSetting(System.String,System.String)">
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.LoadSettings(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.LoadSettings(System.Xml.XmlDocument)" -->
+        <member name="M:AIMLBot.Utils.SettingsDictionary.AddSetting(System.String,System.String)">
             <summary>
             Adds a bespoke setting to the Settings class (accessed via the grabSettings(string name)
             method.
@@ -1591,14 +1591,14 @@
             <param name="name">The name of the new setting</param>
             <param name="value">The value associated with this setting</param>
         </member>
-        <member name="M:AIMLBot.Utils.SettingsDictionary.removeSetting(System.String)">
+        <member name="M:AIMLBot.Utils.SettingsDictionary.RemoveSetting(System.String)">
             <summary>
             Removes the named setting from this class
             </summary>
             <param name="name">The name of the setting to remove</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.removeFromHash(System.String)" -->
-        <member name="M:AIMLBot.Utils.SettingsDictionary.updateSetting(System.String,System.String)">
+        <!-- Badly formed XML comment ignored for member "M:AIMLBot.Utils.SettingsDictionary.RemoveFromHash(System.String)" -->
+        <member name="M:AIMLBot.Utils.SettingsDictionary.UpdateSetting(System.String,System.String)">
             <summary>
             Updates the named setting with a new value whilst retaining the position in the
             dictionary
@@ -1606,19 +1606,19 @@
             <param name="name">the name of the setting</param>
             <param name="value">the new value</param>
         </member>
-        <member name="M:AIMLBot.Utils.SettingsDictionary.clearSettings">
+        <member name="M:AIMLBot.Utils.SettingsDictionary.ClearSettings">
             <summary>
             Clears the dictionary to an empty state
             </summary>
         </member>
-        <member name="M:AIMLBot.Utils.SettingsDictionary.grabSetting(System.String)">
+        <member name="M:AIMLBot.Utils.SettingsDictionary.GrabSetting(System.String)">
             <summary>
             Returns the value of a setting given the name of the setting
             </summary>
             <param name="name">the name of the setting whose value we're interested in</param>
             <returns>the value of the setting</returns>
         </member>
-        <member name="M:AIMLBot.Utils.SettingsDictionary.containsSettingCalled(System.String)">
+        <member name="M:AIMLBot.Utils.SettingsDictionary.ContainsSettingCalled(System.String)">
             <summary>
             Checks to see if a setting of a particular name exists
             </summary>
